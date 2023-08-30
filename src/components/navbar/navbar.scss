@@ -1,0 +1,54 @@
+@import "../../styles/variebles.scss";
+
+.navbar {
+  width: 100%;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: $dark-bg;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      max-height: 50px;
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .item {
+      display: flex;
+      align-items: center;
+
+      .menuItem {
+        font-family: Inter, serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 18px;
+        color: $main-color;
+      }
+
+      &:hover {
+        background-color: $soft-bg;
+      }
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    img {
+      width: 25px;
+      height: 25px;
+      object-fit: cover;
+    }
+  }
+
+}
