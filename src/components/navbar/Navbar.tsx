@@ -1,6 +1,6 @@
 import React from 'react';
 import "./navbar.scss"
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const menu = [
     {
@@ -46,9 +46,11 @@ const Navbar = () => {
             <div className="menu">
                 {menu.map((item => (
                     <div className="item" key={item.id}>
-                        <Link to={item.url} key={item.id}>
-                            <span className="menuItem">{item.title}</span>
-                        </Link>
+                        <NavLink to={item.url} key={item.id}>
+                            {({isActive, isPending}) => (
+                                <span className={isActive ? "menuItemActive" : "menuItem"}>{item.title}</span>
+                            )}
+                        </NavLink>
                     </div>)))
                 }
             </div>

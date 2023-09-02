@@ -8,3 +8,19 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    flex-grow: 1;
+
+    .contentContainer{
+
+    }
+  }
+}
+
+

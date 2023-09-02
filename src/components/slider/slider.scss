@@ -1,0 +1,54 @@
+.slider {
+  position: relative;
+
+  .slideItem {
+    width: 100%;
+    min-height: 55vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    transition: background-image 0.5s linear;
+
+    .sliderArrow {
+      background-color: rgba(70, 69, 69, 0.5);
+      color: white;
+      padding: 10px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(70, 69, 69, 0.9);
+        transition: 0.3s ease;
+      }
+    }
+  }
+
+  .sliderDots {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    .sliderDot {
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+        transition: 0.3s ease;
+      }
+    }
+
+    .sliderDot.Active {
+      opacity: 1;
+    }
+  }
+}
