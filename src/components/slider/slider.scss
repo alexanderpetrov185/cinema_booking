@@ -5,26 +5,8 @@
     width: 100%;
     min-height: 55vh;
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    transition: background-image 0.5s linear;
-
-    .sliderArrow {
-      background-color: rgba(70, 69, 69, 0.5);
-      color: white;
-      padding: 10px;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      cursor: pointer;
-
-      &:hover {
-        background-color: rgba(70, 69, 69, 0.9);
-        transition: 0.3s ease;
-      }
-    }
+    transition: all 450ms ease-out 0s;
+    cursor: pointer;
   }
 
   .sliderDots {
@@ -50,5 +32,30 @@
     .sliderDot.Active {
       opacity: 1;
     }
+  }
+
+  .sliderArrow {
+    background-color: rgba(44, 39, 39, 0.5);
+    color: white;
+    padding: 8px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 40%;
+
+    &:hover {
+      background-color: rgba(70, 69, 69, 0.9);
+      transition: 0.3s ease;
+    }
+  }
+
+  .sliderArrow.left {
+    left: 3%
+  }
+
+  .sliderArrow.right {
+    right: 3%
   }
 }
