@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./slider.scss"
 import {ArrowBackIosOutlined, ArrowForwardIosOutlined} from "@mui/icons-material";
 import {Link} from 'react-router-dom';
+import {useSwipeable} from "react-swipeable";
 
 type Props = {
     slides: {
@@ -46,11 +47,23 @@ const Slider = ({slides}: Props) => {
         return () => clearInterval(timer);
     });
 
+    const handlers = useSwipeable({onSwipedLeft: goToPrevious, onSwipedRight: goToNext})
+    const myRef = React.useRef();
+
+    const refPassthrough = (el: any) => {
+        // call useSwipeable ref prop with el
+        handlers.ref(el);
+
+        // set myRef el so you can access it yourself
+        myRef.current = el;
+    }
+
 
     return (
         <div className="slider">
             <Link to={"/movieItem"}>
-                <div className="slideItem" style={backgroundImg} onTransitionEnd={handleTransitionEvent}/>
+                <div className="slideItem" style={backgroundImg} onTransitionEnd={handleTransitionEvent}
+                     ref={refPassthrough}/>
             </Link>
             <ArrowBackIosOutlined
                 className="sliderArrow left"
