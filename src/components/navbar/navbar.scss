@@ -10,7 +10,8 @@
   left: 0;
   z-index: 999;
   transition: .3s linear;
-  border-bottom: 0.5px solid #e1dddd;
+  background: rgba(21, 26, 38, 0.3);
+  border-bottom: 1px solid rgba(21, 26, 38, 0.5);
 
   .logo {
     display: flex;
@@ -35,16 +36,16 @@
         font-weight: 600;
         text-transform: uppercase;
         font-size: 18px;
-        color: wheat;
+        color: rgb(255, 255, 255, 0.8);
 
         &:hover {
-          color: $hover-color;
+          color: rgba(255, 255, 255, 0.95);
           transition: 0.35s ease;
         }
       }
 
       .menuItemActive {
-        color: $soft-hover;
+        color: rgba(255, 255, 255, 0.95)
       }
     }
   }

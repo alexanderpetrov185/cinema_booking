@@ -28,7 +28,7 @@ const Slider = ({slides}: Props) => {
         setTransition(false)
     };
     const goToSlide = (slideIndex: number) => {
-        isTransitionEnd && setCurrentIndex(slideIndex);
+        setCurrentIndex(slideIndex);
         setTransition(false)
     };
     const backgroundImg = {
@@ -77,7 +77,7 @@ const Slider = ({slides}: Props) => {
                 {slides.map((slide, slideIndex) => (
                     <div className={slideIndex === currentIndex ? "sliderDot Active" : "sliderDot"}
                          key={slideIndex}
-                         onClick={() => goToSlide(slideIndex)}
+                         onClick={isTransitionEnd && slideIndex !== currentIndex ? () => goToSlide(slideIndex) : undefined}
                     >
                         ●
                     </div>
