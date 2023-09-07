@@ -1,0 +1,8 @@
+.movieList {
+  padding: 20px 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(400px, auto);
+  gap: 30px;
+}
