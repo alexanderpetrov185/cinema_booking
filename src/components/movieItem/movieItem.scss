@@ -2,130 +2,98 @@
 
 .movieItem {
   transition: transform 0.3s ease;
-  position: relative;
+  background: #e1dddd;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 20px;
 
-  .playBlock {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 25%;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease;
-  }
+  .imageContainer {
+    flex: 2;
+    position: relative;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 3%;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .playItem {
+      padding: inherit;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      opacity: 0.85;
+      transition: all 0.5s ease;
+    }
   }
 
   .info {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: max-content;
-    grid-template-areas:
-    "A A A A"
-    "B B B C";
-    width: 100%;
-    height: 50%;
-    justify-items: stretch;
-    position: absolute;
-    bottom: 0;
-    background-color: $soft-bg;
-    //visibility: hidden;
-    //opacity: 0;
-    transition: all 0.5s ease;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    font-family: Inter, serif;
+    color: $main-color;
+    font-weight: 400;
 
-    .InfoTitle {
-      grid-area: A;
-      font-family: Inter, serif;
-      font-size: 18px;
-      color: wheat;
-      border-bottom: 1px solid black;
-      padding: 10px 15px;
-      text-align: center;
+    .movieTitle {
+      font-size: 32px;
+      font-weight: 500;
     }
 
-    .closestSession {
-      grid-area: B;
+    .movieGenre {
+      font-size: 24px;
+    }
+
+    .cinemaHall {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 15px 0;
+    }
+
+    ul {
+      list-style-type: none;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 10px 15px;
+      justify-content: flex-start;
+      gap: 15px;
+      flex-wrap: wrap;
 
-      .session {
-        font-family: Inter, serif;
-        color: black;
-      }
-
-      .session.Title {
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 400;
-      }
-
-      .session.Timer {
+      li {
         font-size: 20px;
         font-weight: 500;
-      }
-
-      .session.TimeLeft, .session.Price {
-        font-size: 12px;
-        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+        background: blanchedalmond;
+        padding: 5px;
+        border-radius: 5%;
+        cursor: pointer;
+        transition: all 0.3ms ease-in-out;
 
         span {
-          padding: 0 2px;
+          font-size: 14px;
           font-weight: 400;
         }
-      }
-    }
 
-    .todaySessionTime {
-      grid-area: C;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: Inter, serif;
-      color: black;
-      border-left: 1px solid black;
-      padding: 10px 15px;
-
-      span {
-        font-size: 14px;
-        font-weight: 400;
-        padding: 0 0 5px 0;
-      }
-
-      ul {
-        list-style-type: none;
-        font-size: 14px;
-        font-weight: 500;
-
-        li {
-          padding: 2px;
-          text-align: center;
-          border: 1px solid mediumaquamarine;
-          margin: 2px 0;
+        &:hover {
+          background: rgba(255, 235, 205, 0.7);
+          box-shadow: 0 12px 18px -12px rgba(0, 0, 0, .14);
         }
       }
-    }
-  }
-
-  &:hover {
-    transform: scale(1.1);
-
-    .info {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .playBlock {
-      opacity: 1;
-      visibility: visible;
     }
   }
 }
+
 

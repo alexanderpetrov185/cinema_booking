@@ -12,36 +12,44 @@ const MovieItem = ({images}: Props) => {
         <>
             {images.map((image) => (
                     <div className="movieItem" key={image}>
-                        <img src={image} alt=""/>
-                        <div className="playBlock">
-                            <PlayButton/>
+                        <div className="imageContainer">
+                            <img src={image} alt="movieTitle"/>
+                            <div className="playItem">
+                                <PlayButton/>
+                            </div>
                         </div>
                         <div className="info">
-                            <div className="InfoTitle">Леди Баг и Супер-Кот: Пробуждение силы (2D, 6+)
-                            </div>
-                            <div className="closestSession">
-                                <span className={"session Title"}>Ближайший сеанс</span>
-                                <span className={"session Timer"}>9:25</span>
-                                <div className={"session TimeLeft"}>Осталось:
-                                    <span>
-                                           2 ч. 50 мин.
-                                       </span>
-                                </div>
-                                <ButtonBuy/>
-                                <div className={"session Price"}>Стоимость:
+                            <h2 className="movieTitle">Леди Баг и Супер-Кот: Пробуждение силы (2D, 6+)
+                            </h2>
+                            <span className="movieGenre">Комедия</span>
+                            <span className={"cinemaHall"}>зал №1</span>
+                            <ul>
+                                <li>9:25
                                     <span>
                                             330 руб.
                                         </span>
-                                </div>
-                            </div>
-                            <div className="todaySessionTime">
-                                <span>1 зал</span>
-                                <ul>
-                                    <li>9:25</li>
-                                    <li>15:40</li>
-                                    <li>23:40</li>
-                                </ul>
-                            </div>
+                                </li>
+                                <li>12:25
+                                    <span>
+                                            330 руб.
+                                        </span>
+                                </li>
+                                <li>13:45
+                                    <span>
+                                            330 руб.
+                                        </span>
+                                </li>
+                                <li>17:40
+                                    <span>
+                                            330 руб.
+                                        </span>
+                                </li>
+                                <li>23:40
+                                    <span>
+                                            330 руб.
+                                        </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 )
