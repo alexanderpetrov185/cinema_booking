@@ -2,9 +2,10 @@
 
 .navbar {
   width: 100%;
-  padding: 20px 65px;
+  padding: 20px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
   //position: fixed;
   //top: 0;
   //left: 0;
@@ -24,13 +25,9 @@
 
   .menu {
     display: flex;
-    align-items: center;
     gap: 30px;
 
     .item {
-      display: flex;
-      align-items: center;
-
       .menuItem, .menuItemActive {
         font-family: Inter, serif;
         font-weight: 500;
@@ -50,18 +47,12 @@
     }
   }
 
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    color: $dark-color;
-
-    img {
-      width: 25px;
-      height: 25px;
-      object-fit: cover;
-      cursor: pointer;
-    }
+  .profileIcon {
+    border-radius: 50%;
+    max-width: 45px;
+    max-height: 45px;
+    object-fit: cover;
+    cursor: pointer;
   }
 
 }

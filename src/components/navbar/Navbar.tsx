@@ -54,10 +54,7 @@ const Navbar = () => {
                     </div>)))
                 }
             </div>
-            <div className="icons">
-                <img src="/assets/icons/search.svg" alt="search_icon" className="searchIcon"/>
-                <img src="/assets/icons/profile.svg" alt="profile_icon" className="profileIcon"/>
-            </div>
+            <img src="/assets/icons/profile.svg" alt="profile_icon" className="profileIcon"/>
         </div>
     );
 };

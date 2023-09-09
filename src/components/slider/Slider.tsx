@@ -61,10 +61,8 @@ const Slider = ({slides}: Props) => {
 
     return (
         <div className="slider">
-            <Link to={"/movieItem"}>
-                <div className="slideItem" style={backgroundImg} onTransitionEnd={handleTransitionEvent}
-                     ref={refPassthrough}/>
-            </Link>
+            <div className="slideItem" style={backgroundImg} onTransitionEnd={handleTransitionEvent}
+                 ref={refPassthrough}/>
             <ArrowBackIosOutlined
                 className="sliderArrow left"
                 onClick={goToPrevious}
