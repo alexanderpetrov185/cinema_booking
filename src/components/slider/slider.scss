@@ -1,3 +1,5 @@
+@import "../../styles/variebles.scss";
+
 .slider {
   position: relative;
 
@@ -19,24 +21,25 @@
 
     .sliderDot {
       font-size: 30px;
-      color: white;
+      color: $main-color;
       cursor: pointer;
-      opacity: 0.5;
 
       &:hover {
-        opacity: 1;
+        color: $hover-color;
         transition: 0.3s ease;
       }
     }
 
     .sliderDot.Active {
+      color: $active-color;
       opacity: 1;
     }
   }
 
   .sliderArrow {
-    background-color: rgba(89, 88, 88, 0.6);
-    color: white;
+    opacity: 0.65;
+    background-color: $light-bg;
+    color: $dark-color;
     padding: 8px;
     width: 50px;
     height: 50px;
@@ -46,7 +49,7 @@
     bottom: 40%;
 
     &:hover {
-      background-color: rgba(89, 88, 88, 0.9);
+      background-color: $hover-color;
       transition: 0.3s ease;
     }
   }

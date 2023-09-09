@@ -19,10 +19,10 @@ const Footer = () => {
                 </div>
                 <div className="socialItem">
                     <a href="/">
-                        <img src="/assets/icons/appstore.png" alt="appStore"/>
+                        <img src="/assets/icons/app_store.svg" alt="appStore"/>
                     </a>
                     <a href="/">
-                        <img src="/assets/icons/googleplay.png" alt="googlePlay"/>
+                        <img src="/assets/icons/google_play.svg" alt="googlePlay"/>
                     </a>
                 </div>
             </div>
