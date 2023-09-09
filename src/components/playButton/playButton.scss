@@ -1,2 +1,34 @@
+@import "../../styles/variebles.scss";
+
 .playButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline: none;
+  background: rgba(51, 51, 51, 0.5);
+  border: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .play {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    margin-left: 15px;
+    z-index: 100;
+    clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
+    transition: clip-path 0.5s ease;
+    transition-delay: 0.4s;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+
+    .play {
+      background: rgba(51, 51, 51, 1);
+    }
+  }
 }

@@ -3,8 +3,8 @@ import "./playButton.scss"
 
 const PlayButton = () => {
     return (
-        <button className={"playButton"}>
-            PLAY
+        <button className="playButton">
+            <span className="play"></span>
         </button>
     );
 };
