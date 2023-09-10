@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./movieItem.scss"
-import PlayButton from "../playButton/playButton";
+import ModalWindow from "../modalWindow/ModalWindow";
 
 type Props = {
     id: number;
@@ -11,12 +11,16 @@ type Props = {
 }
 
 const MovieItem = ({poster, title, genre, imdbRating}: Props) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     return (
         <div className="movieItem" key={poster}>
             <div className="imageContainer">
                 <img src={poster} alt={`poster ${title}`}/>
                 <div className="playItem">
-                    <PlayButton/>
+                    <button className="playButton" onClick={() => setModalIsOpen(true)}>
+                        <span className="play"></span>
+                    </button>
                 </div>
             </div>
             <div className="info">
@@ -24,22 +28,27 @@ const MovieItem = ({poster, title, genre, imdbRating}: Props) => {
                 <span className="movieGenre">{genre}</span>
                 <span className={"cinemaHall"}>зал №1</span>
                 <ul>
-                    <li>9:25
+                    <li onClick={() => setModalIsOpen(true)}>9:25
                         <span>330 руб.</span>
                     </li>
-                    <li>12:25
+                    <li onClick={() => setModalIsOpen(true)}>9:25
                         <span>330 руб.</span>
                     </li>
-                    <li>13:45
+                    <li onClick={() => setModalIsOpen(true)}>9:25
                         <span>330 руб.</span>
                     </li>
-                    <li>17:40
+                    <li onClick={() => setModalIsOpen(true)}>9:25
                         <span>330 руб.</span>
                     </li>
-                    <li>23:40
+                    <li onClick={() => setModalIsOpen(true)}>9:25
                         <span>330 руб.</span>
                     </li>
                 </ul>
+                <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium alias, culpa, cum
+                        cupiditate dicta facilis illum modi quam quas qui quo quod repudiandae rerum sapiente, soluta
+                        unde vel velit.</p>
+                </ModalWindow>
             </div>
         </div>
 
