@@ -6,13 +6,15 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  //position: fixed;
-  //top: 0;
-  //left: 0;
-  //z-index: 999;
   transition: .3s linear;
   background: $light-bg;
   border-bottom: 1px solid rgba(21, 26, 38, 0.5);
+
+  &.active {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
 
   .logo {
     display: flex;
@@ -30,8 +32,8 @@
     .item {
       .menuItem, .menuItemActive {
         font-family: Inter, serif;
-        font-weight: 500;
-        text-transform: uppercase;
+        font-weight: 600;
+        //text-transform: uppercase;
         font-size: 20px;
         color: $dark-color;
 
@@ -47,12 +49,36 @@
     }
   }
 
-  .profileIcon {
-    border-radius: 50%;
-    max-width: 45px;
-    max-height: 45px;
-    object-fit: cover;
+  .buttonStandard {
+    height: 32px;
+    min-width: 150px;
+    background-image: linear-gradient(to left, #4f0ed0, #63c);
+    border-radius: 4px;
+    line-height: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-family: Inter, serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    letter-spacing: normal;
     cursor: pointer;
+
+    &:hover {
+      background-image: linear-gradient(to left, #4311ad, #5b31b2);
+      transition: 0.35s ease;
+    }
   }
+
+
+  //.profileIcon {
+  //  border-radius: 50%;
+  //  max-width: 45px;
+  //  max-height: 45px;
+  //  object-fit: cover;
+  //  cursor: pointer;
+  //}
 
 }
