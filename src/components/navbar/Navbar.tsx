@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./navbar.scss"
 import {Link, NavLink} from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
+import LoginForm from "../authFroms/loginForm/LoginForm";
 
 const menu = [
     {
@@ -45,21 +46,18 @@ const Navbar = () => {
         return () => (window.onscroll = null);
     };
 
-    console.log(isScrolled)
-
-
     return (
         <div className={isScrolled ? "navbar active" : "navbar"}>
             <div className="logo">
                 <Link to={"/"}>
-                    <img src="/assets/images/cinemas_logo.png" alt="cinema_logo"/>
+                    <img src="/assets/images/cinemas_logo.svg" alt="cinema_logo"/>
                 </Link>
             </div>
             <div className="menu">
                 {menu.map((item => (
                     <div className="item" key={item.id}>
                         <NavLink to={item.url} key={item.id}>
-                            {({isActive, isPending}) => (
+                            {({isActive}) => (
                                 <span className={isActive ? "menuItemActive" : "menuItem"}>{item.title}</span>
                             )}
                         </NavLink>
@@ -68,9 +66,7 @@ const Navbar = () => {
             </div>
             <button className={"buttonStandard"} type={"submit"} onClick={() => setModalIsOpen(true)}>Войти</button>
             <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium alias, culpa, cum
-                    cupiditate dicta facilis illum modi quam quas qui quo quod repudiandae rerum sapiente, soluta
-                    unde vel velit.</p>
+                <LoginForm/>
             </ModalWindow>
             {/*<img src="/assets/icons/profile.svg" alt="profile_icon" className="profileIcon"/>*/}
         </div>

@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 35px;
-  font-size: 20px;
+  justify-content: left;
+  gap: 15px;
+  font-size: 18px;
   font-weight: 400;
   color: $black-color;
   border-bottom: 1px solid $soft-bg;
-  padding: 20px 20px 40px 20px;
+  padding: 20px;
 
   li {
     background-color: $light-bg;

@@ -19,7 +19,7 @@ const Schedule = () => {
             <li>{`${sortDays[3]}, ${dayNumber} ${monthName}`}</li>
             <li>{`${sortDays[4]}, ${dayNumber} ${monthName}`}</li>
             <li><img src="/assets/icons/calendar.svg" alt="calenarIcon"/></li>
-            <li><span>СКОРО</span></li>
+            <li><span>скоро</span></li>
         </ul>
     );
 };
