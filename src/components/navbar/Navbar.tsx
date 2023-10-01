@@ -3,8 +3,8 @@ import "./navbar.scss"
 import {Link, NavLink} from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
 import LoginForm from "../authFroms/loginForm/LoginForm";
-import {useAppDispatch, useAppSelector} from "../../redux/hooks/redux";
-import {logoutAction} from "../../redux/reducers/actionCreators";
+import {useAppSelector} from "../../redux/hooks/redux";
+import Profile from "../profile/Profile";
 
 const menu = [
     {
@@ -41,17 +41,13 @@ const menu = [
 
 const Navbar = () => {
     const {isLoggedIn} = useAppSelector(state => state.userReducer)
-    const dispatch = useAppDispatch()
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    // const [isScrolled, setIsScrolled] = useState(false);
-    //
-    // window.onscroll = () => {
-    //     setIsScrolled(window.pageYOffset !== 0);
-    //     return () => (window.onscroll = null);
-    // };
+
+    const modalOpen = (state: boolean) => {
+        setModalIsOpen(state)
+    }
 
     return (
-        // <div className={isScrolled ? "navbar active" : "navbar"}>
         <div className={"navbar"}>
             <div className="logo">
                 <Link to={"/"}>
@@ -69,8 +65,8 @@ const Navbar = () => {
                     </div>)))
                 }
             </div>
-            {isLoggedIn ? <img src="/assets/icons/profile.svg" alt="profile_icon" className="profileIcon"
-                               onClick={() => dispatch(logoutAction())}/>
+            {isLoggedIn
+                ? <Profile modalOpen={modalOpen}/>
                 : <>
                     <button className={"buttonStandard"} type={"submit"} onClick={() => setModalIsOpen(true)}>
                         Войти

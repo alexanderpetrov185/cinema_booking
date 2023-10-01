@@ -70,17 +70,5 @@
       transition: 0.35s ease;
     }
   }
-
-  .profileIcon {
-    border-radius: 50%;
-    max-width: 45px;
-    max-height: 45px;
-    object-fit: cover;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.85;
-      transition: 0.35s ease;
-    }
-  }
-
+  
 }
