@@ -9,7 +9,8 @@ export const loginAction = (email: string, password: string) => async (dispatch:
     try {
         dispatch(userSlice.actions.authSending())
         const response = await AuthService.login(email, password)
-        dispatch(userSlice.actions.authSendingSuccess(response.data.accessToken))
+        localStorage.setItem('token', response.data.accessToken)
+        dispatch(userSlice.actions.authSendingSuccess(response.data.user))
     } catch (e: any) {
         dispatch(userSlice.actions.authSendingError(e.response?.data?.message))
     }
@@ -19,7 +20,8 @@ export const registrationAction = (email: string, password: string) => async (di
     try {
         dispatch(userSlice.actions.authSending())
         const response = await AuthService.registration(email, password)
-        dispatch(userSlice.actions.authSendingSuccess(response.data.accessToken))
+        localStorage.setItem('token', response.data.accessToken)
+        dispatch(userSlice.actions.authSendingSuccess(response.data.user))
     } catch (e: any) {
         dispatch(userSlice.actions.authSendingError(e.response?.data?.message))
     }
@@ -29,6 +31,7 @@ export const logoutAction = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(userSlice.actions.authSending())
         await AuthService.logout()
+        localStorage.removeItem('token')
         dispatch(userSlice.actions.logoutSuccess())
     } catch (e: any) {
         dispatch(userSlice.actions.authSendingError(e.response?.data?.message))
@@ -38,7 +41,8 @@ export const logoutAction = () => async (dispatch: AppDispatch) => {
 export const checkAuth = () => async (dispatch: AppDispatch) => {
     try {
         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
-        dispatch(userSlice.actions.authSendingSuccess(response.data.accessToken))
+        localStorage.setItem('token', response.data.accessToken)
+        dispatch(userSlice.actions.authSendingSuccess(response.data.user))
     } catch (e: any) {
         dispatch(userSlice.actions.authSendingError(e.response?.data?.message))
     }

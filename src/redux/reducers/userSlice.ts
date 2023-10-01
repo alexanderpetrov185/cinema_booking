@@ -25,8 +25,8 @@ export const userSlice = createSlice({
         authSending(state) {
             state.isLoading = true;
         },
-        authSendingSuccess(state, action: PayloadAction<string>) {
-            localStorage.setItem('token', action.payload)
+        authSendingSuccess(state, action: PayloadAction<IUser>) {
+            state.user = action.payload
             state.isLoggedIn = true;
             state.isLoading = false;
         },
@@ -35,7 +35,6 @@ export const userSlice = createSlice({
             state.error = action.payload;
         },
         logoutSuccess(state) {
-            localStorage.removeItem('token')
             state.isLoggedIn = false;
         }
     }
