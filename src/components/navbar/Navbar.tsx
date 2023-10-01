@@ -3,6 +3,8 @@ import "./navbar.scss"
 import {Link, NavLink} from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
 import LoginForm from "../authFroms/loginForm/LoginForm";
+import {useAppDispatch, useAppSelector} from "../../redux/hooks/redux";
+import {logoutAction} from "../../redux/reducers/actionCreators";
 
 const menu = [
     {
@@ -38,16 +40,19 @@ const menu = [
 ]
 
 const Navbar = () => {
+    const {isLoggedIn} = useAppSelector(state => state.userReducer)
+    const dispatch = useAppDispatch()
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    window.onscroll = () => {
-        setIsScrolled(window.pageYOffset !== 0);
-        return () => (window.onscroll = null);
-    };
+    // const [isScrolled, setIsScrolled] = useState(false);
+    //
+    // window.onscroll = () => {
+    //     setIsScrolled(window.pageYOffset !== 0);
+    //     return () => (window.onscroll = null);
+    // };
 
     return (
-        <div className={isScrolled ? "navbar active" : "navbar"}>
+        // <div className={isScrolled ? "navbar active" : "navbar"}>
+        <div className={"navbar"}>
             <div className="logo">
                 <Link to={"/"}>
                     <img src="/assets/images/cinemas_logo.svg" alt="cinema_logo"/>
@@ -64,11 +69,15 @@ const Navbar = () => {
                     </div>)))
                 }
             </div>
-            <button className={"buttonStandard"} type={"submit"} onClick={() => setModalIsOpen(true)}>Войти</button>
-            <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-                <LoginForm/>
-            </ModalWindow>
-            {/*<img src="/assets/icons/profile.svg" alt="profile_icon" className="profileIcon"/>*/}
+            {isLoggedIn ? <img src="/assets/icons/profile.svg" alt="profile_icon" className="profileIcon"
+                               onClick={() => dispatch(logoutAction())}/>
+                : <>
+                    <button className={"buttonStandard"} type={"submit"} onClick={() => setModalIsOpen(true)}>
+                        Войти
+                    </button>
+                    <ModalWindow modalIsOpen={modalIsOpen}
+                                 setModalIsOpen={setModalIsOpen}><LoginForm/></ModalWindow>
+                </>}
         </div>
     );
 };

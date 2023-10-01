@@ -2,19 +2,15 @@
 
 .navbar {
   width: 100%;
-  padding: 20px 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   transition: .3s linear;
   background: $light-bg;
   border-bottom: 1px solid rgba(21, 26, 38, 0.5);
-
-  &.active {
-    position: fixed;
-    top: 0;
-    z-index: 999;
-  }
+  position: fixed;
+  top: 0;
+  z-index: 999;
 
   .logo {
     display: flex;
@@ -38,7 +34,7 @@
       .menuItem, .menuItemActive {
         font-family: Inter, serif;
         font-weight: 600;
-        font-size: 22px;
+        font-size: 20px;
         color: $dark-color;
 
         &:hover {
@@ -75,13 +71,16 @@
     }
   }
 
-
-  //.profileIcon {
-  //  border-radius: 50%;
-  //  max-width: 45px;
-  //  max-height: 45px;
-  //  object-fit: cover;
-  //  cursor: pointer;
-  //}
+  .profileIcon {
+    border-radius: 50%;
+    max-width: 45px;
+    max-height: 45px;
+    object-fit: cover;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.85;
+      transition: 0.35s ease;
+    }
+  }
 
 }

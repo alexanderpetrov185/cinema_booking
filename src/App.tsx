@@ -11,8 +11,17 @@ import Login from "./pages/login/Login";
 import Help from "./pages/help/Help";
 import "./styles/global.scss"
 import Schedule from "./pages/schedule/Schedule";
+import {checkAuth} from "./redux/reducers/actionCreators";
+import {useAppDispatch} from "./redux/hooks/redux";
 
 function App() {
+    const dispatch = useAppDispatch()
+    React.useEffect(() => {
+        if (localStorage.getItem('token')) {
+            dispatch(checkAuth())
+        }
+    })
+
     const Layout = () => {
         return (
             <div className="main">
