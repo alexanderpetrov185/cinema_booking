@@ -87,14 +87,14 @@
   font-weight: 300;
   padding: 15px 0;
 }
-.movieItem .info ul {
+.movieItem .info .mainMovieSchedule {
   list-style-type: none;
   display: flex;
   justify-content: flex-start;
   gap: 15px;
   flex-wrap: wrap;
 }
-.movieItem .info ul li {
+.movieItem .info .mainMovieSchedule li {
   font-size: 20px;
   font-weight: 500;
   display: flex;
@@ -106,11 +106,11 @@
   transition: all 0.2s ease-in-out;
   color: #000;
 }
-.movieItem .info ul li span {
+.movieItem .info .mainMovieSchedule li span {
   font-size: 14px;
   font-weight: 400;
 }
-.movieItem .info ul li:hover {
+.movieItem .info .mainMovieSchedule li:hover {
   background: rgb(108, 67, 191);
   box-shadow: 0 12px 18px -12px rgba(0, 0, 0, 0.14);
 }

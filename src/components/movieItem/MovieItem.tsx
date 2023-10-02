@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import "./movieItem.scss"
 import ModalWindow from "../modalWindow/ModalWindow";
+import BookingModule from "../bookingModule/BookingModule";
 
 type Props = {
     poster: string;
@@ -27,7 +28,7 @@ const MovieItem = ({poster, title, genre, imdbRating, imdbID}: Props) => {
                 <h2 className="movieTitle">{title}</h2>
                 <span className="movieGenre">{genre}</span>
                 <span className={"cinemaHall"}>зал №1</span>
-                <ul>
+                <ul className={"mainMovieSchedule"}>
                     <li onClick={() => setModalIsOpen(true)}>9:25
                         <span>330 руб.</span>
                     </li>
@@ -45,9 +46,7 @@ const MovieItem = ({poster, title, genre, imdbRating, imdbID}: Props) => {
                     </li>
                 </ul>
                 <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium alias, culpa, cum
-                        cupiditate dicta facilis illum modi quam quas qui quo quod repudiandae rerum sapiente, soluta
-                        unde vel velit.</p>
+                    <BookingModule/>
                 </ModalWindow>
             </div>
         </div>

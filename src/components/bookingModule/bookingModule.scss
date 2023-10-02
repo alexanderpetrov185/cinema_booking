@@ -1,3 +1,119 @@
-.bookingModule {
+@import "../../styles/variebles";
 
+.bookingModule {
+  background: $light-bg;
+  color: #333;
+  padding: 25px;
+
+  .bookingHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btnBack, .btnClose {
+      cursor: pointer;
+    }
+
+    .bookingInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: 300;
+      font-size: 14px;
+
+      .bookingTitle {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .bookingBody {
+
+    .availableTime {
+      padding: 20px 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 15px;
+      border-bottom: 0.5px solid $dark-color;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        button {
+          background-color: $soft-color;
+          padding: 0 10px;
+          font-weight: 400;
+          font-size: 16px;
+          border-radius: 15px;
+          text-transform: capitalize;
+          max-height: 35px;
+          text-align: center;
+
+          &:hover {
+            background-color: $hover-color;
+            transition: 0.3s ease;
+          }
+        }
+
+        span {
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .movieSchema {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .shortInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .seatsInfo {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .movieScreenImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .seatsSchema {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: repeat(10, 1fr);
+      grid-template-columns: repeat(16, 1fr);
+      grid-gap: 5px;
+
+      .seat {
+        width: 36px;
+        height: 36px;
+        background-color: rgb(164, 206, 54);
+        border-radius: 10px;
+
+        &:hover {
+          opacity: 0.6;
+          transition: 0.25s ease;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
