@@ -4,6 +4,7 @@ import MovieItem from "../movieItem/MovieItem";
 
 type Props = {
     movies: {
+        _id: string;
         imdbID: string;
         poster: string;
         title: string;
@@ -18,8 +19,8 @@ const MovieList = ({movies}: Props) => {
             {
                 movies.map((movie) => (
                     <MovieItem
-                        id={movies.indexOf(movie)}
-                        key={movie.imdbID}
+                        key={movie._id}
+                        imdbID={movie.imdbID}
                         poster={movie.poster}
                         title={movie.title}
                         genre={movie.genre}

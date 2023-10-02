@@ -7,7 +7,6 @@ import Repertoire from "./pages/repertoire/Repertoire";
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-import Login from "./pages/login/Login";
 import Help from "./pages/help/Help";
 import "./styles/global.scss"
 import Schedule from "./pages/schedule/Schedule";
@@ -70,11 +69,7 @@ function App() {
                     element: <Help/>,
                 },
             ]
-        },
-        {
-            path: "/login",
-            element: <Login/>
-        },
+        }
     ]);
 
     return <RouterProvider router={router}/>;

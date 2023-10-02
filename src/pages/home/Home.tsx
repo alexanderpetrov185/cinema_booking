@@ -2,8 +2,9 @@ import React from 'react';
 import "./home.scss"
 import Slider from "../../components/slider/Slider";
 import MovieList from "../../components/movieList/MovieList";
-import {movies} from "../../data";
 import Schedule from '../../components/schedule/Schedule';
+import MovieService from "../../http/services/MovieService";
+import {IMovie} from "../../redux/models/IMovie";
 
 const slides = [
     {
@@ -21,6 +22,21 @@ const slides = [
 ]
 
 const Home = () => {
+    const [movies, setMovies] = React.useState<IMovie[]>([])
+
+    async function getMovies() {
+        try {
+            const response = await MovieService.fetchMovies()
+            setMovies(response.data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    React.useEffect(() => {
+        getMovies()
+    }, [])
+
     return (
         <div className={"home"}>
             <Slider slides={slides}/>

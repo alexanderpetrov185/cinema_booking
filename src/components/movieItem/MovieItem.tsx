@@ -3,18 +3,18 @@ import "./movieItem.scss"
 import ModalWindow from "../modalWindow/ModalWindow";
 
 type Props = {
-    id: number;
     poster: string;
     title: string;
     genre: string;
     imdbRating: string;
+    imdbID: string;
 }
 
-const MovieItem = ({poster, title, genre, imdbRating}: Props) => {
+const MovieItem = ({poster, title, genre, imdbRating, imdbID}: Props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     return (
-        <div className="movieItem" key={poster}>
+        <div className="movieItem" key={imdbID}>
             <div className="imageContainer">
                 <img src={poster} alt={`poster ${title}`}/>
                 <div className="playItem">

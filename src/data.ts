@@ -1,4 +1,4 @@
-export const movies = [
+const movies = [
     {
         "title": "Avatar",
         "year": "2009",
