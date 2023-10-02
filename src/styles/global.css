@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main .container {
+  flex-grow: 1;
+}
+
+/*# sourceMappingURL=global.css.map */

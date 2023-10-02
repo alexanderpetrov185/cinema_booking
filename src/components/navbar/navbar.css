@@ -1,0 +1,62 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: 0.3s linear;
+  background: #fff;
+  border-bottom: 1px solid rgba(21, 26, 38, 0.5);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+.navbar .logo img {
+  height: 75px;
+}
+.navbar .logo img:hover {
+  opacity: 0.85;
+  transition: 0.35s ease;
+}
+.navbar .menu {
+  display: flex;
+  gap: 30px;
+}
+.navbar .menu .item .menuItem, .navbar .menu .item .menuItemActive {
+  font-family: Inter, serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #333;
+}
+.navbar .menu .item .menuItem:hover, .navbar .menu .item .menuItemActive:hover {
+  color: rgb(108, 67, 191);
+  transition: 0.35s ease;
+}
+.navbar .menu .item .menuItemActive {
+  color: rgba(108, 67, 191, 0.9);
+}
+.navbar .buttonStandard {
+  min-width: 150px;
+  background-image: linear-gradient(to left, #4f0ed0, #63c);
+  border-radius: 4px;
+  line-height: 32px;
+  color: #fff;
+  text-decoration: none;
+  font-family: Inter, serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+.navbar .buttonStandard:hover {
+  background-image: linear-gradient(to left, #4311ad, #5b31b2);
+  transition: 0.35s ease;
+}
+
+/*# sourceMappingURL=navbar.css.map */

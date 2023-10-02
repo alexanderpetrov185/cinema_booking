@@ -1,0 +1,118 @@
+.movieItem {
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+.movieItem .imageContainer {
+  height: 100%;
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3%;
+}
+.movieItem .imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s linear;
+}
+.movieItem .imageContainer img:hover {
+  transform: scale(1.1);
+}
+.movieItem .imageContainer .playItem {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: inherit;
+  position: absolute;
+  opacity: 0.85;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movieItem .imageContainer .playItem .playButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline: none;
+  background: rgba(51, 51, 51, 0.5);
+  border: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.movieItem .imageContainer .playItem .playButton .play {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  margin-left: 15px;
+  z-index: 100;
+  clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
+  transition: clip-path 0.5s ease;
+  transition-delay: 0.4s;
+}
+.movieItem .imageContainer .playItem .playButton:hover {
+  background: rgb(255, 255, 255);
+}
+.movieItem .imageContainer .playItem .playButton:hover .play {
+  background: rgb(51, 51, 51);
+}
+.movieItem .info {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, serif;
+  color: #ffffff;
+  font-weight: 400;
+}
+.movieItem .info .movieTitle {
+  font-size: 32px;
+  font-weight: 500;
+}
+.movieItem .info .movieGenre {
+  font-size: 20px;
+}
+.movieItem .info .cinemaHall {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 15px 0;
+}
+.movieItem .info ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.movieItem .info ul li {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 5%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #000;
+}
+.movieItem .info ul li span {
+  font-size: 14px;
+  font-weight: 400;
+}
+.movieItem .info ul li:hover {
+  background: rgb(108, 67, 191);
+  box-shadow: 0 12px 18px -12px rgba(0, 0, 0, 0.14);
+}
+
+/*# sourceMappingURL=movieItem.css.map */

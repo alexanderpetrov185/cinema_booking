@@ -1,0 +1,33 @@
+.schedule {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  border-bottom: 1px solid #303962;
+  padding: 20px;
+}
+.schedule li {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 40px;
+  text-transform: capitalize;
+  max-height: 35px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.schedule li img {
+  max-width: 35px;
+}
+.schedule li:hover {
+  background-color: rgb(108, 67, 191);
+  transition: 0.3s ease;
+}
+
+/*# sourceMappingURL=schedule.css.map */
