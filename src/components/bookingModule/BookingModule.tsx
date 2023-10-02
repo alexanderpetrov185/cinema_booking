@@ -4,6 +4,9 @@ import {ArrowBackIos} from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
 
 const BookingModule = () => {
+    const rows = 8;
+    const seatsInRow = 14;
+
     return (
         <div className={"bookingModule"}>
             <div className="bookingHeader">
@@ -43,176 +46,26 @@ const BookingModule = () => {
                     </div>
                     <img src="/assets/images/screen.png" alt="Экран" className="movieScreenImg"/>
                     <section className="seatsSchema">
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
-                        <div className="seat"></div>
+                        {[...Array(rows)].map((row, index) => (
+                            <div className="row" key={index}>
+                                <span>{index + 1}</span>
+                                {[...Array(seatsInRow)].map((seat, index) => (
+                                    <div className="seat" key={index}>{index + 1}</div>))}
+                                <span>{index + 1}</span>
+                            </div>))}
                     </section>
                     <div className="selectedInfo">
-                        <div className="selectedTickets"></div>
-                        <button className="buttonBuy"></button>
+                        <div className="selectedTickets">
+                            <span>Ряд 5, Место 15</span>
+                            <span>🟢150₽</span>
+                        </div>
+                        <button className="buttonBuy">Купить 150₽</button>
                     </div>
                 </div>
             </div>
             <div className="bookingFooter">
                 <span className={"support"}>Поддержка: 8 495 230-01-24</span>
-                <button className="needHelp">Мне не пришёл билет</button>
+                <a href="/" className="needHelp">Мне не пришёл билет</a>
                 <span className="credits">2023 ©ООО«Кинокасса»</span>
             </div>
         </div>

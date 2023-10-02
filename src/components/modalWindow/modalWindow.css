@@ -14,7 +14,6 @@
   transition: all 0.3s ease-in-out;
 }
 .modalWindow .modalContent {
-  padding: 20px;
   border-radius: 12px;
   background-color: #19072c;
   transform: scale(0.5);
