@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const BookingModule = () => {
     const rows = 8;
-    const seatsInRow = 14;
+    const columns = 14;
 
     return (
         <div className={"bookingModule"}>
@@ -49,7 +49,7 @@ const BookingModule = () => {
                         {[...Array(rows)].map((row, index) => (
                             <div className="row" key={index}>
                                 <span>{index + 1}</span>
-                                {[...Array(seatsInRow)].map((seat, index) => (
+                                {[...Array(columns)].map((seat, index) => (
                                     <div className="seat" key={index}>{index + 1}</div>))}
                                 <span>{index + 1}</span>
                             </div>))}
