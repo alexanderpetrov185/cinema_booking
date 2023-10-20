@@ -4,6 +4,6 @@ import {IMovie} from "../../redux/models/IMovie";
 
 export default class MovieService {
     static fetchMovies(): Promise<AxiosResponse<IMovie[]>> {
-        return $api.get<IMovie[]>('/movieList')
+        return $api.get<IMovie[]>('/movies')
     }
 }

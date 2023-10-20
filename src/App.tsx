@@ -9,6 +9,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Help from "./pages/help/Help";
 import "./styles/global.scss"
+import SchedulePage from "./pages/schedulePage/SchedulePage";
 import {checkAuth} from "./redux/reducers/actionCreators";
 import {useAppDispatch} from "./redux/hooks/redux";
 
@@ -42,6 +43,10 @@ function App() {
                 {
                     path: "/",
                     element: <Home/>,
+                },
+                {
+                    path: "/schedulePage",
+                    element: <SchedulePage/>,
                 },
                 {
                     path: "/about",

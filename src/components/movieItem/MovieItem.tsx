@@ -2,55 +2,42 @@ import React, {useState} from 'react';
 import "./movieItem.scss"
 import ModalWindow from "../modalWindow/ModalWindow";
 import BookingModule from "../bookingModule/BookingModule";
+import {IMovie} from "../../redux/models/IMovie";
 
 type Props = {
-    poster: string;
-    title: string;
-    genre: string;
-    imdbRating: string;
-    imdbID: string;
+    movie: IMovie
 }
 
-const MovieItem = ({poster, title, genre, imdbRating, imdbID}: Props) => {
+const MovieItem = ({movie}: Props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     return (
-        <div className="movieItem" key={imdbID}>
+        <div className="movieItem" key={movie.imdbID}>
             <div className="imageContainer">
-                <img src={poster} alt={`poster ${title}`}/>
-                <div className="playItem">
-                    <button className="playButton" onClick={() => setModalIsOpen(true)}>
-                        <span className="play"></span>
-                    </button>
-                </div>
+                <img src={movie.poster} alt={`poster ${movie.title}`}/>
+                <button className="playButton" onClick={() => setModalIsOpen(true)}>
+                    <span className="play"/>
+                </button>
             </div>
             <div className="info">
-                <h2 className="movieTitle">{title}</h2>
-                <span className="movieGenre">{genre}</span>
-                <span className={"cinemaHall"}>зал №1</span>
-                <ul className={"mainMovieSchedule"}>
-                    <li onClick={() => setModalIsOpen(true)}>9:25
-                        <span>330 руб.</span>
-                    </li>
-                    <li onClick={() => setModalIsOpen(true)}>9:25
-                        <span>330 руб.</span>
-                    </li>
-                    <li onClick={() => setModalIsOpen(true)}>9:25
-                        <span>330 руб.</span>
-                    </li>
-                    <li onClick={() => setModalIsOpen(true)}>9:25
-                        <span>330 руб.</span>
-                    </li>
-                    <li onClick={() => setModalIsOpen(true)}>9:25
-                        <span>330 руб.</span>
-                    </li>
-                </ul>
+                <h2 className="movieTitle">{movie.title}</h2>
+                <span className="movieGenre">{movie.genre}</span>
+                <div className="movieSessions">
+                    {movie.sessionsDetails.map((details) =>
+                        <div key={details._id} className={"sessionDetails"}>
+                            <div onClick={() => setModalIsOpen(true)}>
+                                <span>{details.date.toLocaleString().slice(11, -8)}</span>
+                                <span>{details.price}₽</span>
+                            </div>
+                            <span className={"hallNumber"}>Зал {details.hallNumber}</span>
+                        </div>
+                    )}
+                </div>
                 <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
                     <BookingModule/>
                 </ModalWindow>
             </div>
         </div>
-
     );
 };
 

@@ -10,7 +10,7 @@ const menu = [
     {
         id: 1,
         title: "Расписание",
-        url: "/schedule",
+        url: "/schedulePage",
     },
     {
         id: 2,

@@ -14,7 +14,7 @@
   border-bottom: 1px solid $soft-bg;
   padding: 20px;
 
-  li {
+  .scheduleDay {
     background-color: $light-bg;
     padding: 15px;
     border-radius: 40px;
@@ -32,5 +32,17 @@
       background-color: $hover-color;
       transition: 0.3s ease;
     }
+  }
+
+  .activeDay {
+    background-color: $active-color;
+    color: $soft-color;
+    padding: 15px;
+    border-radius: 40px;
+    text-transform: capitalize;
+    max-height: 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
 }

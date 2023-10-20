@@ -34,7 +34,7 @@ const Home = () => {
     }
 
     React.useEffect(() => {
-        getMovies()
+        void getMovies()
     }, [])
 
     return (

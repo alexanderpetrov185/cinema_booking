@@ -1,16 +1,10 @@
 import React from 'react';
 import "./movieList.scss"
 import MovieItem from "../movieItem/MovieItem";
+import {IMovie} from "../../redux/models/IMovie";
 
 type Props = {
-    movies: {
-        _id: string;
-        imdbID: string;
-        poster: string;
-        title: string;
-        genre: string;
-        imdbRating: string;
-    }[]
+    movies: IMovie[]
 }
 
 const MovieList = ({movies}: Props) => {
@@ -20,11 +14,7 @@ const MovieList = ({movies}: Props) => {
                 movies.map((movie) => (
                     <MovieItem
                         key={movie._id}
-                        imdbID={movie.imdbID}
-                        poster={movie.poster}
-                        title={movie.title}
-                        genre={movie.genre}
-                        imdbRating={movie.imdbRating}
+                        movie={movie}
                     />
                 ))
             }

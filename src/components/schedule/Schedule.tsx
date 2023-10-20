@@ -18,16 +18,21 @@ const Schedule = () => {
         dayDates[i] = addDay(i)
     }
 
+    const [activeDay, setActiveDay] = React.useState<Date>(dayDates[0])
+
 
     return (
         <ul className={"schedule"}>
-            <li>{`Сегодня, ${dayDates[0].getDate()} ${monthName}`}</li>
-            <li>{`Завтра, ${dayDates[1].getDate()} ${monthName}`}</li>
-            <li>{`${sortDays[2]}, ${dayDates[2].getDate()} ${monthName}`}</li>
-            <li>{`${sortDays[3]}, ${dayDates[3].getDate()} ${monthName}`}</li>
-            <li>{`${sortDays[4]}, ${dayDates[4].getDate()} ${monthName}`}</li>
-            <li><img src="/assets/icons/calendar.svg" alt="calenarIcon"/></li>
-            <li><span>скоро</span></li>
+            {
+                dayDates.map((day, index) => {
+                    return <li key={day} className={activeDay.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
+                               onClick={() => setActiveDay(dayDates[index])}>
+                        {index === 0 ? "Сегодня, " : index === 1 ? "Завтра, " : `${sortDays[index]}, `}{`${day.getDate()} ${monthName}`}
+                    </li>
+                })
+            }
+            {/*<li className={"scheduleDay calendar"}><img src="/assets/icons/calendar.svg" alt="calendarIcon"/></li>*/}
+            {/*<li className={"scheduleDay soon"}>скоро</li>*/}
         </ul>
     );
 };
