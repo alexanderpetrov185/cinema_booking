@@ -1,5 +1,7 @@
 import React from 'react';
 import "./schedule.scss";
+import {useAppDispatch} from "../../redux/hooks/redux";
+import {saveSelectedDate} from "../../redux/reducers/actionCreators";
 
 const monthName = new Date().toLocaleString('default', {month: 'short'});
 const dayOfWeek = new Date().getDay();
@@ -7,6 +9,7 @@ const allDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
 let dayDates = new Array(5)
 
 const Schedule = () => {
+    const dispatch = useAppDispatch()
     const sortDays = allDays.slice(dayOfWeek).concat(allDays.slice(0, dayOfWeek))
 
     const addDay = (dayCount: number) => {
@@ -20,12 +23,16 @@ const Schedule = () => {
 
     const [activeDay, setActiveDay] = React.useState<Date>(dayDates[0])
 
+    React.useEffect(() => {
+        dispatch(saveSelectedDate(activeDay.toISOString().slice(0, -14)))
+    }, [activeDay, dispatch])
+
 
     return (
         <ul className={"schedule"}>
             {
-                dayDates.map((day, index) => {
-                    return <li key={day} className={activeDay.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
+                dayDates.map((day: Date, index: number) => {
+                    return <li key={index} className={activeDay.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
                                onClick={() => setActiveDay(dayDates[index])}>
                         {index === 0 ? "Сегодня, " : index === 1 ? "Завтра, " : `${sortDays[index]}, `}{`${day.getDate()} ${monthName}`}
                     </li>

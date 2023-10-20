@@ -64,6 +64,7 @@
   }
 
   .info {
+    padding: 15px 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -75,11 +76,13 @@
     .movieTitle {
       font-size: 32px;
       font-weight: 500;
+      padding: 5px 0 0 0;
     }
 
     .movieGenre {
       font-size: 14px;
       height: 40px;
+      padding: 2px 0 5px 0;
     }
 
     .movieSessions {
@@ -121,12 +124,11 @@
               background: $main-color;
 
               &:hover {
-                background-color: #e5e5e5;
+                background-color: rgba(255, 255, 255, 0.55);
                 transition: 0.35s ease;
               }
             }
           }
-
         }
 
         .hallNumber {

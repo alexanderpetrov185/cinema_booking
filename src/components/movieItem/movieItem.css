@@ -55,21 +55,24 @@
   background: rgb(51, 51, 51);
 }
 .movieItem .info {
+  padding: 15px 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
   font-family: Inter, serif;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.91);
   font-weight: 400;
 }
 .movieItem .info .movieTitle {
   font-size: 32px;
   font-weight: 500;
+  padding: 5px 0 0 0;
 }
 .movieItem .info .movieGenre {
   font-size: 14px;
   height: 40px;
+  padding: 2px 0 5px 0;
 }
 .movieItem .info .movieSessions {
   width: 100%;
@@ -106,10 +109,10 @@
 }
 .movieItem .info .movieSessions .sessionDetails div span:last-child {
   border-radius: 0 0 10% 10%;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.91);
 }
 .movieItem .info .movieSessions .sessionDetails div span:last-child:hover {
-  background-color: #e5e5e5;
+  background-color: rgba(255, 255, 255, 0.55);
   transition: 0.35s ease;
 }
 .movieItem .info .movieSessions .sessionDetails .hallNumber {

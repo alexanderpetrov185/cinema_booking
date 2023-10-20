@@ -4,6 +4,7 @@ import AuthService from "../../http/services/AuthService";
 import axios from "axios";
 import {AuthResponse} from "../models/response/AuthResponse";
 import {API_URL} from "../../http";
+import {scheduleSlice} from "./scheduleSlice";
 
 export const loginAction = (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
@@ -45,5 +46,13 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
         dispatch(userSlice.actions.authSendingSuccess(response.data.user))
     } catch (e: any) {
         dispatch(userSlice.actions.authSendingError(e.response?.data?.message))
+    }
+}
+
+export const saveSelectedDate = (date: string) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(scheduleSlice.actions.dateSave(date))
+    } catch (e: any) {
+        console.log(e)
     }
 }
