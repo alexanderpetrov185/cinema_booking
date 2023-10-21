@@ -7,7 +7,6 @@ type Props = {
 }
 
 const Player = ({videoSrc}: Props) => {
-    console.log(videoSrc)
     return (
         <ReactPlayer url={`${videoSrc}`}/>
     );

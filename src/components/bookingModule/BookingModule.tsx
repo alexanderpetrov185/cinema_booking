@@ -2,8 +2,22 @@ import React from 'react';
 import "./bookingModule.scss"
 import {ArrowBackIos} from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
+import {useAppSelector} from "../../redux/hooks/redux";
 
-const BookingModule = () => {
+type Props = {
+    nowTime: Date,
+    title: string,
+    details: {
+        hallNumber: number,
+        date: Date,
+        price: number,
+    } []
+}
+
+const BookingModule = ({nowTime, title, details}: Props) => {
+    const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
+
+
     const rows = 8;
     const columns = 14;
 
@@ -12,29 +26,25 @@ const BookingModule = () => {
             <div className="bookingHeader">
                 <ArrowBackIos className="btnBack"/>
                 <div className="bookingInfo">
-                    <span className={"bookingTitle"}>Барби / Остановка предсеанс.обслуживание</span>
-                    <span>2 октября.Кинотеатр Cinema</span>
+                    <span className={"bookingTitle"}>{title}</span>
+                    <span>{dateDay} Кинотеатр Cinema</span>
                 </div>
                 <CloseIcon className={"btnClose"}/>
             </div>
             <div className="bookingBody">
                 <ul className="availableTime">
-                    <li>
-                        <button>12:00</button>
-                        <span>150₽</span>
-                    </li>
-                    <li>
-                        <button>15:00</button>
-                        <span>150₽</span>
-                    </li>
-                    <li>
-                        <button>17:20</button>
-                        <span>150₽</span>
-                    </li>
-                    <li>
-                        <button>19:45</button>
-                        <span>150₽</span>
-                    </li>
+                    {
+                        details.map((details, index) => {
+                            if (new Date(details.date) > nowTime) {
+                                return <li key={index}>
+                                    <button>{details.date.toLocaleString().slice(11, -8)}</button>
+                                    <span>{details.price}₽</span>
+                                </li>
+                            } else {
+                                return null
+                            }
+                        })
+                    }
                 </ul>
                 <div className="movieSchema">
                     <div className="shortInfo">

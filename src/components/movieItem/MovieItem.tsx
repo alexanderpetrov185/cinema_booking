@@ -12,7 +12,7 @@ type Props = {
 const MovieItem = ({movie}: Props) => {
     const [playerIsOpen, setPlayerIsOpen] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const nowTime = new Date() // Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
+    const nowTime = new Date() // Дата и Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
 
     return (
         <div className="movieItem" key={movie.imdbID}>
@@ -22,7 +22,7 @@ const MovieItem = ({movie}: Props) => {
                     <span className="play"/>
                 </button>
                 <ModalWindow modalIsOpen={playerIsOpen} setModalIsOpen={setPlayerIsOpen}>
-                    <Player videoSrc={movie.trailer}/>
+                    {playerIsOpen && <Player videoSrc={movie.trailer}/>}
                 </ModalWindow>
             </div>
             <div className="info">
@@ -45,7 +45,8 @@ const MovieItem = ({movie}: Props) => {
                     )}
                 </div>
                 <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-                    <BookingModule/>
+                    {modalIsOpen &&
+                        <BookingModule nowTime={nowTime} title={movie.title} details={movie.sessionsDetails}/>}
                 </ModalWindow>
             </div>
         </div>

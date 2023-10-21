@@ -11,7 +11,6 @@ export interface IMovie {
             hallNumber: number,
             date: Date,
             price: number,
-            sessionId: string,
             _id: string
         }
     ]
