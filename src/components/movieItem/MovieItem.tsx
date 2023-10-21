@@ -3,12 +3,14 @@ import "./movieItem.scss"
 import ModalWindow from "../modalWindow/ModalWindow";
 import BookingModule from "../bookingModule/BookingModule";
 import {IMovie} from "../../redux/models/IMovie";
+import Player from '../player/Player';
 
 type Props = {
     movie: IMovie
 }
 
 const MovieItem = ({movie}: Props) => {
+    const [playerIsOpen, setPlayerIsOpen] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const nowTime = new Date() // Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
 
@@ -16,9 +18,12 @@ const MovieItem = ({movie}: Props) => {
         <div className="movieItem" key={movie.imdbID}>
             <div className="imageContainer">
                 <img src={movie.poster} alt={`poster ${movie.title}`}/>
-                <button className="playButton" onClick={() => setModalIsOpen(true)}>
+                <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
                     <span className="play"/>
                 </button>
+                <ModalWindow modalIsOpen={playerIsOpen} setModalIsOpen={setPlayerIsOpen}>
+                    <Player videoSrc={movie.trailer}/>
+                </ModalWindow>
             </div>
             <div className="info">
                 <h2 className="movieTitle">{movie.title}</h2>
