@@ -15,8 +15,8 @@ type Props = {
 }
 
 const BookingModule = ({nowTime, title, details}: Props) => {
-    const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
+    const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
     const rows = 8;
     const columns = 14;

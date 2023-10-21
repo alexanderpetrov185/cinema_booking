@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import "./slider.scss"
 import {ArrowBackIosOutlined, ArrowForwardIosOutlined} from "@mui/icons-material";
-import {Link} from 'react-router-dom';
 import {useSwipeable} from "react-swipeable";
 
 type Props = {
