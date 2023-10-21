@@ -10,6 +10,7 @@ type Props = {
 
 const MovieItem = ({movie}: Props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const nowTime = new Date() // Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
 
     return (
         <div className="movieItem" key={movie.imdbID}>
@@ -23,14 +24,19 @@ const MovieItem = ({movie}: Props) => {
                 <h2 className="movieTitle">{movie.title}</h2>
                 <span className="movieGenre">{movie.genre}</span>
                 <div className="movieSessions">
-                    {movie.sessionsDetails.map((details) =>
-                        <div key={details._id} className={"sessionDetails"}>
-                            <div onClick={() => setModalIsOpen(true)}>
-                                <span>{details.date.toLocaleString().slice(11, -8)}</span>
-                                <span>{details.price}₽</span>
-                            </div>
-                            <span className={"hallNumber"}>Зал {details.hallNumber}</span>
-                        </div>
+                    {movie.sessionsDetails.map((details) => {
+                            if (new Date(details.date) > nowTime) {
+                                return <div key={details._id} className={"sessionDetails"}>
+                                    <div onClick={() => setModalIsOpen(true)}>
+                                        <span>{details.date.toLocaleString().slice(11, -8)}</span>
+                                        <span>{details.price}₽</span>
+                                    </div>
+                                    <span className={"hallNumber"}>Зал {details.hallNumber}</span>
+                                </div>
+                            } else {
+                                return null
+                            }
+                        }
                     )}
                 </div>
                 <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>

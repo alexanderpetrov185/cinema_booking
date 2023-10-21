@@ -3,8 +3,6 @@ import "./home.scss"
 import Slider from "../../components/slider/Slider";
 import MovieList from "../../components/movieList/MovieList";
 import Schedule from '../../components/schedule/Schedule';
-import MovieService from "../../http/services/MovieService";
-import {IMovie} from "../../redux/models/IMovie";
 import useFetch from "../../http/hooks/useFetch";
 import {useAppSelector} from "../../redux/hooks/redux";
 
@@ -26,21 +24,7 @@ const slides = [
 const Home = () => {
     const date = useAppSelector((state) => state.scheduleReducer.date)
 
-    const {data, loading, error} = useFetch(`/moviesOnDay/${date}`)
-    // const [movies, setMovies] = React.useState<IMovie[]>([])
-
-    // async function getMovies() {
-    //     try {
-    //         const response = await MovieService.fetchMovies()
-    //         setMovies(response.data)
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // }
-    //
-    // React.useEffect(() => {
-    //     void getMovies()
-    // }, [])
+    const {data} = useFetch(`/moviesOnDay/${date}`)
 
     return (
         <div className={"home"}>
