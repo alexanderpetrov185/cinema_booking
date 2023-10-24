@@ -2,9 +2,8 @@
 
 .movieItem {
   transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-rows: repeat(10, 7fr 3fr);
 
   .imageContainer {
     height: 100%;
