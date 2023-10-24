@@ -47,9 +47,10 @@
   justify-content: flex-start;
 }
 .footer .contacts .contactsItem {
+  width: max-content;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   justify-content: flex-end;
   gap: 8px;
   flex: 1;
