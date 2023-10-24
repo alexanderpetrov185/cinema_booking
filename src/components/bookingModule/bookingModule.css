@@ -38,7 +38,7 @@
   align-items: center;
   gap: 5px;
 }
-.bookingModule .bookingBody .availableTime li .sessionBtn {
+.bookingModule .bookingBody .availableTime li .sessionButton {
   background-color: #e1dddd;
   padding: 0 10px;
   font-weight: 400;
@@ -48,12 +48,12 @@
   max-height: 35px;
   text-align: center;
 }
-.bookingModule .bookingBody .availableTime li .sessionBtn:hover {
+.bookingModule .bookingBody .availableTime li .sessionButton:hover {
   background-color: rgb(108, 67, 191);
   transition: 0.3s ease;
   cursor: pointer;
 }
-.bookingModule .bookingBody .availableTime li .active.sessionBtn {
+.bookingModule .bookingBody .availableTime li .active.sessionButton {
   background-color: rgba(108, 67, 191, 0.9);
 }
 .bookingModule .bookingBody .availableTime li span {

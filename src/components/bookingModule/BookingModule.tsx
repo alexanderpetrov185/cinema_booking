@@ -4,6 +4,8 @@ import {ArrowBackIos} from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
 import {useAppSelector} from "../../redux/hooks/redux";
 import useFetch from "../../http/hooks/useFetch";
+import {saveSelectedSession} from "../../redux/reducers/actionCreators";
+import {useAppDispatch} from "../../redux/hooks/redux";
 
 type Props = {
     nowDate: Date,
@@ -17,15 +19,22 @@ type Props = {
 }
 
 const BookingModule = ({nowDate, title, details}: Props) => {
+    let rows: number, columns: number;
+    const dispatch = useAppDispatch()
     const session = useAppSelector((state) => state.scheduleReducer.session)
-    console.log(session)
-    // const [selectedSession, setSelectedSession] = useState<string | null>(selectedSessionId)
-    // const {data} = useFetch(`/session/${selectedSession}`)
+    const {data} = useFetch(`/session/${session.sessionId}`)
+    const [selectedSession, setSelectedSession] = useState<string>(session.sessionId)
+    // className={dateFromReducer.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
 
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
-    const rows = 8;
-    const columns = 14;
+    if (data.hallNumber === '1') {
+        rows = 8;
+        columns = 16;
+    } else {
+        rows = 9;
+        columns = 14;
+    }
 
     return (
         <div className={"bookingModule"}>
@@ -41,9 +50,18 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                 <ul className="availableTime">
                     {
                         details.map((details, index) => {
-                            if (new Date(details.date) > nowDate) {
+                            if (new Date(details.date.slice(0, -1)) > nowDate) {
                                 return <li key={index}>
-                                    <button>{details.date.toLocaleString().slice(11, -8)}</button>
+                                    <button onClick={() => {
+                                        setSelectedSession(details.sessionId)
+                                        dispatch(saveSelectedSession({
+                                            sessionId: details.sessionId,
+                                            price: details.price.toString(),
+                                            sessionTime: details.date.toLocaleString().slice(11, -8)
+                                        }))
+                                    }}
+                                            className={details.sessionId === selectedSession ? "active sessionButton" : "sessionButton"}>
+                                        {details.date.toLocaleString().slice(11, -8)}</button>
                                     <span>{details.price}₽</span>
                                 </li>
                             } else {
@@ -54,9 +72,9 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                 </ul>
                 <div className="movieSchema">
                     <div className="shortInfo">
-                        <span>2D 12+ Зал 1</span>
+                        <span>2D 12+ Зал №{`${data.hallNumber}`}</span>
                         <ul className={"seatsInfo"}>
-                            <li>🟢150₽</li>
+                            <li>🟢{`${data.price}₽ `}</li>
                             <li>🔴Занято</li>
                         </ul>
                     </div>

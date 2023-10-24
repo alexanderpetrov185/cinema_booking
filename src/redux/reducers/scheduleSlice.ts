@@ -5,12 +5,16 @@ interface queryState {
     date: string,
     isLoading: boolean,
     error: string,
-    session: ISession | null
+    session: ISession
 }
 
 const initialState: queryState = {
     date: new Date().toLocaleDateString("en-CA"),
-    session: null,
+    session: {
+        sessionId: "",
+        price: "",
+        sessionTime: "",
+    },
     isLoading: false,
     error: ""
 }

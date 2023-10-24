@@ -20,7 +20,9 @@ const MovieItem = ({movie}: Props) => {
     return (
         <div className="movieItem" key={movie.imdbID}>
             <div className="imageContainer">
-                <img src={movie.poster} alt={`poster ${movie.title}`} onClick={() => setModalIsOpen(true)}/>
+                <img src={movie.poster} alt={`poster ${movie.title}`}
+                    // onClick={() => setModalIsOpen(true)}
+                />
                 <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
                     <span className="play"/>
                 </button>
@@ -42,25 +44,3 @@ const MovieItem = ({movie}: Props) => {
 
 export default MovieItem;
 
-
-// {movie.sessionsDetails.map((details) => {
-//         if (new Date(details.date) > nowTime) {
-//             return <div key={details._id} className={"sessionDetails"}>
-//                 <div onClick={() => {
-//                     setModalIsOpen(true);
-//                     dispatch(saveSelectedSession({
-//                         sessionId: details.sessionId,
-//                         price: details.price.toString(),
-//                         sessionTime: details.date.toLocaleString().slice(11, -8)
-//                     }))
-//                 }}>
-//                     <span>{details.date.toLocaleString().slice(11, -8)}</span>
-//                     <span>{details.price}₽</span>
-//                 </div>
-//                 <span className={"hallNumber"}>Зал {details.hallNumber}</span>
-//             </div>
-//         } else {
-//             return null
-//         }
-//     }
-// )}

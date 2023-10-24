@@ -31,7 +31,7 @@ const SessionCard = ({title, genre, sessionsDetails, nowDate, setModalIsOpen}: P
             <span className="movieGenre">{genre}</span>
             <div className="movieSessions">
                 {sessionsDetails.map((details, index) => {
-                        if (new Date(details.date) > nowDate) {
+                        if (new Date(details.date.slice(0, -1)) > nowDate) {
                             return <div key={details._id} className={"sessionDetails"}>
                                 <div onClick={() => {
                                     setModalIsOpen(true);

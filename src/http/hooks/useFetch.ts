@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import $api from "../index";
 
 const useFetch = (endpoint: string) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<any>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 

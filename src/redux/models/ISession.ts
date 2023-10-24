@@ -1,5 +1,5 @@
 export interface ISession {
-    sessionId: string | null,
-    price: string | null,
-    sessionTime: string | null,
+    sessionId: string,
+    price: string,
+    sessionTime: string,
 }
