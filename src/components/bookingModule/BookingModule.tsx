@@ -19,21 +19,21 @@ type Props = {
 }
 
 const BookingModule = ({nowDate, title, details}: Props) => {
-    let rows: number, columns: number;
+    const hallSchema: { rows: number | null, columns: number | null } = {
+        rows: null,
+        columns: null
+    }
     const dispatch = useAppDispatch()
     const session = useAppSelector((state) => state.scheduleReducer.session)
     const {data} = useFetch(`/session/${session.sessionId}`)
     const [selectedSession, setSelectedSession] = useState<string>(session.sessionId)
-    // className={dateFromReducer.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
 
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
-    if (data.hallNumber === '1') {
-        rows = 8;
-        columns = 16;
-    } else {
-        rows = 9;
-        columns = 14;
+    if (data.seatsInfo) {
+        const lastChair = data.seatsInfo.at(-1).position.split(" ")
+        hallSchema.rows = Number(lastChair[0])
+        hallSchema.columns = Number(lastChair[1])
     }
 
     return (
@@ -75,15 +75,15 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                         <span>2D 12+ Зал №{`${data.hallNumber}`}</span>
                         <ul className={"seatsInfo"}>
                             <li>🟢{`${data.price}₽ `}</li>
-                            <li>🔴Занято</li>
+                            <li>⚫Занято</li>
                         </ul>
                     </div>
                     <img src="/assets/images/screen.png" alt="Экран" className="movieScreenImg"/>
                     <section className="seatsSchema">
-                        {[...Array(rows)].map((row, index) => (
+                        {[...Array(hallSchema.rows)].map((row, index) => (
                             <div className="row" key={index}>
                                 <span>{index + 1}</span>
-                                {[...Array(columns)].map((seat, index) => (
+                                {[...Array(hallSchema.columns)].map((seat, index) => (
                                     <div className="seat" key={index}>{index + 1}</div>))}
                                 <span>{index + 1}</span>
                             </div>))}
@@ -91,9 +91,9 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                     <div className="selectedInfo">
                         <div className="selectedTickets">
                             <span>Ряд 5, Место 15</span>
-                            <span>🟢150₽</span>
+                            <span>🟢{`${data.price}₽ `}</span>
                         </div>
-                        <button className="buttonBuy">Купить 150₽</button>
+                        <button className="buttonBuy">Купить {` ${data.price}₽ `}</button>
                     </div>
                 </div>
             </div>
