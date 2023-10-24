@@ -24,7 +24,7 @@ const Schedule = () => {
     const [activeDay, setActiveDay] = React.useState<Date>(dayDates[0])
 
     React.useEffect(() => {
-        dispatch(saveSelectedDate(activeDay.toISOString().slice(0, -14)))
+        dispatch(saveSelectedDate(activeDay.toLocaleDateString("en-CA")))
     }, [activeDay, dispatch])
 
 

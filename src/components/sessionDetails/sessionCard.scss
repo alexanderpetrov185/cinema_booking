@@ -1,0 +1,96 @@
+@import "../../styles/variebles.scss";
+
+.sessionCard {
+  padding: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Inter, serif;
+  font-weight: 400;
+  color: $main-color;
+
+  .movieTitle {
+    font-size: 32px;
+    font-weight: 500;
+    padding: 5px 0 0 0;
+  }
+
+  .movieGenre {
+    font-size: 14px;
+    height: 40px;
+    padding: 2px 0 5px 0;
+  }
+
+  .movieSessions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    text-align: center;
+
+    .sessionDetails {
+      display: flex;
+      flex-direction: column;
+
+      div {
+        font-size: 20px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(124, 87, 192, 1);
+        border-radius: 5%;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        color: $black-color;
+        padding: 1px;
+
+        &:hover {
+          background-color: rgb(89, 44, 175);
+          transition: 0.35s ease;
+        }
+
+        span {
+          font-size: 14px;
+          font-weight: 500;
+          padding: 5px;
+          transition: transform 0.3s linear;
+
+          &:last-child {
+            border-radius: 0 0 10% 10%;
+            background: $main-color;
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.55);
+              transition: 0.35s ease;
+            }
+          }
+        }
+      }
+
+      .hallNumber {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+
+    .tomorrowSessions {
+      font-size: 15px;
+      font-weight: 600;
+      color: $black-color;
+      background-color: $light-bg;
+      padding: 15px;
+      text-transform: capitalize;
+      max-height: 35px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $hover-color;
+        transition: 0.3s ease;
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import axios from "axios";
 import {AuthResponse} from "../models/response/AuthResponse";
 import {API_URL} from "../../http";
 import {scheduleSlice} from "./scheduleSlice";
+import {ISession} from "../models/ISession";
 
 export const loginAction = (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
@@ -52,6 +53,14 @@ export const checkAuth = () => async (dispatch: AppDispatch) => {
 export const saveSelectedDate = (date: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(scheduleSlice.actions.dateSave(date))
+    } catch (e: any) {
+        console.log(e)
+    }
+}
+
+export const saveSelectedSession = (data: ISession) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(scheduleSlice.actions.sessionSave(data))
     } catch (e: any) {
         console.log(e)
     }

@@ -45,7 +45,7 @@
         align-items: center;
         gap: 5px;
 
-        button {
+        .sessionBtn {
           background-color: $soft-color;
           padding: 0 10px;
           font-weight: 400;
@@ -60,6 +60,10 @@
             transition: 0.3s ease;
             cursor: pointer;
           }
+        }
+
+        .active.sessionBtn {
+          background-color: $active-color;
         }
 
         span {

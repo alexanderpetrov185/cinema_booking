@@ -1,13 +1,16 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {ISession} from "../models/ISession";
 
 interface queryState {
     date: string,
     isLoading: boolean,
     error: string,
+    session: ISession | null
 }
 
 const initialState: queryState = {
-    date: new Date().toISOString().slice(0, -14),
+    date: new Date().toLocaleDateString("en-CA"),
+    session: null,
     isLoading: false,
     error: ""
 }
@@ -19,6 +22,9 @@ export const scheduleSlice = createSlice({
     reducers: {
         dateSave(state, action: PayloadAction<string>) {
             state.date = action.payload
+        },
+        sessionSave(state, action: PayloadAction<ISession>) {
+            state.session = action.payload;
         },
     }
 })

@@ -9,8 +9,9 @@ export interface IMovie {
     sessionsDetails: [
         {
             hallNumber: number,
-            date: Date,
+            date: string,
             price: number,
+            sessionId: string,
             _id: string
         }
     ]

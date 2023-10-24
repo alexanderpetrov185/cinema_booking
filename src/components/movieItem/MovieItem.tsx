@@ -4,6 +4,8 @@ import ModalWindow from "../modalWindow/ModalWindow";
 import BookingModule from "../bookingModule/BookingModule";
 import {IMovie} from "../../redux/models/IMovie";
 import Player from '../player/Player';
+import SessionCard from "../sessionDetails/SessionCard";
+
 
 type Props = {
     movie: IMovie
@@ -12,12 +14,13 @@ type Props = {
 const MovieItem = ({movie}: Props) => {
     const [playerIsOpen, setPlayerIsOpen] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const nowTime = new Date() // Дата и Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
+    const nowDate = new Date() // Дата и Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
+
 
     return (
         <div className="movieItem" key={movie.imdbID}>
             <div className="imageContainer">
-                <img src={movie.poster} alt={`poster ${movie.title}`}/>
+                <img src={movie.poster} alt={`poster ${movie.title}`} onClick={() => setModalIsOpen(true)}/>
                 <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
                     <span className="play"/>
                 </button>
@@ -25,33 +28,39 @@ const MovieItem = ({movie}: Props) => {
                     {playerIsOpen && <Player videoSrc={movie.trailer}/>}
                 </ModalWindow>
             </div>
-            <div className="info">
-                <h2 className="movieTitle">{movie.title}</h2>
-                <span className="movieGenre">{movie.genre}</span>
-                <div className="movieSessions">
-                    {movie.sessionsDetails.map((details) => {
-                            if (new Date(details.date) > nowTime) {
-                                return <div key={details._id} className={"sessionDetails"}>
-                                    <div onClick={() => setModalIsOpen(true)}>
-                                        <span>{details.date.toLocaleString().slice(11, -8)}</span>
-                                        <span>{details.price}₽</span>
-                                    </div>
-                                    <span className={"hallNumber"}>Зал {details.hallNumber}</span>
-                                </div>
-                            } else {
-                                return null
-                            }
-                        }
-                    )}
-                </div>
-                <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-                    {modalIsOpen &&
-                        <BookingModule nowTime={nowTime} title={movie.title} details={movie.sessionsDetails}/>}
-                </ModalWindow>
-            </div>
+            <SessionCard title={movie.title} genre={movie.genre} sessionsDetails={movie.sessionsDetails}
+                         nowDate={nowDate} setModalIsOpen={setModalIsOpen}/>
+            <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
+                {modalIsOpen &&
+                    <BookingModule nowDate={nowDate}
+                                   title={movie.title} details={movie.sessionsDetails}/>}
+            </ModalWindow>
         </div>
     );
 };
 
 
 export default MovieItem;
+
+
+// {movie.sessionsDetails.map((details) => {
+//         if (new Date(details.date) > nowTime) {
+//             return <div key={details._id} className={"sessionDetails"}>
+//                 <div onClick={() => {
+//                     setModalIsOpen(true);
+//                     dispatch(saveSelectedSession({
+//                         sessionId: details.sessionId,
+//                         price: details.price.toString(),
+//                         sessionTime: details.date.toLocaleString().slice(11, -8)
+//                     }))
+//                 }}>
+//                     <span>{details.date.toLocaleString().slice(11, -8)}</span>
+//                     <span>{details.price}₽</span>
+//                 </div>
+//                 <span className={"hallNumber"}>Зал {details.hallNumber}</span>
+//             </div>
+//         } else {
+//             return null
+//         }
+//     }
+// )}

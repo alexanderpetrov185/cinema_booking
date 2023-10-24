@@ -1,20 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./bookingModule.scss"
 import {ArrowBackIos} from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
 import {useAppSelector} from "../../redux/hooks/redux";
+import useFetch from "../../http/hooks/useFetch";
 
 type Props = {
-    nowTime: Date,
+    nowDate: Date,
     title: string,
     details: {
         hallNumber: number,
-        date: Date,
+        date: string,
         price: number,
-    } []
+        sessionId: string,
+    } [],
 }
 
-const BookingModule = ({nowTime, title, details}: Props) => {
+const BookingModule = ({nowDate, title, details}: Props) => {
+    const session = useAppSelector((state) => state.scheduleReducer.session)
+    console.log(session)
+    // const [selectedSession, setSelectedSession] = useState<string | null>(selectedSessionId)
+    // const {data} = useFetch(`/session/${selectedSession}`)
 
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
@@ -35,7 +41,7 @@ const BookingModule = ({nowTime, title, details}: Props) => {
                 <ul className="availableTime">
                     {
                         details.map((details, index) => {
-                            if (new Date(details.date) > nowTime) {
+                            if (new Date(details.date) > nowDate) {
                                 return <li key={index}>
                                     <button>{details.date.toLocaleString().slice(11, -8)}</button>
                                     <span>{details.price}₽</span>
@@ -83,3 +89,9 @@ const BookingModule = ({nowTime, title, details}: Props) => {
 };
 
 export default BookingModule;
+
+
+// <button
+//     className={selectedSession === details.sessionId ? "active sessionBtn" : "sessionBtn"}
+//     onClick={() => setSelectedSession(details.sessionId)}>{details.date.toLocaleString().slice(11, -8)}</button>
+// <span>{details.price}₽</span>
