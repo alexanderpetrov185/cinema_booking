@@ -121,6 +121,10 @@
   transition: 0.25s ease;
   cursor: pointer;
 }
+.bookingModule .movieSchema .seatsSchema .row .selected.seat {
+  background-color: rgba(26, 26, 26, 0.6);
+  border: solid 1px black;
+}
 .bookingModule .movieSchema .selectedInfo {
   padding: 10px 0;
   width: 100%;

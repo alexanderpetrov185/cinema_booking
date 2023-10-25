@@ -140,6 +140,11 @@
             cursor: pointer;
           }
         }
+
+        .selected.seat {
+          background-color: rgba(26, 26, 26, 0.6);
+          border: solid 1px black;
+        }
       }
     }
 

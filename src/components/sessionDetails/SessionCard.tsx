@@ -19,7 +19,6 @@ type Props = {
 }
 
 const SessionCard = ({title, genre, sessionsDetails, nowDate, setModalIsOpen}: Props) => {
-
     const dispatch = useAppDispatch()
     const tomorrowToSelect = () => {
         dispatch(saveSelectedDate(new Date(nowDate.setDate(nowDate.getDate() + 1)).toLocaleDateString("en-CA")))
