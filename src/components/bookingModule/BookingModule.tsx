@@ -19,14 +19,15 @@ type Props = {
 }
 
 const BookingModule = ({nowDate, title, details}: Props) => {
-    const hallSchema: { rows: number | null, columns: number | null } = {
-        rows: null,
-        columns: null
+    const hallSchema: { rows: number, columns: number } = {
+        rows: 0,
+        columns: 0
     }
     const dispatch = useAppDispatch()
     const session = useAppSelector((state) => state.scheduleReducer.session)
     const {data} = useFetch(`/session/${session.sessionId}`)
     const [selectedSession, setSelectedSession] = useState<string>(session.sessionId)
+    const [selectedSeat, setSelectedSeat] = useState<Array<string> | Array<null>>([])
 
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
@@ -80,13 +81,14 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                     </div>
                     <img src="/assets/images/screen.png" alt="Экран" className="movieScreenImg"/>
                     <section className="seatsSchema">
-                        {[...Array(hallSchema.rows)].map((row, index) => (
-                            <div className="row" key={index}>
+                        {data.seatsInfo && [...Array(hallSchema.rows)].map((row, index) => {
+                            return <div className="row" key={index}>
                                 <span>{index + 1}</span>
-                                {[...Array(hallSchema.columns)].map((seat, index) => (
-                                    <div className="seat" key={index}>{index + 1}</div>))}
-                                <span>{index + 1}</span>
-                            </div>))}
+                                {data.seatsInfo.slice(hallSchema.rows * index, hallSchema.columns + (hallSchema.rows * index)).map((seat: any, index: number) => {
+                                    return <div className="seat" key={index}>{index + 1}</div>
+                                })}
+                            </div>
+                        })}
                     </section>
                     <div className="selectedInfo">
                         <div className="selectedTickets">
@@ -108,8 +110,16 @@ const BookingModule = ({nowDate, title, details}: Props) => {
 
 export default BookingModule;
 
-
-// <button
-//     className={selectedSession === details.sessionId ? "active sessionBtn" : "sessionBtn"}
-//     onClick={() => setSelectedSession(details.sessionId)}>{details.date.toLocaleString().slice(11, -8)}</button>
-// <span>{details.price}₽</span>
+//
+// <section className="seatsSchema">
+//     {data.seatsInfo && [...Array(hallSchema.rows)].map((row, index) => {
+//             return <div className="row" key={index}>
+//                 <span>{index + 1}</span>
+//                 {[...Array(hallSchema.columns)].map((seat, index) => {
+//                     return <div className="seat" key={index}>{index + 1}</div>
+//                 })}
+//                 <span>{index + 1}</span>
+//             </div>
+//         }
+//     )}
+// </section>
