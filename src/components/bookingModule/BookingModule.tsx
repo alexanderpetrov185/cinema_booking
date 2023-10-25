@@ -30,6 +30,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
     const [selectedSeat, setSelectedSeat] = useState<string[]>([])
     console.log(selectedSeat)
 
+
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
     if (data.seatsInfo) {
@@ -37,6 +38,10 @@ const BookingModule = ({nowDate, title, details}: Props) => {
         hallSchema.rows = Number(lastChair[0])
         hallSchema.columns = Number(lastChair[1])
     }
+
+    React.useEffect(() => {
+        setSelectedSeat([])
+    }, [selectedSession])
 
     return (
         <div className={"bookingModule"}>
@@ -86,17 +91,16 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                             return <div className="row" key={index}>
                                 <span>{index + 1}</span>
                                 {data.seatsInfo.slice(hallSchema.columns * index, hallSchema.columns * index + hallSchema.columns).map((seat: any, index: number) => {
-                                    console.log(data.seatsInfo.slice(hallSchema.columns * index, hallSchema.columns * index + hallSchema.columns))
                                     return <div className={selectedSeat.includes(seat._id) ? "selected seat" : "seat"}
                                                 key={seat._id}
-                                        // onClick={() => {
-                                        //     if (selectedSeat.includes(seat._id)) {
-                                        //         const deletedFromState = selectedSeat.filter((seatId) => seatId === seat._id)
-                                        //         setSelectedSeat([...deletedFromState])
-                                        //     } else {
-                                        //         setSelectedSeat([...selectedSeat, seat._id])
-                                        //     }
-                                        // }}
+                                                onClick={() => {
+                                                    if (selectedSeat.includes(seat._id)) {
+                                                        const deletedFromState = selectedSeat.filter((seatId) => seatId !== seat._id)
+                                                        setSelectedSeat([...deletedFromState])
+                                                    } else {
+                                                        setSelectedSeat([...selectedSeat, seat._id])
+                                                    }
+                                                }}
                                     >
                                         {index + 1}
                                     </div>

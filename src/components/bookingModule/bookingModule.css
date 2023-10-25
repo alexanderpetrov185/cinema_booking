@@ -122,7 +122,7 @@
   cursor: pointer;
 }
 .bookingModule .movieSchema .seatsSchema .row .selected.seat {
-  background-color: rgba(26, 26, 26, 0.6);
+  background-color: rgba(73, 105, 148, 0.6);
   border: solid 1px black;
 }
 .bookingModule .movieSchema .selectedInfo {
