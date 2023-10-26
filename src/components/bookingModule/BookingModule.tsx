@@ -27,8 +27,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
     const session = useAppSelector((state) => state.scheduleReducer.session)
     const {data} = useFetch(`/session/${session.sessionId}`)
     const [selectedSession, setSelectedSession] = useState<string>(session.sessionId)
-    const [selectedSeat, setSelectedSeat] = useState<string[]>([])
-    console.log(selectedSeat)
+    const [selectedSeat, setSelectedSeat] = useState<object[]>([])
 
 
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
@@ -91,14 +90,14 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                             return <div className="row" key={index}>
                                 <span>{index + 1}</span>
                                 {data.seatsInfo.slice(hallSchema.columns * index, hallSchema.columns * index + hallSchema.columns).map((seat: any, index: number) => {
-                                    return <div className={selectedSeat.includes(seat._id) ? "selected seat" : "seat"}
+                                    return <div className={selectedSeat.includes(seat) ? "selected seat" : "seat"}
                                                 key={seat._id}
                                                 onClick={() => {
-                                                    if (selectedSeat.includes(seat._id)) {
-                                                        const deletedFromState = selectedSeat.filter((seatId) => seatId !== seat._id)
+                                                    if (selectedSeat.includes(seat)) {
+                                                        const deletedFromState = selectedSeat.filter((seatInState) => !Object.is(seatInState, seat))
                                                         setSelectedSeat([...deletedFromState])
                                                     } else {
-                                                        setSelectedSeat([...selectedSeat, seat._id])
+                                                        setSelectedSeat([...selectedSeat, seat])
                                                     }
                                                 }}
                                     >
@@ -110,11 +109,14 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                         })}
                     </section>
                     <div className="selectedInfo">
-                        <div className="selectedTickets">
-                            <span>Ряд 5, Место 15</span>
-                            <span>🟢{`${data.price}₽ `}</span>
-                        </div>
-                        <button className="buttonBuy">Купить {` ${data.price}₽ `}</button>
+                        {selectedSeat.length > 0 && selectedSeat.map((seat: any, index: number) => {
+                            const seatPosition = seat.position.split(" ")
+                            return <div className="selectedTickets" key={index}>
+                                <span>Ряд {seatPosition[0]}, Место {seatPosition[1]}</span>
+                                <span>🟢{`${data.price}₽ `}</span>
+                            </div>
+                        })}
+                        <button className="buttonBuy">Купить {` ${data.price * selectedSeat.length}₽ `}</button>
                     </div>
                 </div>
             </div>
@@ -128,3 +130,12 @@ const BookingModule = ({nowDate, title, details}: Props) => {
 };
 
 export default BookingModule;
+
+
+// <div className="selectedInfo">
+//     <div className="selectedTickets">
+//         <span>Ряд 5, Место 15</span>
+//         <span>🟢{`${data.price}₽ `}</span>
+//     </div>
+//     <button className="buttonBuy">Купить {` ${data.price}₽ `}</button>
+// </div>
