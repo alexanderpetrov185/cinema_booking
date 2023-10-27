@@ -26,7 +26,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
     }
     const dispatch = useAppDispatch()
     const session = useAppSelector((state) => state.scheduleReducer.session)
-    const {data} = useFetch(`/session/${session.sessionId}`)
+    const {data, reFetch} = useFetch(`/session/${session.sessionId}`)
     const [selectedSession, setSelectedSession] = useState<string>(session.sessionId)
     const [selectedSeat, setSelectedSeat] = useState<object[]>([])
 
@@ -41,6 +41,9 @@ const BookingModule = ({nowDate, title, details}: Props) => {
     const buyTickets = async (selectedSeat: object[]) => {
         const seatsIds: string[] = selectedSeat.map<string>((seat: any) => seat._id)
         const res = await SessionService.bookSeat(session.sessionId, seatsIds)
+        if (res.status === 200) {
+            await reFetch()
+        }
         return res.data
     }
 
@@ -106,8 +109,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                                                         } else {
                                                             setSelectedSeat([...selectedSeat, seat])
                                                         }
-                                                    }}
-                                        >
+                                                    }}>
                                             {index + 1}
                                         </div>
                                     } else {

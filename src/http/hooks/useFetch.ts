@@ -20,20 +20,18 @@ const useFetch = (endpoint: string) => {
         void fetchData();
     }, [endpoint]);
 
-    // const reFetch = async () => {
-    //     setLoading(true);
-    //     try {
-    //         const res = await axios.get(url);
-    //         setData(res.data);
-    //     } catch (err: any) {
-    //         setError(err);
-    //     }
-    //     setLoading(false);
-    // };
+    const reFetch = async () => {
+        setLoading(true);
+        try {
+            const res = await $api.get(endpoint);
+            setData(res.data);
+        } catch (err: any) {
+            setError(err);
+        }
+        setLoading(false);
+    };
 
-    // return {data, loading, error, reFetch};
-
-    return {data, loading, error};
+    return {data, loading, error, reFetch};
 };
 
 export default useFetch;
