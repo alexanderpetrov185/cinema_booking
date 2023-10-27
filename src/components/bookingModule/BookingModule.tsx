@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import "./bookingModule.scss"
-import {ArrowBackIos} from "@mui/icons-material";
 import CloseIcon from '@mui/icons-material/Close';
 import {useAppSelector} from "../../redux/hooks/redux";
 import useFetch from "../../http/hooks/useFetch";
@@ -53,13 +52,14 @@ const BookingModule = ({nowDate, title, details}: Props) => {
 
     return (
         <div className={"bookingModule"}>
+            <div className="buttonsBlock">
+                <CloseIcon className={"btnClose"}/>
+            </div>
             <div className="bookingHeader">
-                <ArrowBackIos className="btnBack"/>
                 <div className="bookingInfo">
                     <span className={"bookingTitle"}>{title}</span>
                     <span>{dateDay} Кинотеатр Cinema</span>
                 </div>
-                <CloseIcon className={"btnClose"}/>
             </div>
             <div className="bookingBody">
                 <ul className="availableTime">
@@ -124,13 +124,15 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                         })}
                     </section>
                     <div className="selectedInfo">
-                        {selectedSeat.length > 0 && selectedSeat.map((seat: any, index: number) => {
-                            const seatPosition = seat.position.split(" ")
-                            return <div className="selectedTickets" key={index}>
-                                <span>Ряд {seatPosition[0]}, Место {seatPosition[1]}</span>
-                                <span>🟢{`${data.price}₽ `}</span>
-                            </div>
-                        })}
+                        <div className="selectedTicketGroup">
+                            {selectedSeat.length > 0 && selectedSeat.map((seat: any, index: number) => {
+                                const seatPosition = seat.position.split(" ")
+                                return <div className="selectedTicket" key={index}>
+                                    <span>Ряд {seatPosition[0]}, Место {seatPosition[1]}</span>
+                                    <span>🟢{`${data.price}₽ `}</span>
+                                </div>
+                            })}
+                        </div>
                         <button className="buttonBuy"
                                 onClick={() => buyTickets(selectedSeat)}
                         >
