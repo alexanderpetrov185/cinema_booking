@@ -6,6 +6,7 @@ import {useAppSelector} from "../../redux/hooks/redux";
 import useFetch from "../../http/hooks/useFetch";
 import {saveSelectedSession} from "../../redux/reducers/actionCreators";
 import {useAppDispatch} from "../../redux/hooks/redux";
+import SessionService from "../../http/services/SessionServices";
 
 type Props = {
     nowDate: Date,
@@ -29,13 +30,18 @@ const BookingModule = ({nowDate, title, details}: Props) => {
     const [selectedSession, setSelectedSession] = useState<string>(session.sessionId)
     const [selectedSeat, setSelectedSeat] = useState<object[]>([])
 
-
     const dateDay = new Date(useAppSelector((state) => state.scheduleReducer.date)).toLocaleDateString("ru")
 
     if (data.seatsInfo) {
         const lastChair = data.seatsInfo.at(-1).position.split(" ")
         hallSchema.rows = Number(lastChair[0])
         hallSchema.columns = Number(lastChair[1])
+    }
+
+    const buyTickets = async (selectedSeat: object[]) => {
+        const seatsIds: string[] = selectedSeat.map<string>((seat: any) => seat._id)
+        const response = await SessionService.bookSeat(session.sessionId, seatsIds)
+        console.log("Response: ", response, "SessionId: ", session.sessionId, "SeatsIds:", seatsIds)
     }
 
     React.useEffect(() => {
@@ -116,7 +122,10 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                                 <span>🟢{`${data.price}₽ `}</span>
                             </div>
                         })}
-                        <button className="buttonBuy">Купить {` ${data.price * selectedSeat.length}₽ `}</button>
+                        <button className="buttonBuy"
+                                onClick={() => buyTickets(selectedSeat)}
+                        >
+                            Купить {` ${data.price * selectedSeat.length}₽ `}</button>
                     </div>
                 </div>
             </div>
@@ -130,12 +139,3 @@ const BookingModule = ({nowDate, title, details}: Props) => {
 };
 
 export default BookingModule;
-
-
-// <div className="selectedInfo">
-//     <div className="selectedTickets">
-//         <span>Ряд 5, Место 15</span>
-//         <span>🟢{`${data.price}₽ `}</span>
-//     </div>
-//     <button className="buttonBuy">Купить {` ${data.price}₽ `}</button>
-// </div>
