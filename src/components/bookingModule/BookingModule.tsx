@@ -40,8 +40,8 @@ const BookingModule = ({nowDate, title, details}: Props) => {
 
     const buyTickets = async (selectedSeat: object[]) => {
         const seatsIds: string[] = selectedSeat.map<string>((seat: any) => seat._id)
-        const response = await SessionService.bookSeat(session.sessionId, seatsIds)
-        console.log("Response: ", response, "SessionId: ", session.sessionId, "SeatsIds:", seatsIds)
+        const res = await SessionService.bookSeat(session.sessionId, seatsIds)
+        return res.data
     }
 
     React.useEffect(() => {
@@ -96,19 +96,26 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                             return <div className="row" key={index}>
                                 <span>{index + 1}</span>
                                 {data.seatsInfo.slice(hallSchema.columns * index, hallSchema.columns * index + hallSchema.columns).map((seat: any, index: number) => {
-                                    return <div className={selectedSeat.includes(seat) ? "selected seat" : "seat"}
-                                                key={seat._id}
-                                                onClick={() => {
-                                                    if (selectedSeat.includes(seat)) {
-                                                        const deletedFromState = selectedSeat.filter((seatInState) => !Object.is(seatInState, seat))
-                                                        setSelectedSeat([...deletedFromState])
-                                                    } else {
-                                                        setSelectedSeat([...selectedSeat, seat])
-                                                    }
-                                                }}
-                                    >
-                                        {index + 1}
-                                    </div>
+                                    if (seat.available) {
+                                        return <div className={selectedSeat.includes(seat) ? "selected seat" : "seat"}
+                                                    key={seat._id}
+                                                    onClick={() => {
+                                                        if (selectedSeat.includes(seat)) {
+                                                            const deletedFromState = selectedSeat.filter((seatInState) => !Object.is(seatInState, seat))
+                                                            setSelectedSeat([...deletedFromState])
+                                                        } else {
+                                                            setSelectedSeat([...selectedSeat, seat])
+                                                        }
+                                                    }}
+                                        >
+                                            {index + 1}
+                                        </div>
+                                    } else {
+                                        return <div className={"seat unavailable"} key={seat._id}>
+                                            ✖
+                                        </div>
+                                    }
+
                                 })}
                                 <span>{index + 1}</span>
                             </div>
