@@ -182,7 +182,7 @@
         gap: 5px;
 
         .selectedTicket {
-          background-color: rgba(160, 217, 222, 0.4);
+          background-color: rgba(181, 160, 222, 0.4);
           border-radius: 5px;
           padding: 5px;
           display: flex;
@@ -191,6 +191,12 @@
           justify-content: center;
           font-size: 12px;
           font-weight: 300;
+          cursor: pointer;
+
+          &:hover {
+            transition: 0.25s ease;
+            background-color: rgb(181, 160, 222);
+          }
         }
       }
 

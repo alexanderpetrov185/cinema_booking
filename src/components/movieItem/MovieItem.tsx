@@ -35,7 +35,8 @@ const MovieItem = ({movie}: Props) => {
             <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
                 {modalIsOpen &&
                     <BookingModule nowDate={nowDate}
-                                   title={movie.title} details={movie.sessionsDetails}/>}
+                                   title={movie.title} details={movie.sessionsDetails}
+                                   setModalIsOpen={setModalIsOpen}/>}
             </ModalWindow>
         </div>
     );

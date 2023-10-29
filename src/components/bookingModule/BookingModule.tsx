@@ -16,9 +16,10 @@ type Props = {
         price: number,
         sessionId: string,
     } [],
+    setModalIsOpen: (arg0: boolean) => void
 }
 
-const BookingModule = ({nowDate, title, details}: Props) => {
+const BookingModule = ({nowDate, title, details, setModalIsOpen}: Props) => {
     const hallSchema: { rows: number, columns: number } = {
         rows: 0,
         columns: 0
@@ -46,6 +47,11 @@ const BookingModule = ({nowDate, title, details}: Props) => {
         return res.data
     }
 
+    const cancelSelect = (seat: any) => {
+        const deletedFromState = selectedSeat.filter((seatInState) => !Object.is(seatInState, seat))
+        setSelectedSeat([...deletedFromState])
+    }
+
     React.useEffect(() => {
         setSelectedSeat([])
     }, [selectedSession])
@@ -53,7 +59,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
     return (
         <div className={"bookingModule"}>
             <div className="buttonsBlock">
-                <CloseIcon className={"btnClose"}/>
+                <CloseIcon className={"btnClose"} onClick={() => setModalIsOpen(false)}/>
             </div>
             <div className="bookingHeader">
                 <div className="bookingInfo">
@@ -104,8 +110,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                                                     key={seat._id}
                                                     onClick={() => {
                                                         if (selectedSeat.includes(seat)) {
-                                                            const deletedFromState = selectedSeat.filter((seatInState) => !Object.is(seatInState, seat))
-                                                            setSelectedSeat([...deletedFromState])
+                                                            cancelSelect(seat)
                                                         } else {
                                                             setSelectedSeat([...selectedSeat, seat])
                                                         }
@@ -127,7 +132,8 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                         <div className="selectedTicketGroup">
                             {selectedSeat.length > 0 && selectedSeat.map((seat: any, index: number) => {
                                 const seatPosition = seat.position.split(" ")
-                                return <div className="selectedTicket" key={index}>
+                                return <div className="selectedTicket" key={index}
+                                            onClick={() => cancelSelect(seat)}>
                                     <span>Ряд {seatPosition[0]}, Место {seatPosition[1]}</span>
                                     <span>🟢{`${data.price}₽ `}</span>
                                 </div>
@@ -136,7 +142,7 @@ const BookingModule = ({nowDate, title, details}: Props) => {
                         <button className="buttonBuy"
                                 onClick={() => buyTickets(selectedSeat)}
                         >
-                            Купить {` ${data.price * selectedSeat.length}₽ `}</button>
+                            Купить {selectedSeat.length > 0 && ` ${data.price * selectedSeat.length}₽ `}</button>
                     </div>
                 </div>
             </div>

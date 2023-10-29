@@ -3,10 +3,9 @@ import "./schedule.scss";
 import {useAppDispatch, useAppSelector} from "../../redux/hooks/redux";
 import {saveSelectedDate} from "../../redux/reducers/actionCreators";
 
-const monthName = new Date().toLocaleString('default', {month: 'short'});
 const dayOfWeek = new Date().getDay();
 const allDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-let dayDates = new Array(5)
+let dayDates = new Array(6)
 
 const Schedule = () => {
     const dispatch = useAppDispatch()
@@ -16,7 +15,7 @@ const Schedule = () => {
         return new Date(todayDate.setDate(todayDate.getDate() + dayCount))
     }
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 7; i++) {
         dayDates[i] = addDay(i)
     }
 
@@ -29,7 +28,10 @@ const Schedule = () => {
                     return <li key={index}
                                className={dateFromReducer.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
                                onClick={() => dispatch(saveSelectedDate(dayDates[index].toLocaleDateString("en-CA")))}>
-                        {index === 0 ? "Сегодня, " : index === 1 ? "Завтра, " : `${sortDays[index]}, `}{`${day.getDate()} ${monthName}`}
+                        {index === 0 ? "Сегодня, " : index === 1 ? "Завтра, " : `${sortDays[index]}, `}{`${day.toLocaleString('default', {
+                        day: "numeric",
+                        month: 'short'
+                    })}`}
                     </li>
                 })
             }
