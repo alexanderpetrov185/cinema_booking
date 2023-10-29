@@ -71,8 +71,9 @@ const Navbar = () => {
                     <button className={"buttonStandard"} type={"submit"} onClick={() => setModalIsOpen(true)}>
                         Войти
                     </button>
-                    <ModalWindow modalIsOpen={modalIsOpen}
-                                 setModalIsOpen={setModalIsOpen}><LoginForm/></ModalWindow>
+                    <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
+                        <LoginForm setModalIsOpen={setModalIsOpen}/>
+                    </ModalWindow>
                 </>}
         </div>
     );

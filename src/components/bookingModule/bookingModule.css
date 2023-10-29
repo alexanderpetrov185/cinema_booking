@@ -5,6 +5,7 @@
   padding: 25px;
 }
 .bookingModule .buttonsBlock {
+  padding: 5px;
   width: 100%;
   display: flex;
   justify-content: flex-end;

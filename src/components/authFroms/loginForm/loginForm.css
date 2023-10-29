@@ -7,10 +7,26 @@
   gap: 15px;
   padding: 10px;
   font-size: 20px;
+  min-width: 350px;
+}
+.loginForm .buttonsBlock {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.loginForm .buttonsBlock .btnClose {
+  cursor: pointer;
+}
+.loginForm .buttonsBlock .btnClose:hover {
+  opacity: 0.8;
 }
 .loginForm input {
   font-size: 18px;
   padding: 5px;
+}
+.loginForm .errorAuth {
+  font-size: 14px;
+  color: #af3513;
 }
 .loginForm button {
   min-width: 100px;

@@ -7,10 +7,30 @@
   gap: 15px;
   padding: 10px;
   font-size: 20px;
+  min-width: 350px;
+
+  .buttonsBlock {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .btnClose {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 
   input {
     font-size: 18px;
     padding: 5px;
+  }
+
+  .errorAuth {
+    font-size: 14px;
+    color: #af3513;
   }
 
   button {
