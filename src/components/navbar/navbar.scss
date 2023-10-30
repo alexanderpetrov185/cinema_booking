@@ -1,4 +1,5 @@
 @import "../../styles/variebles.scss";
+@import "../../styles/responsive.scss";
 
 .navbar {
   width: 100%;
@@ -49,26 +50,174 @@
     }
   }
 
-  .buttonStandard {
-    min-width: 150px;
-    background-image: linear-gradient(to left, #4f0ed0, #63c);
-    border-radius: 4px;
-    line-height: 32px;
-    color: #fff;
-    text-decoration: none;
-    font-family: Inter, serif;
-    font-size: 18px;
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    text-align: center;
-    letter-spacing: normal;
-    cursor: pointer;
+  .buttonsBlock {
+    .buttonStandard {
+      padding: 2px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      min-width: 120px;
+      background-image: linear-gradient(to left, #4f0ed0, #63c);
+      border-radius: 4px;
+      line-height: 32px;
+      color: #fff;
+      text-decoration: none;
+      font-family: Inter, serif;
+      font-size: 18px;
+      font-weight: 400;
+      font-style: normal;
+      font-stretch: normal;
+      text-align: center;
+      letter-spacing: normal;
+      cursor: pointer;
 
-    &:hover {
-      background-image: linear-gradient(to left, #4311ad, #5b31b2);
-      transition: 0.35s ease;
+      &:hover {
+        background-image: linear-gradient(to left, #4311ad, #5b31b2);
+        transition: 0.35s ease;
+      }
+    }
+
+    .buttonStandard svg {
+      vertical-align: center;
+      fill: #fff;
+    }
+
+    .burgerIcon {
+      display: none;
     }
   }
-  
+
+
+  @include xl {
+    justify-content: space-between;
+    padding: 0 15px;
+
+    .menu {
+      gap: 20px;
+
+      .item {
+        .menuItem, .menuItemActive {
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+    }
+    .buttonsBlock {
+      .buttonStandard {
+        min-width: 75px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @include lg {
+    .logo {
+      img {
+        height: 50px;
+      }
+    }
+
+    .menu {
+      transform: translateX(-100%);
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: white;
+      height: 100vh;
+      width: 35vw;
+      padding: 20px;
+
+      .item {
+        width: 100%;
+        border-bottom: 0.5px solid black;
+        padding: 10px;
+
+        .menuItem, .menuItemActive {
+          font-family: Inter, serif;
+          font-weight: 600;
+          font-size: 20px;
+          color: $dark-color;
+
+          &:hover {
+            color: $hover-color;
+            transition: 0.35s ease;
+          }
+        }
+      }
+    }
+
+    .menu.active {
+      transform: translateX(0);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .buttonsBlock {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      .buttonStandard {
+        max-height: 35px;
+      }
+
+      .burgerIcon {
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .burgerIcon span {
+        background-color: black;
+        content: "";
+        width: 30px;
+        height: 2px;
+        position: absolute;
+        top: 9px;
+        left: 0;
+        align-items: center;
+      }
+
+      .burgerIcon:before {
+        background-color: black;
+        content: "";
+        width: 30px;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+      }
+
+      .burgerIcon:after {
+        background-color: black;
+        content: "";
+        width: 30px;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        align-items: center;
+      }
+    }
+  }
+
+  @include md {
+    .menu {
+      width: 100vw;
+    }
+    .buttonsBlock {
+      .buttonStandard {
+        min-width: 30px;
+        max-height: 30px;
+        border-radius: 20px;
+      }
+
+      .buttonStandard span {
+        display: none;
+      }
+    }
+  }
 }

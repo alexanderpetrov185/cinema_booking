@@ -2,8 +2,22 @@
   padding: 20px 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(400px, auto);
+  grid-auto-rows: minmax(350px, 650px);
   gap: 50px;
+}
+@media screen and (max-width: 1400px) {
+  .movieList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=movieList.css.map */

@@ -43,6 +43,7 @@ const BookingModule = ({nowDate, title, details, setModalIsOpen}: Props) => {
         const res = await SessionService.bookSeat(session.sessionId, seatsIds)
         if (res.status === 200) {
             await reFetch()
+            setSelectedSeat([])
         }
         return res.data
     }

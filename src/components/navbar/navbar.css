@@ -38,8 +38,12 @@
 .navbar .menu .item .menuItemActive {
   color: rgba(108, 67, 191, 0.9);
 }
-.navbar .buttonStandard {
-  min-width: 150px;
+.navbar .buttonsBlock .buttonStandard {
+  padding: 2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 120px;
   background-image: linear-gradient(to left, #4f0ed0, #63c);
   border-radius: 4px;
   line-height: 32px;
@@ -54,9 +58,126 @@
   letter-spacing: normal;
   cursor: pointer;
 }
-.navbar .buttonStandard:hover {
+.navbar .buttonsBlock .buttonStandard:hover {
   background-image: linear-gradient(to left, #4311ad, #5b31b2);
   transition: 0.35s ease;
+}
+.navbar .buttonsBlock .buttonStandard svg {
+  vertical-align: center;
+  fill: #fff;
+}
+.navbar .buttonsBlock .burgerIcon {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+  .navbar .menu {
+    gap: 20px;
+  }
+  .navbar .menu .item .menuItem, .navbar .menu .item .menuItemActive {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .navbar .buttonsBlock .buttonStandard {
+    min-width: 75px;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .navbar .logo img {
+    height: 50px;
+  }
+  .navbar .menu {
+    transform: translateX(-100%);
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    height: 100vh;
+    width: 35vw;
+    padding: 20px;
+  }
+  .navbar .menu .item {
+    width: 100%;
+    border-bottom: 0.5px solid black;
+    padding: 10px;
+  }
+  .navbar .menu .item .menuItem, .navbar .menu .item .menuItemActive {
+    font-family: Inter, serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+  }
+  .navbar .menu .item .menuItem:hover, .navbar .menu .item .menuItemActive:hover {
+    color: rgb(108, 67, 191);
+    transition: 0.35s ease;
+  }
+  .navbar .menu.active {
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+  }
+  .navbar .buttonsBlock {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .navbar .buttonsBlock .buttonStandard {
+    max-height: 35px;
+  }
+  .navbar .buttonsBlock .burgerIcon {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+  .navbar .buttonsBlock .burgerIcon span {
+    background-color: black;
+    content: "";
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 9px;
+    left: 0;
+    align-items: center;
+  }
+  .navbar .buttonsBlock .burgerIcon:before {
+    background-color: black;
+    content: "";
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+  }
+  .navbar .buttonsBlock .burgerIcon:after {
+    background-color: black;
+    content: "";
+    width: 30px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar .menu {
+    width: 100vw;
+  }
+  .navbar .buttonsBlock .buttonStandard {
+    min-width: 30px;
+    max-height: 30px;
+    border-radius: 20px;
+  }
+  .navbar .buttonsBlock .buttonStandard span {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=navbar.css.map */

@@ -26,7 +26,7 @@ const Schedule = () => {
             {
                 dayDates.map((day: Date, index: number) => {
                     return <li key={index}
-                               className={dateFromReducer.getDay() === day.getDay() ? "activeDay" : "scheduleDay"}
+                               className={dateFromReducer.getDay() === day.getDay() ? "scheduleDay active" : "scheduleDay"}
                                onClick={() => dispatch(saveSelectedDate(dayDates[index].toLocaleDateString("en-CA")))}>
                         {index === 0 ? "Сегодня, " : index === 1 ? "Завтра, " : `${sortDays[index]}, `}{`${day.toLocaleString('default', {
                         day: "numeric",

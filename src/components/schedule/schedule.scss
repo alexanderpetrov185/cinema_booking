@@ -1,4 +1,5 @@
 @import "../../styles/variebles.scss";
+@import "../../styles/responsive.scss";
 
 .schedule {
   width: 100%;
@@ -8,21 +9,23 @@
   align-items: center;
   justify-content: left;
   gap: 15px;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   color: $black-color;
   border-bottom: 1px solid $soft-bg;
-  padding: 20px;
+  padding: 35px 20px 20px 0;
+  overflow-y: auto;
 
   .scheduleDay {
     background-color: $light-bg;
-    padding: 15px;
+    padding: 10px;
     border-radius: 40px;
     text-transform: capitalize;
-    max-height: 35px;
+    max-height: 45px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    white-space: nowrap;
 
     img {
       max-width: 35px;
@@ -34,15 +37,27 @@
     }
   }
 
-  .activeDay {
+  .scheduleDay.active {
     background-color: $active-color;
     color: $soft-color;
-    padding: 15px;
-    border-radius: 40px;
-    text-transform: capitalize;
-    max-height: 35px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  }
+
+  @include xxl {
+    font-size: 18px;
+    gap: 10px;
+    padding: 35px 15px 20px 0;
+  }
+
+  @include xl {
+    font-size: 16px;
+    gap: 10px;
+    padding: 25px 15px 20px 0;
+
+    .scheduleDay {
+      max-height: 40px;
+    }
+  }
+  @include md {
+    padding: 10px;
   }
 }

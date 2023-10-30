@@ -1,7 +1,7 @@
 @import "../../styles/variebles";
+@import "../../styles/responsive.scss";
 
 .bookingModule {
-
   background: $light-bg;
   color: #333;
   border-radius: 12px;
@@ -231,5 +231,106 @@
     justify-content: space-between;
     font-weight: 400;
     font-size: 14px;
+  }
+
+  @include md {
+    .bookingModule {
+      font-size: 12px;
+      gap: 5px;
+      padding: 15px 10px 15px 0;
+
+      .scheduleDay {
+        max-height: 30px;
+
+        .buttonsBlock {
+          padding: 3px;
+        }
+
+        .bookingHeader {
+          .bookingInfo {
+            gap: 1px;
+            font-weight: 300;
+            font-size: 11px;
+
+            .bookingTitle {
+              font-size: 18px;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .bookingBody {
+          .availableTime {
+            padding: 10px 0;
+            gap: 10px;
+
+            li {
+              gap: 3px;
+
+              .sessionButton {
+                padding: 0 8px;
+                font-weight: 400;
+                font-size: 12px;
+                max-height: 30px;
+              }
+
+              span {
+                font-size: 10px;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+
+        .movieSchema {
+          .shortInfo {
+            font-size: 12px;
+          }
+
+          .seatsSchema {
+            .row {
+              gap: 4px;
+              padding: 4px 0;
+              font-size: 12px;
+
+              span {
+                font-weight: 500;
+                font-size: 10px;
+              }
+
+              .seat {
+                width: 26px;
+                height: 26px;
+              }
+            }
+          }
+
+          .selectedInfo {
+            padding: 8px 0;
+            gap: 8px;
+            font-size: 12px;
+
+            .selectedTicketGroup {
+              gap: 4px;
+
+              .selectedTicket {
+                padding: 4px;
+                font-size: 11px;
+              }
+            }
+
+            .buttonBuy {
+              padding: 0 8px;
+              min-width: 40px;
+              font-size: 11px;
+            }
+          }
+        }
+
+        .bookingFooter {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }

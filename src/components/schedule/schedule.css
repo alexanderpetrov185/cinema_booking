@@ -6,21 +6,23 @@
   align-items: center;
   justify-content: left;
   gap: 15px;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   color: #000;
   border-bottom: 1px solid #303962;
-  padding: 20px;
+  padding: 35px 20px 20px 0;
+  overflow-y: auto;
 }
 .schedule .scheduleDay {
   background-color: #fff;
-  padding: 15px;
+  padding: 10px;
   border-radius: 40px;
   text-transform: capitalize;
-  max-height: 35px;
+  max-height: 45px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  white-space: nowrap;
 }
 .schedule .scheduleDay img {
   max-width: 35px;
@@ -29,16 +31,31 @@
   background-color: rgb(108, 67, 191);
   transition: 0.3s ease;
 }
-.schedule .activeDay {
+.schedule .scheduleDay.active {
   background-color: rgba(108, 67, 191, 0.9);
   color: #e1dddd;
-  padding: 15px;
-  border-radius: 40px;
-  text-transform: capitalize;
-  max-height: 35px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+}
+@media screen and (max-width: 1400px) {
+  .schedule {
+    font-size: 18px;
+    gap: 10px;
+    padding: 35px 15px 20px 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .schedule {
+    font-size: 16px;
+    gap: 10px;
+    padding: 25px 15px 20px 0;
+  }
+  .schedule .scheduleDay {
+    max-height: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .schedule {
+    padding: 10px;
+  }
 }
 
 /*# sourceMappingURL=schedule.css.map */

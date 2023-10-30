@@ -1,6 +1,9 @@
 @import "../../styles/variebles.scss";
+@import "../../styles/responsive.scss";
 
 .sessionCard {
+  width: 100%;
+  grid-row: span 1;
   padding: 15px 0;
   display: flex;
   flex-wrap: wrap;
@@ -92,5 +95,9 @@
         transition: 0.3s ease;
       }
     }
+  }
+
+  @include lg {
+    padding: 0;
   }
 }
