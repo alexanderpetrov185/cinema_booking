@@ -68,7 +68,7 @@ function App() {
                     path: "/help",
                     element: <Help/>,
                 },
-            ]
+            ],
         }
     ]);
 

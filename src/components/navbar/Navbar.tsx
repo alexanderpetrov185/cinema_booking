@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import "./navbar.scss"
 import {Link, NavLink} from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
-import LoginForm from "../authFroms/loginForm/LoginForm";
 import {useAppSelector} from "../../redux/hooks/redux";
 import Profile from "../profile/Profile";
+import AuthForm from "../authFroms/AuthForm";
 
 const menu = [
     {
@@ -72,7 +72,7 @@ const Navbar = () => {
                         Войти
                     </button>
                     <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-                        <LoginForm setModalIsOpen={setModalIsOpen}/>
+                        <AuthForm setModalIsOpen={setModalIsOpen}/>
                     </ModalWindow>
                 </>}
         </div>
