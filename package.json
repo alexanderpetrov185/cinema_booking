@@ -1,7 +1,6 @@
 {
   "name": "cinema-booking",
   "version": "0.1.0",
-  "homepage": "https://alexanderpetrov185.github.io/cinema_booking/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -27,7 +26,6 @@
     "react-scripts": "5.0.1",
     "react-swipeable": "^7.0.1",
     "redux": "^4.2.1",
-    "shortid": "^2.2.16",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
