@@ -1,7 +1,7 @@
 .movieItem {
   transition: transform 0.3s ease;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  width: 25%;
+  padding: 25px;
 }
 .movieItem .imageContainer {
   width: 100%;
