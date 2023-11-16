@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["modalWindow.scss","../../styles/variebles.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA,kBClBM;EDmBN;;;AAIJ;EACE;EACA;;;AAGF;EACE","file":"modalWindow.css"}
+{"version":3,"sourceRoot":"","sources":["modalWindow.scss","../../styles/variebles.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA,kBClBM;EDmBN;;;AAIJ;EACE;EACA;;;AAGF;EACE","file":"modalWindow.css"}
