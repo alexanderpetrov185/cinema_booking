@@ -3,12 +3,13 @@
 
 .slider {
   position: relative;
+  height: 60vh;
 
   .slideItem {
     width: 100%;
-    min-height: 55vh;
+    height: 100%;
     background-size: cover;
-    transition: all 250ms ease-out 0s;
+    //transition: all 250ms ease-out 0s;
   }
 
   .sliderDots {

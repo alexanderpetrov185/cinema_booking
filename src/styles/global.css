@@ -15,7 +15,18 @@ a {
   flex-direction: column;
 }
 .main .container {
+  background-color: #af3513;
   flex-grow: 1;
+}
+
+.contentWrapper {
+  min-height: 90vh;
+  padding: 0 25px 25px 25px;
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: #19072c;
 }
 
 /*# sourceMappingURL=global.css.map */

@@ -4,9 +4,8 @@
   justify-content: space-evenly;
   align-items: center;
   transition: 0.3s linear;
-  background: #fff;
+  background: #333;
   border-bottom: 1px solid rgba(21, 26, 38, 0.5);
-  position: fixed;
   top: 0;
   z-index: 999;
 }
@@ -29,7 +28,7 @@
   font-family: Inter, serif;
   font-weight: 600;
   font-size: 20px;
-  color: #333;
+  color: #fff;
 }
 .navbar .menu .item .menuItem:hover, .navbar .menu .item .menuItemActive:hover {
   color: rgb(108, 67, 191);

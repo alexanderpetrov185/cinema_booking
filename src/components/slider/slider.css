@@ -1,11 +1,11 @@
 .slider {
   position: relative;
+  height: 60vh;
 }
 .slider .slideItem {
   width: 100%;
-  min-height: 55vh;
+  height: 100%;
   background-size: cover;
-  transition: all 250ms ease-out 0s;
 }
 .slider .sliderDots {
   position: absolute;
