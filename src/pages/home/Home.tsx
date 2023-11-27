@@ -6,7 +6,6 @@ import Schedule from "../../components/schedule/Schedule";
 import useFetch from "../../http/hooks/useFetch";
 import { useAppSelector } from "../../redux/hooks/redux";
 import SplashScreen from "../../components/splashScreen/SplashScreen";
-import ProgressBar from "../../components/progressBar/ProgressBar";
 
 const Home = () => {
   const slides = useMemo(
@@ -41,9 +40,8 @@ const Home = () => {
 
   return (
     <div className={"home"}>
-      {/*<Slider slides={slides} />*/}
+      <Slider slides={slides} />
       <div className="contentWrapper">
-        <ProgressBar loading={loading} />
         <Schedule />
         {loading ? <SplashScreen /> : <MovieList movies={data} />}
       </div>

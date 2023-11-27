@@ -1,11 +1,12 @@
 .slider {
   position: relative;
   height: 60vh;
+  overflow: hidden;
 }
 .slider .sliderContainer {
   height: 100%;
   display: flex;
-  transition: transform ease-in-out 0.5ms;
+  transition: transform ease-in-out 0.5s;
 }
 .slider .sliderContainer .slideItem {
   height: 100%;

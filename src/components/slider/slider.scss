@@ -4,18 +4,19 @@
 .slider {
   position: relative;
   height: 60vh;
-  //overflow: hidden;
+  overflow: hidden;
 
   .sliderContainer{
     height: 100%;
     display: flex;
-    transition: transform ease-in-out 0.5ms;
+    transition: transform ease-in-out 0.5s;
 
     .slideItem {
       height: 100%;
       background-size: cover;
     }
   }
+
 
   .sliderDots {
     position: absolute;
