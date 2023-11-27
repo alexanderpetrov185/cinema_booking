@@ -5,6 +5,7 @@ import {
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
 import { useSwipeable } from "react-swipeable";
+import useMeasure from "react-use-measure";
 
 type Props = {
   slides: {
@@ -14,6 +15,7 @@ type Props = {
 };
 
 const Slider = memo(({ slides }: Props) => {
+  const [ref, { width }] = useMeasure();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitionEnd, setTransition] = useState(true);
 
@@ -58,13 +60,13 @@ const Slider = memo(({ slides }: Props) => {
   });
 
   const getSlidesContainerStyle = () => ({
-    width: `${window.innerWidth * slides.length}px`,
-    transform: `translateX(${-(currentIndex * window.innerWidth)}px)`,
+    width: `${width * slides.length}px`,
+    transform: `translateX(${-(currentIndex * width)}px)`,
   });
 
   const getSlideStyles = (slidesIndex: number) => ({
     backgroundImage: `url(${slides[slidesIndex].url})`,
-    width: `${window.innerWidth}px`,
+    width: `${width}px`,
   });
 
   //react Swipeable
@@ -80,7 +82,7 @@ const Slider = memo(({ slides }: Props) => {
   };
 
   return (
-    <div className="slider">
+    <div className="slider" ref={ref}>
       <div
         className="sliderContainer"
         style={getSlidesContainerStyle()}
