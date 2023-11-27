@@ -4,12 +4,17 @@
 .slider {
   position: relative;
   height: 60vh;
+  //overflow: hidden;
 
-  .slideItem {
-    width: 100%;
+  .sliderContainer{
     height: 100%;
-    background-size: cover;
-    //transition: all 250ms ease-out 0s;
+    display: flex;
+    transition: transform ease-in-out 0.5ms;
+
+    .slideItem {
+      height: 100%;
+      background-size: cover;
+    }
   }
 
   .sliderDots {
@@ -63,31 +68,31 @@
     right: 3%
   }
 
-  @include lg {
-    .slideItem {
-      width: 100%;
-      min-height: 35vh;
-      background-size: cover;
-      transition: all 250ms ease-out 0s;
-    }
-
-    .sliderDots {
-      gap: 15px;
-
-      .sliderDot {
-        font-size: 15px;
-        color: $main-color;
-        cursor: pointer;
-      }
-    }
-
-    .sliderArrow {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-  @include sm {
-    min-height: 30vh;
-  }
+  //@include lg {
+  //  .slideItem {
+  //    width: 100%;
+  //    min-height: 35vh;
+  //    background-size: cover;
+  //    transition: all 250ms ease-out 0s;
+  //  }
+  //
+  //  .sliderDots {
+  //    gap: 15px;
+  //
+  //    .sliderDot {
+  //      font-size: 15px;
+  //      color: $main-color;
+  //      cursor: pointer;
+  //    }
+  //  }
+  //
+  //  .sliderArrow {
+  //    width: 30px;
+  //    height: 30px;
+  //  }
+  //}
+  //
+  //@include sm {
+  //  min-height: 30vh;
+  //}
 }

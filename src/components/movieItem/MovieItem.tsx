@@ -4,7 +4,7 @@ import ModalWindow from "../modalWindow/ModalWindow";
 import BookingModule from "../bookingModule/BookingModule";
 import { IMovie } from "../../redux/models/IMovie";
 import Player from "../player/Player";
-import SessionCard from "../sessionDetails/SessionCard";
+import SessionCard from "../sessionCard/SessionCard";
 
 type Props = {
   movie: IMovie;

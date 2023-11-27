@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className={"home"}>
-      <Slider slides={slides} />
+      {/*<Slider slides={slides} />*/}
       <div className="contentWrapper">
         <ProgressBar loading={loading} />
         <Schedule />

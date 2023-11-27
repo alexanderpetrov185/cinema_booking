@@ -2,8 +2,12 @@
   position: relative;
   height: 60vh;
 }
-.slider .slideItem {
-  width: 100%;
+.slider .sliderContainer {
+  height: 100%;
+  display: flex;
+  transition: transform ease-in-out 0.5ms;
+}
+.slider .sliderContainer .slideItem {
   height: 100%;
   background-size: cover;
 }
@@ -49,31 +53,6 @@
 }
 .slider .sliderArrow.right {
   right: 3%;
-}
-@media screen and (max-width: 1024px) {
-  .slider .slideItem {
-    width: 100%;
-    min-height: 35vh;
-    background-size: cover;
-    transition: all 250ms ease-out 0s;
-  }
-  .slider .sliderDots {
-    gap: 15px;
-  }
-  .slider .sliderDots .sliderDot {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.91);
-    cursor: pointer;
-  }
-  .slider .sliderArrow {
-    width: 30px;
-    height: 30px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .slider {
-    min-height: 30vh;
-  }
 }
 
 /*# sourceMappingURL=slider.css.map */
