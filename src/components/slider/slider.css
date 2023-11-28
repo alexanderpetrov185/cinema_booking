@@ -6,7 +6,7 @@
 .slider .sliderContainer {
   height: 100%;
   display: flex;
-  transition: transform ease-in-out 0.3s;
+  transition: transform ease-in-out 0.5s;
 }
 .slider .sliderContainer .slideItem {
   height: 100%;
