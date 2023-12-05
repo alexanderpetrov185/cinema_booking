@@ -4,16 +4,25 @@
 .slider {
   position: relative;
   height: 60vh;
+  display: flex;
   overflow: hidden;
+
+  //test styles
+  //margin: 0 auto;
+  //justify-content: center;
+
 
   .sliderContainer{
     height: 100%;
+    width: 100%;
     display: flex;
-    transition: transform ease-in-out 0.5s;
+    transition-duration: 400ms;
 
     .slideItem {
       height: 100%;
+      width: 100%;
       background-size: cover;
+      flex-shrink: 0;
     }
   }
 

@@ -1,11 +1,16 @@
-import React, { memo, useCallback, useState } from "react";
+import React, {
+  memo,
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import "./slider.scss";
 import {
   ArrowBackIosOutlined,
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
-import { useSwipeable } from "react-swipeable";
-import useMeasure from "react-use-measure";
 
 type Props = {
   slides: {
@@ -15,107 +20,89 @@ type Props = {
 };
 
 const Slider = memo(({ slides }: Props) => {
-  const [ref, { width }] = useMeasure();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitionEnd, setTransition] = useState(true);
-
-  const handleTransitionEvent = useCallback(() => {
-    setTransition(true);
-  }, []);
-
-  const goToPrevious = useCallback(() => {
-    setCurrentIndex((state) => {
-      if (state === 0) {
-        return slides.length - 1;
-      }
-      return (state - 1) % slides.length;
-    });
-    setTransition(false);
-  }, [slides.length]);
-
-  const goToNext = useCallback(() => {
-    setCurrentIndex((state) => {
-      return (state + 1) % slides.length;
-    });
-    setTransition(false);
-  }, [slides.length]);
-
-  const goToSlide = useCallback(
-    (slideIndex: number, currentIndex: number): void => {
-      if (slideIndex !== currentIndex) {
-        setCurrentIndex(slideIndex);
-        setTransition(false);
-      }
-    },
-    [],
+  const slidesToRender = useMemo(
+    () => [slides[slides.length - 1], ...slides, slides[0]],
+    [slides],
   );
 
-  // //change slide every 5 seconds
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      goToNext();
-    }, 5000);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [translateX, setTranslateX] = useState(0);
 
-    return () => clearInterval(timer);
-  });
+  const goToNext = useCallback(() => {
+    if (containerRef.current && currentIndex >= 1) {
+      containerRef.current.style.transitionDuration = "400ms";
+    }
+    if (currentIndex !== slidesToRender.length - 1)
+      setCurrentIndex((state) => (state + 1) % slidesToRender.length);
+  }, [currentIndex, slidesToRender.length]);
 
-  const getSlidesContainerStyle = () => ({
-    width: `${width * slides.length}px`,
-    transform: `translateX(${-(currentIndex * width)}px)`,
-  });
+  const goToPrevious = useCallback(() => {
+    if (containerRef.current && currentIndex <= slidesToRender.length - 2) {
+      containerRef.current.style.transitionDuration = "400ms";
+    }
+    if (currentIndex !== 0)
+      setCurrentIndex((state) => (state - 1) % slidesToRender.length);
+  }, [currentIndex, slidesToRender.length]);
 
-  const getSlideStyles = (slidesIndex: number) => ({
-    backgroundImage: `url(${slides[slidesIndex].url})`,
-    width: `${width}px`,
-  });
+  const getSlidesContainerStyle = useCallback(() => {
+    return {
+      transform: `translateX(${-translateX}px)`,
+    };
+  }, [translateX]);
 
-  //react Swipeable
-  const handlers = useSwipeable({
-    onSwipedLeft: goToPrevious,
-    onSwipedRight: goToNext,
-  });
-  const myRef = React.useRef<HTMLDivElement | null>(null);
+  useLayoutEffect(() => {
+    if (containerRef.current) {
+      setTranslateX(containerRef.current.clientWidth * currentIndex);
+    }
+  }, [currentIndex]);
 
-  const refPassthrough = (el: HTMLDivElement | null) => {
-    handlers.ref(el);
-    myRef.current = el;
+  const handleTransition = () => {
+    if (containerRef.current && currentIndex === 0) {
+      containerRef.current.style.transitionDuration = "0ms";
+      setCurrentIndex(slidesToRender.length - 2);
+    }
+
+    if (containerRef.current && currentIndex === slidesToRender.length - 1) {
+      containerRef.current.style.transitionDuration = "0ms";
+      setCurrentIndex(1);
+    }
   };
 
   return (
-    <div className="slider" ref={ref}>
+    <div className="slider">
       <div
+        onTransitionEnd={handleTransition}
         className="sliderContainer"
+        ref={containerRef}
         style={getSlidesContainerStyle()}
-        onTransitionEnd={handleTransitionEvent}
       >
-        {slides.map((slide, slideIndex) => (
+        {slidesToRender.map((slide, slideIndex) => (
           <div
             key={slideIndex}
             className={"slideItem"}
-            style={getSlideStyles(slideIndex)}
-            ref={refPassthrough}
+            style={{
+              backgroundImage: `url(${slide.url})`,
+            }}
           ></div>
         ))}
       </div>
       <ArrowBackIosOutlined
         className="sliderArrow left"
         onClick={goToPrevious}
-        style={!isTransitionEnd ? { pointerEvents: "none" } : {}}
       />
       <ArrowForwardIosOutlined
         className="sliderArrow right"
         onClick={goToNext}
-        style={!isTransitionEnd ? { pointerEvents: "none" } : {}}
       />
       <div className="sliderDots">
         {slides.map((slide, slideIndex) => (
           <div
             className={
-              slideIndex === currentIndex ? "sliderDot Active" : "sliderDot"
+              // slideIndex === currentIndex ? "sliderDot Active" :
+              "sliderDot"
             }
             key={slideIndex}
-            onClick={() => goToSlide(slideIndex, currentIndex)}
-            style={!isTransitionEnd ? { pointerEvents: "none" } : {}}
           >
             ●
           </div>
