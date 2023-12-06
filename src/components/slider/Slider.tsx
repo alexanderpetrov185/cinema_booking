@@ -1,6 +1,8 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import "./slider.scss";
 import useMeasure from "react-use-measure";
+import { useSwipeable } from "react-swipeable";
+import { mergeRefs } from "react-merge-refs";
 
 type Props = {
   slides: {
@@ -75,12 +77,24 @@ const Slider = memo(({ slides }: Props) => {
     return () => clearInterval(timer);
   });
 
+  //react Swipeable
+  const handlers = useSwipeable({
+    onSwipedLeft: goToPrevious,
+    onSwipedRight: goToNext,
+  });
+
+  const myRef = React.useRef<HTMLDivElement | null>(null);
+  const refPassthrough = (el: HTMLDivElement | null) => {
+    handlers.ref(el);
+    myRef.current = el;
+  };
+
   return (
     <div className="slider">
       <div
         onTransitionEnd={handleTransition}
         className="sliderContainer"
-        ref={ref}
+        ref={mergeRefs([ref, refPassthrough])}
         style={getSlidesContainerStyle()}
       >
         {slidesToRender.map((slide, slideIndex) => (
