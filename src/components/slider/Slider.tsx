@@ -1,12 +1,6 @@
-import React, {
-  memo,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import "./slider.scss";
+import useMeasure from "react-use-measure";
 
 type Props = {
   slides: {
@@ -20,7 +14,8 @@ const Slider = memo(({ slides }: Props) => {
     () => [slides[slides.length - 1], ...slides, slides[0]],
     [slides],
   );
-  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const [ref, { width }] = useMeasure();
   const [currentIndex, setCurrentIndex] = useState(1);
   const [translateX, setTranslateX] = useState(0);
   const [transitionState, setTransitionState] = useState(false);
@@ -69,10 +64,8 @@ const Slider = memo(({ slides }: Props) => {
   };
 
   useEffect(() => {
-    if (containerRef.current) {
-      setTranslateX(containerRef.current.clientWidth * currentIndex);
-    }
-  }, [currentIndex]);
+    setTranslateX(width * currentIndex);
+  }, [currentIndex, width]);
 
   //auto-slide
   useEffect(() => {
@@ -87,7 +80,7 @@ const Slider = memo(({ slides }: Props) => {
       <div
         onTransitionEnd={handleTransition}
         className="sliderContainer"
-        ref={containerRef}
+        ref={ref}
         style={getSlidesContainerStyle()}
       >
         {slidesToRender.map((slide, slideIndex) => (
