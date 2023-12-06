@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./authForm.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import {
@@ -17,6 +17,10 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
   const [password, setPassword] = React.useState<string>("");
   const dispatch = useAppDispatch();
   const { error } = useAppSelector((state) => state.userReducer);
+
+  const loginOnClick = useCallback(() => {
+    dispatch(loginAction(email, password));
+  }, [dispatch, email, password]);
 
   return (
     <form className={"authForm"} onSubmit={(e) => e.preventDefault()}>
@@ -45,7 +49,7 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
         />
         <span>password</span>
       </label>
-      <button onClick={() => {}}>{"Войти"}</button>
+      <button onClick={loginOnClick}>{"Войти"}</button>
       <span onClick={() => {}}>{"Зарегистрироваться"}</span>
     </form>
   );

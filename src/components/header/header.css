@@ -1,4 +1,4 @@
-.navbar {
+.header {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -9,34 +9,34 @@
   top: 0;
   z-index: 999;
 }
-.navbar .logo {
+.header .logo {
   display: flex;
   align-items: center;
 }
-.navbar .logo img {
+.header .logo img {
   height: 75px;
 }
-.navbar .logo img:hover {
+.header .logo img:hover {
   opacity: 0.85;
   transition: 0.35s ease;
 }
-.navbar .menu {
+.header .menu {
   display: flex;
   gap: 30px;
 }
-.navbar .menu .item .menuItem, .navbar .menu .item .menuItemActive {
+.header .menu .item .menuItem, .header .menu .item .menuItemActive {
   font-weight: 600;
   font-size: 20px;
   color: #fff;
 }
-.navbar .menu .item .menuItem:hover, .navbar .menu .item .menuItemActive:hover {
+.header .menu .item .menuItem:hover, .header .menu .item .menuItemActive:hover {
   color: rgb(108, 67, 191);
   transition: 0.35s ease;
 }
-.navbar .menu .item .menuItemActive {
+.header .menu .item .menuItemActive {
   color: rgba(108, 67, 191, 0.9);
 }
-.navbar .buttonsBlock .buttonStandard {
+.header .buttonsBlock .buttonStandard {
   padding: 2px;
   display: flex;
   justify-content: space-around;
@@ -55,39 +55,39 @@
   letter-spacing: normal;
   cursor: pointer;
 }
-.navbar .buttonsBlock .buttonStandard:hover {
+.header .buttonsBlock .buttonStandard:hover {
   background-image: linear-gradient(to left, #4311ad, #5b31b2);
   transition: 0.35s ease;
 }
-.navbar .buttonsBlock .buttonStandard svg {
+.header .buttonsBlock .buttonStandard svg {
   vertical-align: center;
   fill: #fff;
 }
-.navbar .buttonsBlock .burgerIcon {
+.header .buttonsBlock .burgerIcon {
   display: none;
 }
 @media screen and (max-width: 1200px) {
-  .navbar {
+  .header {
     justify-content: space-between;
     padding: 0 15px;
   }
-  .navbar .menu {
+  .header .menu {
     gap: 20px;
   }
-  .navbar .menu .item .menuItem, .navbar .menu .item .menuItemActive {
+  .header .menu .item .menuItem, .header .menu .item .menuItemActive {
     font-size: 18px;
     font-weight: 500;
   }
-  .navbar .buttonsBlock .buttonStandard {
+  .header .buttonsBlock .buttonStandard {
     min-width: 75px;
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .navbar .logo img {
+  .header .logo img {
     height: 50px;
   }
-  .navbar .menu {
+  .header .menu {
     transform: translateX(-100%);
     flex-direction: column;
     position: fixed;
@@ -98,40 +98,40 @@
     width: 35vw;
     padding: 20px;
   }
-  .navbar .menu .item {
+  .header .menu .item {
     width: 100%;
     border-bottom: 0.5px solid black;
     padding: 10px;
   }
-  .navbar .menu .item .menuItem, .navbar .menu .item .menuItemActive {
+  .header .menu .item .menuItem, .header .menu .item .menuItemActive {
     font-weight: 600;
     font-size: 20px;
     color: #333;
   }
-  .navbar .menu .item .menuItem:hover, .navbar .menu .item .menuItemActive:hover {
+  .header .menu .item .menuItem:hover, .header .menu .item .menuItemActive:hover {
     color: rgb(108, 67, 191);
     transition: 0.35s ease;
   }
-  .navbar .menu.active {
+  .header .menu.active {
     transform: translateX(0);
     transition: all 0.5s ease-in-out;
   }
-  .navbar .buttonsBlock {
+  .header .buttonsBlock {
     display: flex;
     gap: 20px;
     align-items: center;
   }
-  .navbar .buttonsBlock .buttonStandard {
+  .header .buttonsBlock .buttonStandard {
     max-height: 35px;
   }
-  .navbar .buttonsBlock .burgerIcon {
+  .header .buttonsBlock .burgerIcon {
     display: block;
     width: 30px;
     height: 20px;
     position: relative;
     cursor: pointer;
   }
-  .navbar .buttonsBlock .burgerIcon span {
+  .header .buttonsBlock .burgerIcon span {
     background-color: black;
     content: "";
     width: 30px;
@@ -141,7 +141,7 @@
     left: 0;
     align-items: center;
   }
-  .navbar .buttonsBlock .burgerIcon:before {
+  .header .buttonsBlock .burgerIcon:before {
     background-color: black;
     content: "";
     width: 30px;
@@ -151,7 +151,7 @@
     left: 0;
     align-items: center;
   }
-  .navbar .buttonsBlock .burgerIcon:after {
+  .header .buttonsBlock .burgerIcon:after {
     background-color: black;
     content: "";
     width: 30px;
@@ -163,17 +163,17 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .navbar .menu {
+  .header .menu {
     width: 100vw;
   }
-  .navbar .buttonsBlock .buttonStandard {
+  .header .buttonsBlock .buttonStandard {
     min-width: 30px;
     max-height: 30px;
     border-radius: 20px;
   }
-  .navbar .buttonsBlock .buttonStandard span {
+  .header .buttonsBlock .buttonStandard span {
     display: none;
   }
 }
 
-/*# sourceMappingURL=navbar.css.map */
+/*# sourceMappingURL=header.css.map */

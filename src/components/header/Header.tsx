@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from "react";
-import "./navbar.scss";
+import "./header.scss";
 import { Link, NavLink } from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
 import { useAppSelector } from "../../redux/hooks/redux";
 import Profile from "../profile/Profile";
 import AuthForm from "../authFrom/AuthForm";
 
-const Navbar = () => {
+const Header = () => {
   const menu = useMemo(
     () => [
       {
@@ -52,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={"navbar"}>
+    <div className={"header"}>
       <div className="logo">
         <Link to={"/"}>
           <img src="/assets/images/cinemas_logo.svg" alt="cinema_logo" />
@@ -126,4 +126,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
