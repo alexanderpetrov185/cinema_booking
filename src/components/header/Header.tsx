@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import "./header.scss";
 import { Link, NavLink } from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
@@ -47,10 +47,9 @@ const Header = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [menuActive, setMenuActive] = React.useState(false);
 
-  const modalOpen = (state: boolean) => {
+  const modalOpen = useCallback((state: boolean) => {
     setModalIsOpen(state);
-  };
-
+  }, []);
   return (
     <div className={"header"}>
       <div className="logo">
