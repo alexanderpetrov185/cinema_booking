@@ -12,6 +12,13 @@ const ModalWindow: React.FC<Props> = ({
   setModalIsOpen,
   children,
 }: Props) => {
+  if (!modalIsOpen) {
+    document.body.style.overflow = "unset";
+    return null;
+  }
+
+  document.body.style.overflow = "hidden";
+
   return (
     <div
       className={modalIsOpen ? "modalWindow active" : "modalWindow"}
