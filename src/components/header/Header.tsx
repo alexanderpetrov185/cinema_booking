@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
 import { useAppSelector } from "../../redux/hooks/redux";
 import Profile from "../profile/Profile";
-import AuthBlock from "../authBlock/AuthBlock";
+import AuthForm from "../authForm/AuthForm";
 
 const Header = () => {
   const menu = useMemo(
@@ -117,7 +117,7 @@ const Header = () => {
             modalIsOpen={modalIsOpen}
             setModalIsOpen={setModalIsOpen}
           >
-            <AuthBlock setModalIsOpen={setModalIsOpen} />
+            <AuthForm setModalIsOpen={setModalIsOpen} />
           </ModalWindow>
         </div>
       )}

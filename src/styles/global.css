@@ -6,11 +6,33 @@
 
 body {
   font-family: "Inter", sans-serif;
+  font-size: 16px;
 }
-
-a {
+body a {
   text-decoration: none;
   color: inherit;
+}
+body h2 {
+  font-size: 24px;
+}
+body h3 {
+  font-size: 20px;
+}
+body button {
+  background-image: linear-gradient(to left, #4f0ed0, #63c);
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+body button:hover {
+  background-image: linear-gradient(to left, #4311ad, #5b31b2);
+  transition: 0.35s ease;
 }
 
 .main {

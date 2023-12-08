@@ -13,7 +13,7 @@ const ModalWindow: React.FC<Props> = ({
   children,
 }: Props) => {
   if (!modalIsOpen) {
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = "auto";
     return null;
   }
 
