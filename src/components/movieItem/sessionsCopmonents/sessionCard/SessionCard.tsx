@@ -1,10 +1,10 @@
 import React from "react";
 import "./sessionCard.scss";
-import { useAppDispatch } from "../../redux/hooks/redux";
+import { useAppDispatch } from "../../../../redux/hooks/redux";
 import {
   saveSelectedDate,
   saveSelectedSession,
-} from "../../redux/reducers/actionCreators";
+} from "../../../../redux/reducers/actionCreators";
 
 type Props = {
   title: string;
@@ -72,7 +72,7 @@ const SessionCard = ({
               return (
                 <span
                   key={details._id}
-                  className={"tomorrowSessions"}
+                  className={"tomorrowSessionsSpan"}
                   onClick={() => tomorrowToSelect()}
                 >
                   Сеансы на завтра

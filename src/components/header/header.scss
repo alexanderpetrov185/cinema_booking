@@ -2,40 +2,48 @@
 @import "../../styles/responsive.scss";
 
 .header {
+  min-height: 80px;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  transition: .3s linear;
-  background: $dark-bg;
-  border-bottom: 1px solid rgba(21, 26, 38, 0.5);
-  //position: fixed;
+  transition: .3s ease;
+  background: linear-gradient(180deg,rgb(14,14,24) 20%,rgba(14,14,24,0) 100%);
+  position: fixed;
   top: 0;
   z-index: 999;
+  padding: 10px $side-padding-for-not-in-container; //for container width
 
   .logo {
-    display: flex;
-    align-items: center;
+    width: 160px;
+    height: 80px;
+    fill: $main-color;
+    stroke: $hover-color;
 
-    img {
-      height: 75px;
-
-      &:hover {
-        opacity: 0.85;
-        transition: 0.35s ease;
-      }
+    &:hover{
+      transition: .3s ease;
+      fill: $hover-color;
     }
   }
 
-  .menu {
+  .navigation {
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 3em;
+    background-color: rgba($main-bg, .2);
+    backdrop-filter: blur(30px);
     display: flex;
     gap: 30px;
+    white-space: nowrap;
 
-    .item {
-      .menuItem, .menuItemActive {
-        font-weight: 600;
-        font-size: 20px;
-        color: $light-bg;
+    .navLinks {
+      list-style-type: none;
+
+      .navigationLink, .navigationLinkActive {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1em;
+        color: $white-color;
 
         &:hover {
           color: $hover-color;
@@ -43,41 +51,44 @@
         }
       }
 
-      .menuItemActive {
-        color: $active-color;
+      .navigationItemActive {
+        color: $main-color;
       }
     }
   }
 
   .buttonsBlock {
     .buttonStandard {
-      padding: 2px;
+      gap: 2px;
       display: flex;
-      justify-content: space-around;
       align-items: center;
-      min-width: 120px;
-      background-image: linear-gradient(to left, #4f0ed0, #63c);
-      border-radius: 4px;
-      line-height: 32px;
-      color: #fff;
+      color: $white-color;
       text-decoration: none;
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 1em;
+      font-weight: 600;
       font-style: normal;
       font-stretch: normal;
       text-align: center;
       letter-spacing: normal;
       cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+
+      .profileIcon{
+        width: 35px;
+        height: 25px;
+        fill: $white-color;
+      }
 
       &:hover {
-        background-image: linear-gradient(to left, #4311ad, #5b31b2);
+        .profileIcon{
+          transition: 0.35s ease;
+          fill: $hover-color;
+        }
         transition: 0.35s ease;
+        color: $hover-color;
       }
-    }
-
-    .buttonStandard svg {
-      vertical-align: center;
-      fill: #fff;
     }
 
     .burgerIcon {
@@ -86,135 +97,135 @@
   }
 
 
-  @include xl {
-    justify-content: space-between;
-    padding: 0 15px;
-
-    .menu {
-      gap: 20px;
-
-      .item {
-        .menuItem, .menuItemActive {
-          font-size: 18px;
-          font-weight: 500;
-        }
-      }
-    }
-    .buttonsBlock {
-      .buttonStandard {
-        min-width: 75px;
-        font-size: 16px;
-      }
-    }
-  }
-
-  @include lg {
-    .logo {
-      img {
-        height: 50px;
-      }
-    }
-
-    .menu {
-      transform: translateX(-100%);
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: white;
-      height: 100vh;
-      width: 35vw;
-      padding: 20px;
-
-      .item {
-        width: 100%;
-        border-bottom: 0.5px solid black;
-        padding: 10px;
-
-        .menuItem, .menuItemActive {
-          font-weight: 600;
-          font-size: 20px;
-          color: $dark-color;
-
-          &:hover {
-            color: $hover-color;
-            transition: 0.35s ease;
-          }
-        }
-      }
-    }
-
-    .menu.active {
-      transform: translateX(0);
-      transition: all 0.5s ease-in-out;
-    }
-
-    .buttonsBlock {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-
-      .buttonStandard {
-        max-height: 35px;
-      }
-
-      .burgerIcon {
-        display: block;
-        width: 30px;
-        height: 20px;
-        position: relative;
-        cursor: pointer;
-      }
-
-      .burgerIcon span {
-        background-color: black;
-        content: "";
-        width: 30px;
-        height: 2px;
-        position: absolute;
-        top: 9px;
-        left: 0;
-        align-items: center;
-      }
-
-      .burgerIcon:before {
-        background-color: black;
-        content: "";
-        width: 30px;
-        height: 2px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        align-items: center;
-      }
-
-      .burgerIcon:after {
-        background-color: black;
-        content: "";
-        width: 30px;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        align-items: center;
-      }
-    }
-  }
-
-  @include md {
-    .menu {
-      width: 100vw;
-    }
-    .buttonsBlock {
-      .buttonStandard {
-        min-width: 30px;
-        max-height: 30px;
-        border-radius: 20px;
-      }
-
-      .buttonStandard span {
-        display: none;
-      }
-    }
-  }
+  //@include xl {
+  //  justify-content: space-between;
+  //  padding: 0 15px;
+  //
+  //  .navigation {
+  //    gap: 20px;
+  //
+  //    .item {
+  //      .navigationItem, .navigationItemActive {
+  //        font-size: 18px;
+  //        font-weight: 500;
+  //      }
+  //    }
+  //  }
+  //  .buttonsBlock {
+  //    .buttonStandard {
+  //      min-width: 75px;
+  //      font-size: 16px;
+  //    }
+  //  }
+  //}
+  //
+  //@include lg {
+  //  .logo {
+  //    img {
+  //      height: 50px;
+  //    }
+  //  }
+  //
+  //  .navigation {
+  //    transform: translateX(-100%);
+  //    flex-direction: column;
+  //    position: fixed;
+  //    top: 0;
+  //    left: 0;
+  //    background-color: white;
+  //    height: 100vh;
+  //    width: 35vw;
+  //    padding: 20px;
+  //
+  //    .item {
+  //      width: 100%;
+  //      border-bottom: 0.5px solid black;
+  //      padding: 10px;
+  //
+  //      .navigationItem, .navigationItemActive {
+  //        font-weight: 600;
+  //        font-size: 20px;
+  //        color: $dark-color;
+  //
+  //        &:hover {
+  //          color: $hover-color;
+  //          transition: 0.35s ease;
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //  .navigation.active {
+  //    transform: translateX(0);
+  //    transition: all 0.5s ease-in-out;
+  //  }
+  //
+  //  .buttonsBlock {
+  //    display: flex;
+  //    gap: 20px;
+  //    align-items: center;
+  //
+  //    .buttonStandard {
+  //      max-height: 35px;
+  //    }
+  //
+  //    .burgerIcon {
+  //      display: block;
+  //      width: 30px;
+  //      height: 20px;
+  //      position: relative;
+  //      cursor: pointer;
+  //    }
+  //
+  //    .burgerIcon span {
+  //      background-color: black;
+  //      content: "";
+  //      width: 30px;
+  //      height: 2px;
+  //      position: absolute;
+  //      top: 9px;
+  //      left: 0;
+  //      align-items: center;
+  //    }
+  //
+  //    .burgerIcon:before {
+  //      background-color: black;
+  //      content: "";
+  //      width: 30px;
+  //      height: 2px;
+  //      position: absolute;
+  //      top: 0;
+  //      left: 0;
+  //      align-items: center;
+  //    }
+  //
+  //    .burgerIcon:after {
+  //      background-color: black;
+  //      content: "";
+  //      width: 30px;
+  //      height: 2px;
+  //      bottom: 0;
+  //      left: 0;
+  //      position: absolute;
+  //      align-items: center;
+  //    }
+  //  }
+  //}
+  //
+  //@include md {
+  //  .navigation {
+  //    width: 100vw;
+  //  }
+  //  .buttonsBlock {
+  //    .buttonStandard {
+  //      min-width: 30px;
+  //      max-height: 30px;
+  //      border-radius: 20px;
+  //    }
+  //
+  //    .buttonStandard span {
+  //      display: none;
+  //    }
+  //  }
+  //}
 }

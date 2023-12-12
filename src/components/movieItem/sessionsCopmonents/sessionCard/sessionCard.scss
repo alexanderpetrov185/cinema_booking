@@ -1,5 +1,5 @@
-@import "../../styles/variebles.scss";
-@import "../../styles/responsive.scss";
+@import "../../../../styles/variebles";
+@import "../../../../styles/responsive";
 
 .sessionCard {
   width: 100%;
@@ -9,17 +9,13 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
-  font-weight: 400;
-  color: $main-color;
+  color: $white-color;
 
   .movieTitle {
-    font-size: 32px;
-    font-weight: 500;
     padding: 5px 0 0 0;
   }
 
   .movieGenre {
-    font-size: 14px;
     height: 40px;
     padding: 2px 0 5px 0;
   }
@@ -34,13 +30,12 @@
     .sessionDetails {
       display: flex;
       flex-direction: column;
+      gap: 5px;
 
       div {
-        font-size: 20px;
-        font-weight: 500;
         display: flex;
         flex-direction: column;
-        background-color: rgba(124, 87, 192, 1);
+        background-color: rgba($white-bg, 1);
         border-radius: 5%;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
@@ -48,40 +43,40 @@
         padding: 1px;
 
         &:hover {
-          background-color: rgb(89, 44, 175);
+          color: $white-color;
+          background-color: $hover-color;
           transition: 0.35s ease;
+
+
+          span {
+            &:last-child {
+              color: $white-color;
+              transition: 0.35s ease;
+              background-color: $dark-bg;
+            }
+          }
         }
 
         span {
-          font-size: 14px;
-          font-weight: 500;
           padding: 5px;
           transition: transform 0.3s linear;
 
           &:last-child {
             border-radius: 0 0 10% 10%;
-            background: $main-color;
-
-            &:hover {
-              background-color: rgba(255, 255, 255, 0.55);
-              transition: 0.35s ease;
-            }
+            background-color: $main-color;
           }
         }
       }
 
       .hallNumber {
+        font-size: 0.8em;
         text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 300;
       }
     }
 
-    .tomorrowSessions {
-      font-size: 15px;
-      font-weight: 600;
+    .tomorrowSessionsSpan {
       color: $black-color;
-      background-color: $light-bg;
+      background-color: $white-bg;
       padding: 15px;
       text-transform: capitalize;
       max-height: 35px;
@@ -96,7 +91,7 @@
     }
   }
 
-  @include lg {
-    padding: 0;
-  }
+  //@include lg {
+  //  padding: 0;
+  //}
 }

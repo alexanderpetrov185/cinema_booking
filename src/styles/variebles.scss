@@ -1,13 +1,33 @@
 // BG
-$main-bg: #19072c;
+$main-bg: #0E0E18;
 $main-bright-bg: #350e5e;
 $soft-bg: #303962;
-$light-bg: #fff;
+$white-bg: #fff;
+$black-bg: #000;
 $dark-bg: #333;
 //colors
-$main-color: rgba(255, 255, 255, 0.91);
-$soft-color: #e1dddd;
-$active-color: rgba(108, 67, 191, 0.9);
-$hover-color: rgba(108, 67, 191, 1);
-$dark-color: #333;
-$black-color: #000
+$main-color: rgba(108, 67, 191);
+$hover-color: rgb(135, 84, 236);
+$white-color: #fff;
+$black-color: #000;
+
+//content container
+$content-container-width: 95%;
+$side-padding-for-not-in-container: (100 - $content-container-width) / 2; //for only one side!
+
+//// BG
+//$main-bg: #19072c;
+//$main-bright-bg: #350e5e;
+//$soft-bg: #303962;
+//$light-bg: #fff;
+//$dark-bg: #333;
+////colors
+//$main-color: rgba(255, 255, 255, 0.91);
+//$soft-color: #e1dddd;
+//$active-color: rgba(108, 67, 191, 0.9);
+//$hover-color: rgba(108, 67, 191, 1);
+//$dark-color: #333;
+//$black-color: #000;
+////stroke color
+//$stroke-color-dark: rgba(255, 255, 255, 0.5);
+//$stroke-color-white: rgba(255, 255, 255, 1);

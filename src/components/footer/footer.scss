@@ -2,15 +2,13 @@
 @import "../../styles/responsive.scss";
 
 .footer {
-  //background-color: $light-bg;
-  background-color: $black-color;
+  background-color: $main-bg;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 30px;
-  color: $dark-color;
-  font-weight: 600;
-  font-size: 18px;
+  color: $white-color;
+  font-size: 1em;
+  padding: 2.5% 2.5%; //for container width
 
   a {
     &:hover {
@@ -19,21 +17,13 @@
     }
   }
 
-  img {
-    width: 30px;
-    max-height: 32px;
-    object-fit: cover;
-
-    &:hover {
-      transition: 0.35s ease;
-    }
-  }
-
   .social {
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 0 30px 0;
-    font-weight: 500;
+    border-bottom: 0.5px solid $soft-bg;
+    padding: 2.5% 0;
 
     .socialItem {
       display: flex;
@@ -42,11 +32,30 @@
       padding: 0 30px;
       gap: 20px;
 
-      img {
-        width: 100%;
+      svg {
+        fill:$white-color;
+        stroke: $white-color;
+        width: 30px;
+        height: 30px;
 
-        &:hover {
-          opacity: 0.85;
+        &:hover{
+          fill:$hover-color;
+          stroke: $hover-color;
+          transition: 0.35s ease;
+        }
+      }
+    }
+
+    .socialItem.right {
+      svg{
+        fill:$white-color;
+        stroke: $white-color;
+        width: 135px;
+        height: 40px;
+
+        &:hover{
+          fill:$hover-color;
+          stroke: $hover-color;
           transition: 0.35s ease;
         }
       }
@@ -57,6 +66,7 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    padding: 2.5% 0;
 
     .contactsItem {
       width: max-content;
@@ -66,60 +76,55 @@
       justify-content: flex-end;
       gap: 8px;
       flex: 1;
-
-      .itemText {
-        font-size: 16px;
-        font-weight: 400;
-      }
     }
   }
 
-  @include lg {
-    font-size: 14px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 15px;
-    .contacts {
-      .contactsItem {
-        gap: 10px;
-        width: max-content;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-
-        .itemText {
-          text-align: center;
-          font-size: 14px;
-          font-weight: 400;
-        }
-      }
-    }
-  }
-
-  @include md {
-    padding: 20px 10px;
-    font-size: 12px;
-    .contacts {
-      .contactsItem {
-        gap: 8px;
-
-        .itemText {
-          text-align: center;
-          font-size: 12px;
-          font-weight: 400;
-        }
-      }
-    }
-    .social {
-      padding: 0 0 20px 0;
-
-      .socialItem {
-        padding: 0 15px;
-        gap: 10px;
-      }
-    }
-  }
+  //@include lg {
+  //  font-size: 14px;
+  //  flex-direction: row;
+  //  flex-wrap: wrap;
+  //  justify-content: center;
+  //  align-items: center;
+  //  padding: 30px 15px;
+  //  .contacts {
+  //    .contactsItem {
+  //      gap: 10px;
+  //      width: max-content;
+  //      display: flex;
+  //      flex-direction: column;
+  //      align-items: center;
+  //      justify-content: flex-start;
+  //
+  //      .itemText {
+  //        text-align: center;
+  //        font-size: 14px;
+  //        font-weight: 400;
+  //      }
+  //    }
+  //  }
+  //}
+  //
+  //@include md {
+  //  padding: 20px 10px;
+  //  font-size: 12px;
+  //  .contacts {
+  //    .contactsItem {
+  //      gap: 8px;
+  //
+  //      .itemText {
+  //        text-align: center;
+  //        font-size: 12px;
+  //        font-weight: 400;
+  //      }
+  //    }
+  //  }
+  //  .social {
+  //    padding: 0 0 20px 0;
+  //
+  //    .socialItem {
+  //      padding: 0 15px;
+  //      gap: 10px;
+  //    }
+  //  }
+  //}
 }

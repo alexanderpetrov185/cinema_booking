@@ -1,7 +1,8 @@
 import React from "react";
 import "./bookingModule.scss";
 import CloseIcon from "@mui/icons-material/Close";
-import { useAppSelector } from "../../redux/hooks/redux";
+import { useAppSelector } from "../../../../redux/hooks/redux";
+import BookingBody from "./bookingBody/BookingBody";
 
 type Props = {
   nowDate: Date;
@@ -34,6 +35,7 @@ const BookingModule = ({ nowDate, title, details, setModalIsOpen }: Props) => {
           <span>{dateDay} Кинотеатр Cinema</span>
         </div>
       </div>
+      <BookingBody details={details} nowDate={nowDate} />
       <div className="bookingFooter">
         <span className={"support"}>Поддержка: 8 495 230-01-24</span>
         <a href="/" className="needHelp">

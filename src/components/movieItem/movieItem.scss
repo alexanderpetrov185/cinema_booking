@@ -40,7 +40,7 @@
       height: 50px;
       border-radius: 50%;
       outline: none;
-      background: rgba(51, 51, 51, 0.5);
+      background: rgba($dark-bg, 0.5);
       border: 0;
       display: flex;
       justify-content: center;
@@ -50,7 +50,7 @@
       .play {
         width: 25px;
         height: 25px;
-        background: #fff;
+        background: $white-bg;
         margin-left: 15px;
         z-index: 100;
         clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
@@ -59,18 +59,18 @@
       }
 
       &:hover {
-        background: rgba(255, 255, 255, 1);
+        background: rgba($white-bg, 1);
 
         .play {
-          background: rgba(51, 51, 51, 1);
+          background: rgba($dark-bg, 1);
         }
       }
     }
   }
 
-  @include lg {
-    display: flex;
-    gap: 30px;
-    width: 100%;
-  }
+  //@include lg {
+  //  display: flex;
+  //  gap: 30px;
+  //  width: 100%;
+  //}
 }

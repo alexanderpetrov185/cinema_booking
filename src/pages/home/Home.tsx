@@ -39,13 +39,15 @@ const Home = () => {
   const { data, loading } = useFetch(`/moviesOnDay/${date}`);
 
   return (
-    <div className={"home"}>
+    <>
       <Slider slides={slides} />
-      <div className="contentWrapper">
-        <Schedule />
-        {loading ? <SplashScreen /> : <MovieList movies={data} />}
+      <Schedule />
+      <div className="container">
+        <div className={"home"}>
+          {loading ? <SplashScreen /> : <MovieList movies={data} />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

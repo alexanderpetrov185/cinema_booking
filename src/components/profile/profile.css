@@ -38,7 +38,7 @@
 }
 .profile .profileText span:hover:not(:last-child):not(:first-child) {
   background: #e3e3e3;
-  color: rgb(108, 67, 191);
+  color: rgb(135, 84, 236);
   transition: 0.35s ease;
 }
 .profile .profileText span:first-child {

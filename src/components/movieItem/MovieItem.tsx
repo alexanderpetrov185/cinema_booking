@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./movieItem.scss";
 import ModalWindow from "../modalWindow/ModalWindow";
-import BookingModule from "../bookingModule/BookingModule";
+import BookingModule from "./sessionsCopmonents/bookingModule/BookingModule";
 import { IMovie } from "../../redux/models/IMovie";
 import Player from "../player/Player";
-import SessionCard from "../sessionCard/SessionCard";
+import SessionCard from "./sessionsCopmonents/sessionCard/SessionCard";
 
 type Props = {
   movie: IMovie;
@@ -21,7 +21,7 @@ const MovieItem = ({ movie }: Props) => {
         <img
           src={movie.poster}
           alt={`poster ${movie.title}`}
-          // onClick={() => setModalIsOpen(true)}
+          onClick={() => setPlayerIsOpen(true)}
         />
         <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
           <span className="play" />

@@ -1,8 +1,8 @@
-@import "../../styles/variebles";
-@import "../../styles/responsive.scss";
+@import "../../../../styles/variebles";
+@import "../../../../styles/responsive";
 
 .bookingModule {
-  background: $light-bg;
+  background: $white-bg;
   color: #333;
   border-radius: 12px;
   padding: 25px;
@@ -60,7 +60,7 @@
         gap: 5px;
 
         .sessionButton {
-          background-color: $soft-color;
+          background-color: $soft-bg;
           padding: 0 10px;
           font-weight: 400;
           font-size: 16px;
@@ -77,7 +77,7 @@
         }
 
         .active.sessionButton {
-          background-color: $active-color;
+          background-color: $main-bright-bg;
         }
 
         span {

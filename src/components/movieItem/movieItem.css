@@ -49,17 +49,10 @@
   transition-delay: 0.4s;
 }
 .movieItem .imageContainer .playButton:hover {
-  background: rgb(255, 255, 255);
+  background: white;
 }
 .movieItem .imageContainer .playButton:hover .play {
-  background: rgb(51, 51, 51);
-}
-@media screen and (max-width: 1024px) {
-  .movieItem {
-    display: flex;
-    gap: 30px;
-    width: 100%;
-  }
+  background: #333333;
 }
 
 /*# sourceMappingURL=movieItem.css.map */

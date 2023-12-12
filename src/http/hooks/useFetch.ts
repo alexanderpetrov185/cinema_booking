@@ -3,7 +3,7 @@ import $api from "../index";
 import { IMovie } from "../../redux/models/IMovie";
 
 const useFetch = (endpoint: string) => {
-  const [data, setData] = useState<IMovie[]>();
+  const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 

@@ -1,8 +1,9 @@
 .authForm {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 45vh;
   color: rgba(163, 163, 192, 0.4);
-  gap: 15px;
   padding: 30px;
   background-color: rgba(28, 29, 36, 0.8);
   border-style: none;
@@ -63,16 +64,32 @@
     color: #af3513;
   }
 
+  .forgotPasswordSpan{
+    width: max-content;
+    color: rgba(163, 163, 192, 0.5);
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .forgotPasswordSpan:hover{
+    color: rgba(163, 163, 192, 0.8);
+  }
+
   .authButton {
     min-width: 100px;
     padding: 4px;
   }
 
-  .authType{
-    font-size: 15px;
+  .authTypeSpan{
+    text-align: center;
+    font-size: 16px;
     font-weight: 600;
     color: rgba(163, 163, 192, 0.5);
     text-decoration: underline;
     cursor: pointer;
+  }
+
+  .authTypeSpan:hover{
+    color: rgba(163, 163, 192, 0.8);
   }
 }

@@ -89,12 +89,12 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
           )}
         </>
       ) : (
-        <></>
+        <span className={"forgotPasswordSpan"}>Забыли пароль?</span>
       )}
       <button className={"authButton"} onClick={authButtonHandler}>
         {isLogin ? "Войти" : "Зарегистрироваться"}
       </button>
-      <span className={"authType"} onClick={changeAuthType}>
+      <span className={"authTypeSpan"} onClick={changeAuthType}>
         {isLogin ? "Зарегистрироваться" : "К форме входа"}
       </span>
     </form>
