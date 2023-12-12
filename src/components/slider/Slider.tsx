@@ -3,6 +3,8 @@ import "./slider.scss";
 import useMeasure from "react-use-measure";
 import { useSwipeable } from "react-swipeable";
 import { mergeRefs } from "react-merge-refs";
+import { ReactComponent as ArrowRight } from "../../static/icons/arrow-right.svg";
+import { ReactComponent as ArrowLeft } from "../../static/icons/arrow-left.svg";
 
 type Props = {
   slides: {
@@ -112,14 +114,14 @@ const Slider = memo(({ slides }: Props) => {
         onClick={goToPrevious}
         disabled={!isTransitionEnd}
       >
-        {"<"}
+        <ArrowLeft />
       </button>
       <button
         className="sliderArrow right"
         onClick={goToNext}
         disabled={!isTransitionEnd}
       >
-        {">"}
+        <ArrowRight />
       </button>
       <div className="sliderDots">
         {slides.map((slide, slideIndex) => (
@@ -134,9 +136,7 @@ const Slider = memo(({ slides }: Props) => {
             }
             key={slideIndex}
             onClick={() => goToSlide(slideIndex + 1)}
-          >
-            ●
-          </div>
+          />
         ))}
       </div>
     </div>

@@ -43,24 +43,14 @@ body{
 
 .main {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
-  .container {
-    background-color: #af3513;
-    flex-grow: 1;
-  }
-}
-
-.contentWrapper {
-  min-height: 90vh;
-  padding: 0 25px 25px 25px;
-  margin: 0 auto;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  //align-items: center;
   background-color: $main-bg;
 }
 
 
+.container{
+  width: $content-container-width;
+  align-self: center;
+}

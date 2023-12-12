@@ -1,28 +1,33 @@
 import React from "react";
 import "./footer.scss";
+import { ReactComponent as VkIcon } from "../../static/icons/vk.svg";
+import { ReactComponent as TelegramIcon } from "../../static/icons/telegram.svg";
+import { ReactComponent as InstagramIcon } from "../../static/icons/instagram.svg";
+import { ReactComponent as AppStoreIcon } from "../../static/icons/app_store.svg";
+import { ReactComponent as GooglePlayIcon } from "../../static/icons/google_play.svg";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="social">
-        <div className="socialItem">
+        <div className="socialItem left">
           <span>Мы в соцсетях:</span>
           <a href="https://vk.com/beatboxerr">
-            <img src="/assets/icons/vk.svg" alt="vk" />
+            <VkIcon />
           </a>
           <a href="t.me/@Claptrap42">
-            <img src="/assets/icons/telegram.svg" alt="telegram" />
+            <TelegramIcon />
           </a>
           <a href="/">
-            <img src="/assets/icons/instagram.svg" alt="instagram" />
+            <InstagramIcon />
           </a>
         </div>
-        <div className="socialItem">
+        <div className="socialItem right">
           <a href="/">
-            <img src="/assets/icons/app_store.svg" alt="appStore" />
+            <AppStoreIcon />
           </a>
           <a href="/">
-            <img src="/assets/icons/google_play.svg" alt="googlePlay" />
+            <GooglePlayIcon />
           </a>
         </div>
       </div>
@@ -41,11 +46,11 @@ const Footer = () => {
             <span>alexanderpetrov185@gmail.com</span>
           </a>
           <span className={"itemText"}>
-            Москва, Охотный ряд, 123. 3 этаж Cinemas
+            Йошкар-Ола, Охотный ряд, 123. 3 этаж Cinemas
           </span>
         </div>
         <div className="contactsItem">
-          <span className={"itemText"}>© 2023 «Cinemas».</span>
+          <span className={"itemText"}>© 2023 «Cinemas»</span>
         </div>
       </div>
     </div>

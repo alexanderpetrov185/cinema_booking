@@ -72,7 +72,7 @@ const SessionCard = ({
               return (
                 <span
                   key={details._id}
-                  className={"tomorrowSessions"}
+                  className={"tomorrowSessionsSpan"}
                   onClick={() => tomorrowToSelect()}
                 >
                   Сеансы на завтра

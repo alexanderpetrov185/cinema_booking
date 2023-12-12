@@ -122,7 +122,7 @@
 //           </ul>
 //         </div>
 //         <img
-//           src="/assets/images/screen.png"
+//           src="/static/images/screen.png"
 //           alt="Экран"
 //           className="movieScreenImg"
 //         />

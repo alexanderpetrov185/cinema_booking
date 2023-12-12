@@ -6,17 +6,15 @@ import Header from "../header/Header";
 
 const Layout = memo(() => {
   return (
-    <div className="main">
-      <div className="container">
-        <div className="menuContainer">
-          <Header />
-        </div>
+    <>
+      <Header />
+      <div className="main">
         <Suspense fallback={<SplashScreen />}>
           <Outlet />
         </Suspense>
       </div>
       <Footer />
-    </div>
+    </>
   );
 });
 

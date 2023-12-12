@@ -21,7 +21,7 @@ const MovieItem = ({ movie }: Props) => {
         <img
           src={movie.poster}
           alt={`poster ${movie.title}`}
-          // onClick={() => setModalIsOpen(true)}
+          onClick={() => setPlayerIsOpen(true)}
         />
         <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
           <span className="play" />

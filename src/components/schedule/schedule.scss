@@ -3,61 +3,89 @@
 
 .schedule {
   width: 100%;
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  gap: 15px;
-  font-size: 20px;
-  font-weight: 500;
-  color: $black-color;
+  background: $black-color;
+  backdrop-filter: blur(30px);
   border-bottom: 1px solid $soft-bg;
-  padding: 35px 20px 20px 0;
-  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+
+  .scheduleContainer{
+    width: $content-container-width;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $white-color;
 
   .scheduleDay {
-    background-color: $light-bg;
-    padding: 10px;
-    border-radius: 40px;
+    padding: 2px;
     text-transform: capitalize;
-    max-height: 45px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
+    flex: 1 1 0;
 
-    img {
-      max-width: 35px;
+    span{
+      font-size: 2em;
+      &:first-child{
+      font-size: 1.25em;
+      }
+      &:last-child{
+        font-size: 0.75em;
+      }
+    }
+
+    svg{
+      vertical-align: middle;
+      width: 1em;
+      height: 1em;
+      stroke: $white-color;
     }
 
     &:hover {
-      background-color: $hover-color;
+      svg{
+        transition: 0.3s ease;
+        stroke: $main-color;
+      }
+      color: $main-color;;
       transition: 0.3s ease;
     }
   }
 
   .scheduleDay.active {
-    background-color: $active-color;
-    color: $soft-color;
-  }
-
-  @include xxl {
-    font-size: 18px;
-    gap: 10px;
-    padding: 35px 15px 20px 0;
-  }
-
-  @include xl {
-    font-size: 16px;
-    gap: 10px;
-    padding: 25px 15px 20px 0;
-
-    .scheduleDay {
-      max-height: 40px;
+    pointer-events: none;
+    color: $main-color;
+    span{
+      &:first-child{
+        text-align: center;
+        border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
+        border-image-slice: 1;
+        border-bottom: 2px solid transparent;
+        width:100%;
+      }
     }
   }
-  @include md {
-    padding: 10px;
   }
+
+  //@include xxl {
+  //  font-size: 18px;
+  //  gap: 10px;
+  //  padding: 35px 15px 20px 0;
+  //}
+  //
+  //@include xl {
+  //  font-size: 16px;
+  //  gap: 10px;
+  //  padding: 25px 15px 20px 0;
+  //
+  //  .scheduleDay {
+  //    max-height: 40px;
+  //  }
+  //}
+  //@include md {
+  //  padding: 10px;
+  //}
 }

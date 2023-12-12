@@ -1,5 +1,6 @@
 .home {
-  background-color: #303962;
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=home.css.map */

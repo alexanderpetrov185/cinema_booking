@@ -14,6 +14,7 @@
     transition-duration: 400ms;
 
     .slideItem {
+      opacity: 0.9;
       height: 100%;
       width: 100%;
       background-size: cover;
@@ -21,57 +22,65 @@
     }
   }
 
+  .sliderArrow {
+    padding: 8px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba($main-bg, .2);
+    backdrop-filter: blur(30px);
+
+    svg{
+      fill: $black-color;
+    }
+
+    &:hover {
+      svg{
+        fill: $main-color;
+      }
+      transition: 0.3s ease;
+      background: rgba($main-bg, .5);
+    }
+  }
+
+  .sliderArrow.left {
+    left: $side-padding-for-not-in-container; //container padding
+  }
+  .sliderArrow.right {
+    right: $side-padding-for-not-in-container; //container padding
+  }
 
   .sliderDots {
     position: absolute;
     left: 50%;
     bottom: 5%;
     display: flex;
-    flex-direction: row;
-    gap: 30px;
-    transform:translate(-50%, -5%);
+    gap: 25px;
+    transform:translate(-50%, 5%);
 
     .sliderDot {
-      font-size: 30px;
-      color: $main-color;
       cursor: pointer;
+      background: rgba($dark-bg, .5);
+      backdrop-filter: blur(30px);
+      width: 0.9em;
+      height: 0.9em;
+      border: none;
+      border-radius: 50%;
 
       &:hover {
-        color: $hover-color;
+        background-color: $hover-color;
         transition: 0.3s ease;
       }
     }
 
     .sliderDot.Active {
-      color: $active-color;
-      opacity: 1;
+      background-color: $main-color;
     }
-  }
-
-  .sliderArrow {
-    opacity: 0.65;
-    background-color: $light-bg;
-    color: $dark-color;
-    padding: 8px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    bottom: 40%;
-
-    &:hover {
-      background-color: $hover-color;
-      transition: 0.3s ease;
-    }
-  }
-
-  .sliderArrow.left {
-    left: 3%
-  }
-
-  .sliderArrow.right {
-    right: 3%
   }
 
   //@include lg {

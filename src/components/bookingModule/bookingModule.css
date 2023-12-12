@@ -50,7 +50,7 @@
   gap: 5px;
 }
 .bookingModule .bookingBody .availableTime li .sessionButton {
-  background-color: #e1dddd;
+  background-color: #303962;
   padding: 0 10px;
   font-weight: 400;
   font-size: 16px;
@@ -60,12 +60,12 @@
   text-align: center;
 }
 .bookingModule .bookingBody .availableTime li .sessionButton:hover {
-  background-color: rgb(108, 67, 191);
+  background-color: rgb(135, 84, 236);
   transition: 0.3s ease;
   cursor: pointer;
 }
 .bookingModule .bookingBody .availableTime li .active.sessionButton {
-  background-color: rgba(108, 67, 191, 0.9);
+  background-color: #350e5e;
 }
 .bookingModule .bookingBody .availableTime li span {
   font-size: 12px;

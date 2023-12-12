@@ -2,9 +2,18 @@ import React from "react";
 import "./schedule.scss";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
 import { saveSelectedDate } from "../../redux/reducers/actionCreators";
+import { ReactComponent as Calendar } from "../../static/icons/calendar.svg";
 
 const dayOfWeek = new Date().getDay();
-const allDays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+const allDays = [
+  "Воскресенье",
+  "Понедельник",
+  "Вторник",
+  "Среда",
+  "Четверг",
+  "Пятница",
+  "Суббота",
+];
 let dayDates = new Array(6);
 
 const Schedule = () => {
@@ -25,35 +34,50 @@ const Schedule = () => {
 
   return (
     <ul className={"schedule"}>
-      {dayDates.map((day: Date, index: number) => {
-        return (
-          <li
-            key={index}
-            className={
-              dateFromReducer.getDay() === day.getDay()
-                ? "scheduleDay active"
-                : "scheduleDay"
-            }
-            onClick={() =>
-              dispatch(
-                saveSelectedDate(dayDates[index].toLocaleDateString("en-CA")),
-              )
-            }
-          >
-            {index === 0
-              ? "Сегодня, "
-              : index === 1
-              ? "Завтра, "
-              : `${sortDays[index]}, `}
-            {`${day.toLocaleString("default", {
-              day: "numeric",
-              month: "short",
-            })}`}
-          </li>
-        );
-      })}
-      {/*<li className={"scheduleDay calendar"}><img src="/assets/icons/calendar.svg" alt="calendarIcon"/></li>*/}
-      {/*<li className={"scheduleDay soon"}>скоро</li>*/}
+      <div className={"scheduleContainer"}>
+        {dayDates.map((day: Date, index: number) => {
+          return (
+            <li
+              key={index}
+              className={
+                dateFromReducer.getDay() === day.getDay()
+                  ? "scheduleDay active"
+                  : "scheduleDay"
+              }
+              onClick={() =>
+                dispatch(
+                  saveSelectedDate(dayDates[index].toLocaleDateString("en-CA")),
+                )
+              }
+            >
+              {index === 0 ? (
+                <span>Сегодня </span>
+              ) : index === 1 ? (
+                <span>Завтра </span>
+              ) : (
+                <span>{sortDays[index]}</span>
+              )}
+              <span>
+                {`${day.toLocaleString("default", {
+                  day: "numeric",
+                })}`}
+              </span>
+              <span>
+                {`${day.toLocaleString("default", {
+                  month: "long",
+                })}`}
+              </span>
+            </li>
+          );
+        })}
+        <li className={"scheduleDay"}>
+          <span>Скоро</span>
+          <span>
+            <Calendar />
+          </span>
+          <span>Календарь</span>
+        </li>
+      </div>
     </ul>
   );
 };

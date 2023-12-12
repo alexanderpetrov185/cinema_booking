@@ -1,179 +1,84 @@
 .header {
+  min-height: 80px;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  transition: 0.3s linear;
-  background: #333;
-  border-bottom: 1px solid rgba(21, 26, 38, 0.5);
+  transition: 0.3s ease;
+  background: linear-gradient(180deg, rgb(14, 14, 24) 20%, rgba(14, 14, 24, 0) 100%);
+  position: fixed;
   top: 0;
   z-index: 999;
+  padding: 10px 2.5%;
 }
 .header .logo {
-  display: flex;
-  align-items: center;
+  width: 160px;
+  height: 80px;
+  fill: rgb(108, 67, 191);
+  stroke: rgb(135, 84, 236);
 }
-.header .logo img {
-  height: 75px;
+.header .logo:hover {
+  transition: 0.3s ease;
+  fill: rgb(135, 84, 236);
 }
-.header .logo img:hover {
-  opacity: 0.85;
-  transition: 0.35s ease;
-}
-.header .menu {
+.header .navigation {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3em;
+  background-color: rgba(14, 14, 24, 0.2);
+  backdrop-filter: blur(30px);
   display: flex;
   gap: 30px;
+  white-space: nowrap;
 }
-.header .menu .item .menuItem, .header .menu .item .menuItemActive {
-  font-weight: 600;
-  font-size: 20px;
+.header .navigation .navLinks {
+  list-style-type: none;
+}
+.header .navigation .navLinks .navigationLink, .header .navigation .navLinks .navigationLinkActive {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1em;
   color: #fff;
 }
-.header .menu .item .menuItem:hover, .header .menu .item .menuItemActive:hover {
-  color: rgb(108, 67, 191);
+.header .navigation .navLinks .navigationLink:hover, .header .navigation .navLinks .navigationLinkActive:hover {
+  color: rgb(135, 84, 236);
   transition: 0.35s ease;
 }
-.header .menu .item .menuItemActive {
-  color: rgba(108, 67, 191, 0.9);
+.header .navigation .navLinks .navigationItemActive {
+  color: rgb(108, 67, 191);
 }
 .header .buttonsBlock .buttonStandard {
-  padding: 2px;
+  gap: 2px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  min-width: 120px;
-  background-image: linear-gradient(to left, #4f0ed0, #63c);
-  border-radius: 4px;
-  line-height: 32px;
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 1em;
+  font-weight: 600;
   font-style: normal;
   font-stretch: normal;
   text-align: center;
   letter-spacing: normal;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.header .buttonsBlock .buttonStandard .profileIcon {
+  width: 35px;
+  height: 25px;
+  fill: #fff;
 }
 .header .buttonsBlock .buttonStandard:hover {
-  background-image: linear-gradient(to left, #4311ad, #5b31b2);
   transition: 0.35s ease;
+  color: rgb(135, 84, 236);
 }
-.header .buttonsBlock .buttonStandard svg {
-  vertical-align: center;
-  fill: #fff;
+.header .buttonsBlock .buttonStandard:hover .profileIcon {
+  transition: 0.35s ease;
+  fill: rgb(135, 84, 236);
 }
 .header .buttonsBlock .burgerIcon {
   display: none;
-}
-@media screen and (max-width: 1200px) {
-  .header {
-    justify-content: space-between;
-    padding: 0 15px;
-  }
-  .header .menu {
-    gap: 20px;
-  }
-  .header .menu .item .menuItem, .header .menu .item .menuItemActive {
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .header .buttonsBlock .buttonStandard {
-    min-width: 75px;
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .header .logo img {
-    height: 50px;
-  }
-  .header .menu {
-    transform: translateX(-100%);
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: white;
-    height: 100vh;
-    width: 35vw;
-    padding: 20px;
-  }
-  .header .menu .item {
-    width: 100%;
-    border-bottom: 0.5px solid black;
-    padding: 10px;
-  }
-  .header .menu .item .menuItem, .header .menu .item .menuItemActive {
-    font-weight: 600;
-    font-size: 20px;
-    color: #333;
-  }
-  .header .menu .item .menuItem:hover, .header .menu .item .menuItemActive:hover {
-    color: rgb(108, 67, 191);
-    transition: 0.35s ease;
-  }
-  .header .menu.active {
-    transform: translateX(0);
-    transition: all 0.5s ease-in-out;
-  }
-  .header .buttonsBlock {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
-  .header .buttonsBlock .buttonStandard {
-    max-height: 35px;
-  }
-  .header .buttonsBlock .burgerIcon {
-    display: block;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-  }
-  .header .buttonsBlock .burgerIcon span {
-    background-color: black;
-    content: "";
-    width: 30px;
-    height: 2px;
-    position: absolute;
-    top: 9px;
-    left: 0;
-    align-items: center;
-  }
-  .header .buttonsBlock .burgerIcon:before {
-    background-color: black;
-    content: "";
-    width: 30px;
-    height: 2px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    align-items: center;
-  }
-  .header .buttonsBlock .burgerIcon:after {
-    background-color: black;
-    content: "";
-    width: 30px;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    align-items: center;
-  }
-}
-@media screen and (max-width: 768px) {
-  .header .menu {
-    width: 100vw;
-  }
-  .header .buttonsBlock .buttonStandard {
-    min-width: 30px;
-    max-height: 30px;
-    border-radius: 20px;
-  }
-  .header .buttonsBlock .buttonStandard span {
-    display: none;
-  }
 }
 
 /*# sourceMappingURL=header.css.map */
