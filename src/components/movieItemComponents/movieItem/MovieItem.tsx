@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./movieItem.scss";
-import ModalWindow from "../modalWindow/ModalWindow";
-import BookingModule from "./sessionsCopmonents/bookingModule/BookingModule";
-import { IMovie } from "../../redux/models/IMovie";
-import Player from "../player/Player";
-import SessionCard from "./sessionsCopmonents/sessionCard/SessionCard";
+import ModalWindow from "../../modalWindow/ModalWindow";
+import BookingModule from "../bookingModule/BookingModule";
+import { IMovie } from "../../../redux/models/IMovie";
+import Player from "../../player/Player";
+import SessionCard from "../sessionCard/SessionCard";
 
 type Props = {
   movie: IMovie;

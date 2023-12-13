@@ -1,7 +1,6 @@
 import React from "react";
 import "./bookingModule.scss";
-import CloseIcon from "@mui/icons-material/Close";
-import { useAppSelector } from "../../../../redux/hooks/redux";
+import { useAppSelector } from "../../../redux/hooks/redux";
 import BookingBody from "./bookingBody/BookingBody";
 
 type Props = {
@@ -23,12 +22,9 @@ const BookingModule = ({ nowDate, title, details, setModalIsOpen }: Props) => {
 
   return (
     <div className={"bookingModule"}>
-      <div className="buttonsBlock">
-        <CloseIcon
-          className={"btnClose"}
-          onClick={() => setModalIsOpen(false)}
-        />
-      </div>
+      <button className={"btnClose"} onClick={() => setModalIsOpen(false)}>
+        X
+      </button>
       <div className="bookingHeader">
         <div className="bookingInfo">
           <span className={"bookingTitle"}>{title}</span>

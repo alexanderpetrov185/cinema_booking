@@ -1,5 +1,5 @@
-@import "../../../../styles/variebles";
-@import "../../../../styles/responsive";
+@import "../../../styles/variebles.scss";
+@import "../../../styles/responsive.scss";
 
 .sessionCard {
   width: 100%;
@@ -52,7 +52,7 @@
             &:last-child {
               color: $white-color;
               transition: 0.35s ease;
-              background-color: $dark-bg;
+              background-color: $hover-color;
             }
           }
         }
@@ -74,20 +74,8 @@
       }
     }
 
-    .tomorrowSessionsSpan {
-      color: $black-color;
-      background-color: $white-bg;
-      padding: 15px;
-      text-transform: capitalize;
-      max-height: 35px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $hover-color;
-        transition: 0.3s ease;
-      }
+    .tomorrowSessions {
+      padding: 4px;
     }
   }
 

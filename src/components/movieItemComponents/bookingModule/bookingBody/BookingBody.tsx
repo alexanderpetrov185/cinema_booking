@@ -1,52 +1,37 @@
 import React, { useState } from "react";
-import { saveSelectedSession } from "../../../../../redux/reducers/actionCreators";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../../../redux/hooks/redux";
-import useFetch from "../../../../../http/hooks/useFetch";
-import SessionService from "../../../../../http/services/SessionServices";
+import "./bookingBody.scss";
+import { saveSelectedSession } from "../../../../redux/reducers/actionCreators";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hooks/redux";
+import useFetch from "../../../../http/hooks/useFetch";
+import SessionService from "../../../../http/services/SessionServices";
+import SeatsTable from "../seatsTable/SeatsTable";
+import { IFetchBooking } from "../models/IFetchBooking";
+
+type Details = {
+  hallNumber: number;
+  date: string;
+  price: number;
+  sessionId: string;
+};
 
 type Props = {
   nowDate: Date;
-  details: {
-    hallNumber: number;
-    date: string;
-    price: number;
-    sessionId: string;
-  }[];
-};
-
-type FetchData = {
-  _id: string;
-  hallNumber: string;
-  sessionTime: string;
-  price: number;
-  seatsInfo: {
-    _id: string;
-    position: string;
-    available: boolean;
-  }[];
+  details: Details[];
 };
 
 const BookingBody = ({ details, nowDate }: Props) => {
-  const hallSchema: { rows: number; columns: number } = {
-    rows: 0,
-    columns: 0,
-  };
   const dispatch = useAppDispatch();
   const session = useAppSelector((state) => state.scheduleReducer.session);
-  const { data, reFetch }: { data: FetchData; reFetch: () => Promise<void> } =
-    useFetch(`/session/${session.sessionId}`);
+  const {
+    data,
+    reFetch,
+  }: { data: IFetchBooking; reFetch: () => Promise<void> } = useFetch(
+    `/session/${session.sessionId}`,
+  );
   const [selectedSession, setSelectedSession] = useState<string>(
     session.sessionId,
   );
   const [selectedSeat, setSelectedSeat] = useState<object[]>([]);
-  const lastChair = data?.seatsInfo.at(-1)?.position.split(" ");
-  if (lastChair) {
-    hallSchema.rows = Number(lastChair[0]);
-    hallSchema.columns = Number(lastChair[1]);
-  }
 
   const buyTickets = async (selectedSeat: object[]) => {
     const seatsIds: string[] = selectedSeat.map<string>(
@@ -67,6 +52,17 @@ const BookingBody = ({ details, nowDate }: Props) => {
     setSelectedSeat([...deletedFromState]);
   };
 
+  const changeSession = (details: Details) => {
+    setSelectedSession(details.sessionId);
+    dispatch(
+      saveSelectedSession({
+        sessionId: details.sessionId,
+        price: details.price.toString(),
+        sessionTime: details.date.toLocaleString().slice(11, -8),
+      }),
+    );
+  };
+
   React.useEffect(() => {
     setSelectedSeat([]);
   }, [selectedSession]);
@@ -79,18 +75,7 @@ const BookingBody = ({ details, nowDate }: Props) => {
             return (
               <li key={index}>
                 <button
-                  onClick={() => {
-                    setSelectedSession(details.sessionId);
-                    dispatch(
-                      saveSelectedSession({
-                        sessionId: details.sessionId,
-                        price: details.price.toString(),
-                        sessionTime: details.date
-                          .toLocaleString()
-                          .slice(11, -8),
-                      }),
-                    );
-                  }}
+                  onClick={() => changeSession(details)}
                   className={
                     details.sessionId === selectedSession
                       ? "active sessionButton"
@@ -115,55 +100,20 @@ const BookingBody = ({ details, nowDate }: Props) => {
             <li>⚫Занято</li>
           </ul>
         </div>
+
         <img
           src="/assets/images/screen.png"
           alt="Экран"
           className="movieScreenImg"
         />
-        <section className="seatsSchema">
-          {[...Array(hallSchema.rows)].map((row, index) => {
-            return (
-              <div className="row" key={index}>
-                <span>{index + 1}</span>
-                {data?.seatsInfo
-                  .slice(
-                    hallSchema.columns * index,
-                    hallSchema.columns * index + hallSchema.columns,
-                  )
-                  .map((seat: any, index: number) => {
-                    if (seat.available) {
-                      return (
-                        <div
-                          className={
-                            selectedSeat.includes(seat)
-                              ? "selected seat"
-                              : "seat"
-                          }
-                          key={seat._id}
-                          onClick={() => {
-                            if (selectedSeat.includes(seat)) {
-                              cancelSelect(seat);
-                            } else {
-                              setSelectedSeat([...selectedSeat, seat]);
-                            }
-                          }}
-                        >
-                          {index + 1}
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div className={"seat unavailable"} key={seat._id}>
-                          ✖
-                        </div>
-                      );
-                    }
-                  })}
-                <span>{index + 1}</span>
-              </div>
-            );
-          })}
-        </section>
+
+        <SeatsTable
+          data={data}
+          selectedSeat={selectedSeat}
+          setSelectedSeat={setSelectedSeat}
+          cancelSelect={cancelSelect}
+        />
+
         <div className="selectedInfo">
           <div className="selectedTicketGroup">
             {selectedSeat.length > 0 &&

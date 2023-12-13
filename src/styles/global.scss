@@ -23,7 +23,7 @@ body{
   }
 
   button{
-    background-image: linear-gradient(to left, #4f0ed0, #63c);
+    background-color: $main-bright-bg;
     border-radius: 4px;
     color: #fff;
     text-decoration: none;
@@ -35,8 +35,24 @@ body{
     cursor: pointer;
 
     &:hover {
-      background-image: linear-gradient(to left, #4311ad, #5b31b2);
-      transition: 0.35s ease;
+      transition: .3s ease;
+      background-color: rgba($hover-color, .5);
+    }
+  }
+
+  .btnClose {
+    width: max-content;
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    color: $white-color;
+    &:hover{
+      background: none;
+      color: $hover-color;
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./movieList.scss";
-import MovieItem from "../movieItem/MovieItem";
+import MovieItem from "../movieItemComponents/movieItem/MovieItem";
 import { IMovie } from "../../redux/models/IMovie";
 import { animated, config, useTransition } from "@react-spring/web";
 

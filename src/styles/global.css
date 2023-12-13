@@ -19,7 +19,7 @@ body h3 {
   font-size: 20px;
 }
 body button {
-  background-image: linear-gradient(to left, #4f0ed0, #63c);
+  background-color: #350e5e;
   border-radius: 4px;
   color: #fff;
   text-decoration: none;
@@ -31,8 +31,23 @@ body button {
   cursor: pointer;
 }
 body button:hover {
-  background-image: linear-gradient(to left, #4311ad, #5b31b2);
-  transition: 0.35s ease;
+  transition: 0.3s ease;
+  background-color: rgba(135, 84, 236, 0.5);
+}
+body .btnClose {
+  width: max-content;
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
+body .btnClose:hover {
+  background: none;
+  color: rgb(135, 84, 236);
 }
 
 .main {

@@ -1,10 +1,10 @@
 import React from "react";
 import "./sessionCard.scss";
-import { useAppDispatch } from "../../../../redux/hooks/redux";
+import { useAppDispatch } from "../../../redux/hooks/redux";
 import {
   saveSelectedDate,
   saveSelectedSession,
-} from "../../../../redux/reducers/actionCreators";
+} from "../../../redux/reducers/actionCreators";
 
 type Props = {
   title: string;
@@ -70,13 +70,13 @@ const SessionCard = ({
           } else {
             if (index === sessionsDetails.length - 1) {
               return (
-                <span
+                <button
                   key={details._id}
-                  className={"tomorrowSessionsSpan"}
+                  className={"tomorrowSessions"}
                   onClick={() => tomorrowToSelect()}
                 >
                   Сеансы на завтра
-                </span>
+                </button>
               );
             } else return null;
           }

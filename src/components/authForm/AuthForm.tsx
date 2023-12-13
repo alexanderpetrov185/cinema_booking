@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import "./authForm.scss";
-import CloseIcon from "@mui/icons-material/Close";
 import {
   loginAction,
   registrationAction,

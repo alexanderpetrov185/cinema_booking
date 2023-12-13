@@ -1,34 +1,21 @@
+@import "../../styles/variebles.scss";
+@import "../../styles/responsive.scss";
+
 .authForm {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 45vh;
-  color: rgba(163, 163, 192, 0.4);
+  color: rgba($white-color, 0.4);
   padding: 30px;
   background-color: rgba(28, 29, 36, 0.8);
   border-style: none;
   border-radius: 5%;
 
-  .btnClose {
-    width: max-content;
-    margin-left: auto;
-    background: none;
-    border: none;
-    font-family: inherit;
-    padding: 0;
-    outline: none;
-    cursor: pointer;
-    color: white;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
   .authHead {
     display: flex;
     justify-content: center;
-    color: white;
+    color: $white-color;
   }
 
   label{
@@ -36,7 +23,7 @@
     height: 40px;
 
     input{
-      color: white;
+      color: $white-color;
       font-size: 18px;
       width: 100%;
       padding: 4px 0;
@@ -46,7 +33,7 @@
       border-radius: 0;
       appearance: none;
       outline: transparent;
-      border-bottom: 1px solid rgba(163, 163, 192, 0.4);
+      border-bottom: 1px solid rgba($white-color, 0.4);
     }
 
     input ~ span{
@@ -61,18 +48,19 @@
   }
 
   .errorAuth {
-    color: #af3513;
+    color: $red-color;
   }
 
   .forgotPasswordSpan{
     width: max-content;
-    color: rgba(163, 163, 192, 0.5);
+    color: rgba($white-color, 0.3);
     cursor: pointer;
     font-size: 15px;
   }
 
   .forgotPasswordSpan:hover{
-    color: rgba(163, 163, 192, 0.8);
+    transition: .3s ease;
+    color: $hover-color;
   }
 
   .authButton {
@@ -84,12 +72,13 @@
     text-align: center;
     font-size: 16px;
     font-weight: 600;
-    color: rgba(163, 163, 192, 0.5);
+    color: rgba($white-color, 0.3);
     text-decoration: underline;
     cursor: pointer;
   }
 
   .authTypeSpan:hover{
-    color: rgba(163, 163, 192, 0.8);
+    transition: .3s ease;
+    color: $hover-color;
   }
 }
