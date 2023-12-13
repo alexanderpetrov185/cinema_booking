@@ -1,6 +1,7 @@
 import React from "react";
 import "./seatsTable.scss";
 import { IFetchBooking } from "../models/IFetchBooking";
+import Seat from "./seat/Seat";
 
 type Props = {
   data: IFetchBooking;
@@ -38,32 +39,16 @@ const SeatsTable = ({
                   hallSchema.columns * index,
                   hallSchema.columns * index + hallSchema.columns,
                 )
-                .map((seat: any, index: number) => {
-                  if (seat.available) {
-                    return (
-                      <td
-                        className={
-                          selectedSeat.includes(seat) ? "selected seat" : "seat"
-                        }
-                        key={seat._id}
-                        onClick={() => {
-                          if (selectedSeat.includes(seat)) {
-                            cancelSelect(seat);
-                          } else {
-                            setSelectedSeat([...selectedSeat, seat]);
-                          }
-                        }}
-                      >
-                        {index + 1}
-                      </td>
-                    );
-                  } else {
-                    return (
-                      <td className={"seat unavailable"} key={seat._id}>
-                        ✖
-                      </td>
-                    );
-                  }
+                .map((seatToRender: any, index: number) => {
+                  return (
+                    <Seat
+                      isSeatSelected={selectedSeat.includes(seatToRender)}
+                      cancelSelect={cancelSelect}
+                      seatNumber={index + 1}
+                      setSelectedSeat={setSelectedSeat}
+                      seatToRender={seatToRender}
+                    />
+                  );
                 })}
               <td key={`rightRowNumber${index + 1}`}>{index + 1}</td>
             </tr>

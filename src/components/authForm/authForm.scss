@@ -23,8 +23,8 @@
     height: 40px;
 
     input{
+      font-size: 1.2em;
       color: $white-color;
-      font-size: 18px;
       width: 100%;
       padding: 4px 0;
       position:absolute;
@@ -55,7 +55,7 @@
     width: max-content;
     color: rgba($white-color, 0.3);
     cursor: pointer;
-    font-size: 15px;
+    font-size: 0.9em;
   }
 
   .forgotPasswordSpan:hover{
@@ -69,9 +69,8 @@
   }
 
   .authTypeSpan{
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
+    width: max-content;
+    margin: 0 auto;
     color: rgba($white-color, 0.3);
     text-decoration: underline;
     cursor: pointer;
