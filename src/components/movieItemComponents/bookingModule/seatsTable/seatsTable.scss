@@ -16,36 +16,5 @@
     font-size: 13px;
     font-weight: 400;
     color: #333;
-
-    span {
-      font-weight: 500;
-      font-size: 12px;
-    }
-
-    .seat {
-      width: 34px;
-      height: 34px;
-      background-color: rgb(164, 206, 54);
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &:hover {
-        opacity: 0.6;
-        transition: 0.25s ease;
-        cursor: pointer;
-      }
-    }
-
-    .selected.seat {
-      background-color: rgba(73, 105, 148, 0.6);
-      border: solid 1px black;
-    }
-
-    .unavailable.seat {
-      background-color: rgba(127, 127, 131, 0.65);
-      pointer-events: none;
-    }
   }
 }

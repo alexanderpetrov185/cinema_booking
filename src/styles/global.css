@@ -19,12 +19,12 @@ body h3 {
   font-size: 20px;
 }
 body button {
+  font-size: 1em;
+  font-weight: 500;
   background-color: #350e5e;
   border-radius: 4px;
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;

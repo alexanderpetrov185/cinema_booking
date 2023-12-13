@@ -1,4 +1,5 @@
 import React from "react";
+import "./seat.scss";
 
 type Props = {
   isSeatSelected: boolean;
@@ -18,7 +19,7 @@ const Seat = ({
   if (seatToRender.available) {
     return (
       <td
-        className={isSeatSelected ? "selected seat" : "seat"}
+        className={isSeatSelected ? "seat selected" : "seat"}
         key={`seatKey${seatNumber}`}
         onClick={() => {
           isSeatSelected

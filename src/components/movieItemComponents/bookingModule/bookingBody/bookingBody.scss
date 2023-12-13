@@ -17,10 +17,7 @@
       gap: 5px;
 
       .sessionButton {
-        background-color: $soft-bg;
         padding: 0 10px;
-        font-weight: 400;
-        font-size: 16px;
         border-radius: 15px;
         text-transform: capitalize;
         max-height: 35px;
@@ -34,12 +31,12 @@
       }
 
       .active.sessionButton {
-        background-color: $main-bright-bg;
+        transition: .3s ease;
+        background-color: $main-color;
       }
 
       span {
-        font-size: 12px;
-        font-weight: 400;
+        font-size: 0.8em;
       }
     }
   }
@@ -48,15 +45,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 0.5px solid #333;
-    border-top: 0.5px solid #333;
+    border-bottom: 0.5px solid rgba($black-color, .5);
+    border-top: 0.5px solid rgba($black-color, .5);
 
     .shortInfo {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 0.85em;
 
       .seatsInfo {
         list-style: none;
@@ -78,8 +75,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
-      font-weight: 400;
+      font-size: 0.8em;
 
       .selectedTicketGroup {
         display: flex;
@@ -87,44 +83,26 @@
         gap: 5px;
 
         .selectedTicket {
-          background-color: rgba(181, 160, 222, 0.4);
+          background-color: rgba($main-color, 0.75);
           border-radius: 5px;
           padding: 5px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
-          font-weight: 300;
           cursor: pointer;
 
           &:hover {
-            transition: 0.25s ease;
-            background-color: rgb(181, 160, 222);
+            transition: 0.35s ease;
+            background-color: $hover-color;
           }
         }
       }
 
       .buttonBuy {
-        padding: 0 10px;
-        min-width: 60px;
-        background-image: linear-gradient(to left, #4f0ed0, #63c);
-        border-radius: 4px;
-        line-height: 28px;
-        color: #fff;
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: 400;
-        font-style: normal;
-        font-stretch: normal;
-        text-align: center;
-        letter-spacing: normal;
-        cursor: pointer;
-
-        &:hover {
-          background-image: linear-gradient(to left, #4311ad, #5b31b2);
-          transition: 0.35s ease;
-        }
+        padding: 2px;
+        min-width: 85px;
+        min-height: 30px;
       }
     }
   }
