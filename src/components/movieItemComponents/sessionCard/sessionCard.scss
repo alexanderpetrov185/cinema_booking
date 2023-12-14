@@ -32,44 +32,35 @@
       flex-direction: column;
       gap: 5px;
 
-      div {
-        display: flex;
-        flex-direction: column;
-        background-color: rgba($white-bg, 1);
-        border-radius: 5%;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        color: $black-color;
-        padding: 1px;
-
-        &:hover {
-          color: $white-color;
-          background-color: $hover-color;
-          transition: 0.35s ease;
-
+        .sessionButton{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          gap: 3px;
+          background: linear-gradient(270deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%), linear-gradient(90deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%), linear-gradient(0deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%), linear-gradient(180deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%);
+          padding: 5px 15px;
+          border-radius: 10px;
+          border: 1px solid rgba(255,255,255,.3);
 
           span {
+            font-size: 1.1em;
+            font-weight: 500;
+
             &:last-child {
-              color: $white-color;
-              transition: 0.35s ease;
-              background-color: $hover-color;
+              font-size: 0.9em;
+              font-weight: 400;
             }
           }
-        }
 
-        span {
-          padding: 5px;
-          transition: transform 0.3s linear;
-
-          &:last-child {
-            border-radius: 0 0 10% 10%;
-            background-color: $main-color;
+          &:hover {
+            transition: .3s ease;
+            background-color: rgba($hover-color, .5);
           }
         }
-      }
 
       .hallNumber {
-        font-size: 0.8em;
+        font-size: 0.75em;
         text-transform: uppercase;
       }
     }

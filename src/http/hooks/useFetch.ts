@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import $api from "../index";
-import { IMovie } from "../../redux/models/IMovie";
 
 const useFetch = (endpoint: string) => {
   const [data, setData] = useState<any>();

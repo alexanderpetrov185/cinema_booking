@@ -1,7 +1,6 @@
 .movieItem {
-  transition: transform 0.3s ease;
-  width: 25%;
-  padding: 25px;
+  padding: 1%;
+  width: 20%;
 }
 .movieItem .imageContainer {
   width: 100%;
@@ -9,24 +8,19 @@
   position: relative;
   border-radius: 3%;
   cursor: pointer;
+  transition: transform 0.3s linear;
 }
 .movieItem .imageContainer img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.3s linear;
-}
-.movieItem .imageContainer img:hover {
-  transform: scale(1.1);
 }
 .movieItem .imageContainer .playButton {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  opacity: 0.85;
-  transition: all 0.5s ease;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -36,23 +30,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  opacity: 0;
 }
-.movieItem .imageContainer .playButton .play {
+.movieItem .imageContainer .playButton .playIcon {
   width: 25px;
   height: 25px;
-  background: #fff;
-  margin-left: 15px;
-  z-index: 100;
-  clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
-  transition: clip-path 0.5s ease;
-  transition-delay: 0.4s;
-}
-.movieItem .imageContainer .playButton:hover {
-  background: white;
-}
-.movieItem .imageContainer .playButton:hover .play {
   background: #333333;
+  margin-left: 15px;
+  z-index: 3;
+  clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
+}
+.movieItem .imageContainer:hover {
+  transition: transform 0.3s linear;
+  transform: scale(1.1);
+}
+.movieItem .imageContainer:hover .playButton {
+  opacity: 0.85;
+  background: white;
 }
 
 /*# sourceMappingURL=movieItem.css.map */

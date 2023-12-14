@@ -14,7 +14,7 @@ const Header = () => {
       {
         id: 1,
         title: "Расписание",
-        url: "/schedulePage",
+        url: "/",
       },
       {
         id: 2,
@@ -52,6 +52,7 @@ const Header = () => {
   const modalOpen = useCallback((state: boolean) => {
     setModalIsOpen(state);
   }, []);
+
   return (
     <div className={"header"}>
       <Link to={"/"}>
@@ -64,7 +65,7 @@ const Header = () => {
               {({ isActive }) => (
                 <li
                   className={
-                    isActive ? "navigationLinkActive" : "navigationLink"
+                    isActive ? "navigationLink active" : "navigationLink"
                   }
                 >
                   {link.title}

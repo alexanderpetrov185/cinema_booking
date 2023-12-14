@@ -3,6 +3,7 @@
   background: #000;
   backdrop-filter: blur(30px);
   border-bottom: 1px solid #303962;
+  border-top: 1px solid #303962;
   display: flex;
   justify-content: center;
 }

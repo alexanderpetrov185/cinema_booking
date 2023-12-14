@@ -1,21 +1,10 @@
 .movieList {
-  padding: 20px 0;
   display: flex;
   flex-wrap: wrap;
 }
-@media screen and (max-width: 1400px) {
-  .movieList {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .movieList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-  }
+.movieList .noSessionsMessage {
+  color: #fff;
+  font-size: 1.5em;
 }
 
 /*# sourceMappingURL=movieList.css.map */

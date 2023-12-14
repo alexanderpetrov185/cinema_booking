@@ -12,7 +12,6 @@ const Gallery = lazy(() => import("./pages/gallery/Gallery"));
 const Prices = lazy(() => import("./pages/prices/Prices"));
 const Repertoire = lazy(() => import("./pages/repertoire/Repertoire"));
 const Help = lazy(() => import("./pages/help/Help"));
-const SchedulePage = lazy(() => import("./pages/schedulePage/SchedulePage"));
 
 function App() {
   const dispatch = useAppDispatch();
@@ -30,10 +29,6 @@ function App() {
         {
           path: "/",
           element: <Home />,
-        },
-        {
-          path: "/schedulePage",
-          element: <SchedulePage />,
         },
         {
           path: "/about",

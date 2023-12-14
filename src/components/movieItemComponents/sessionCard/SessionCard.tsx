@@ -47,7 +47,8 @@ const SessionCard = ({
           if (new Date(details.date.slice(0, -1)) > nowDate) {
             return (
               <div key={details._id} className={"sessionDetails"}>
-                <div
+                <button
+                  className={"sessionButton"}
                   onClick={() => {
                     setModalIsOpen(true);
                     dispatch(
@@ -63,7 +64,7 @@ const SessionCard = ({
                 >
                   <span>{details.date.toLocaleString().slice(11, -8)}</span>
                   <span>{details.price}₽</span>
-                </div>
+                </button>
                 <span className={"hallNumber"}>Зал {details.hallNumber}</span>
               </div>
             );

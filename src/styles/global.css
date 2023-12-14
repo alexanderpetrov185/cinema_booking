@@ -22,6 +22,7 @@ body button {
   font-size: 1em;
   font-weight: 500;
   background-color: #350e5e;
+  border: 0.5px solid black;
   border-radius: 4px;
   color: #fff;
   text-decoration: none;

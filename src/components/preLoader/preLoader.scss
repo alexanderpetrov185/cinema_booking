@@ -1,0 +1,11 @@
+@import "../../styles/variebles.scss";
+@import "../../styles/responsive.scss";
+
+.preLoader{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  span{
+    color: $white-color;
+  }
+}

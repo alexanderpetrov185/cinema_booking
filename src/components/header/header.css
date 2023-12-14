@@ -1,5 +1,5 @@
 .header {
-  min-height: 80px;
+  min-height: 8vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   width: 160px;
   height: 80px;
   fill: rgb(108, 67, 191);
-  stroke: rgb(135, 84, 236);
+  stroke: rgb(108, 67, 191);
 }
 .header .logo:hover {
   transition: 0.3s ease;
@@ -34,18 +34,20 @@
 .header .navigation .navLinks {
   list-style-type: none;
 }
-.header .navigation .navLinks .navigationLink, .header .navigation .navLinks .navigationLinkActive {
+.header .navigation .navLinks .navigationLink {
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 1em;
+  font-weight: 600;
+  font-size: 0.85em;
   color: #fff;
 }
-.header .navigation .navLinks .navigationLink:hover, .header .navigation .navLinks .navigationLinkActive:hover {
+.header .navigation .navLinks .navigationLink:hover {
   color: rgb(135, 84, 236);
   transition: 0.35s ease;
 }
-.header .navigation .navLinks .navigationItemActive {
-  color: rgb(108, 67, 191);
+.header .navigation .navigationLink.active {
+  border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, rgb(108, 67, 191) 50%, rgba(236, 164, 81, 0) 100%);
+  border-image-slice: 1;
+  border-bottom: 2px solid transparent;
 }
 .header .buttonsBlock .buttonStandard {
   gap: 2px;

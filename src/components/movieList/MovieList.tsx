@@ -16,17 +16,17 @@ const MovieList = ({ movies }: Props) => {
     config: config.gentle,
   });
 
-  if (!movies) {
-    return <h3>На сегодня сеансов нет</h3>;
-  }
-
   return (
     <div style={{ overflow: "hidden" }}>
       {transition((style) => (
         <animated.div className={"movieList"} style={style}>
-          {movies.map((movie) => (
-            <MovieItem key={movie._id} movie={movie} />
-          ))}
+          {!movies || movies.length === 0 ? (
+            <span className={"noSessionsMessage"}>
+              На этот день сеансов нет
+            </span>
+          ) : (
+            movies.map((movie) => <MovieItem key={movie._id} movie={movie} />)
+          )}
         </animated.div>
       ))}
     </div>

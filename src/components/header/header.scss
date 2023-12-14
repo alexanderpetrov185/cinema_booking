@@ -2,7 +2,7 @@
 @import "../../styles/responsive.scss";
 
 .header {
-  min-height: 80px;
+  min-height: 8vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@
     width: 160px;
     height: 80px;
     fill: $main-color;
-    stroke: $hover-color;
+    stroke: $main-color;
 
     &:hover{
       transition: .3s ease;
@@ -39,10 +39,10 @@
     .navLinks {
       list-style-type: none;
 
-      .navigationLink, .navigationLinkActive {
+      .navigationLink{
         text-transform: uppercase;
-        font-weight: 500;
-        font-size: 1em;
+        font-weight: 600;
+        font-size: 0.85em;
         color: $white-color;
 
         &:hover {
@@ -50,10 +50,12 @@
           transition: 0.35s ease;
         }
       }
+    }
 
-      .navigationItemActive {
-        color: $main-color;
-      }
+    .navigationLink.active{
+      border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
+      border-image-slice: 1;
+      border-bottom: 2px solid transparent;
     }
   }
 

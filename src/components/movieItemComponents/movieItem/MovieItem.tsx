@@ -24,14 +24,8 @@ const MovieItem = ({ movie }: Props) => {
           onClick={() => setPlayerIsOpen(true)}
         />
         <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
-          <span className="play" />
+          <span className="playIcon" />
         </button>
-        <ModalWindow
-          modalIsOpen={playerIsOpen}
-          setModalIsOpen={setPlayerIsOpen}
-        >
-          {playerIsOpen && <Player videoSrc={movie.trailer} />}
-        </ModalWindow>
       </div>
       <SessionCard
         title={movie.title}
@@ -40,6 +34,9 @@ const MovieItem = ({ movie }: Props) => {
         nowDate={nowDate}
         setModalIsOpen={setModalIsOpen}
       />
+      <ModalWindow modalIsOpen={playerIsOpen} setModalIsOpen={setPlayerIsOpen}>
+        {playerIsOpen && <Player videoSrc={movie.trailer} />}
+      </ModalWindow>
       <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
         {modalIsOpen && (
           <BookingModule
