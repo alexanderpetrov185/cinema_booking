@@ -1,18 +1,17 @@
 .bookingModule {
-  background: #fff;
+  background: #0E0E18;
   color: #333;
   border-radius: 12px;
   padding: 25px;
   display: flex;
   flex-direction: column;
 }
-.bookingModule .btnClose {
-  color: #000;
-}
 .bookingModule .bookingHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 0.5px solid #303962;
+  padding-bottom: 10px;
 }
 .bookingModule .bookingHeader .bookingInfo {
   gap: 2px;
@@ -21,18 +20,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-weight: 400;
-  font-size: 0.9em;
-}
-.bookingModule .bookingHeader .bookingInfo .bookingTitle {
-  font-size: 24px;
-  font-weight: 600;
+  color: #fff;
 }
 .bookingModule .bookingFooter {
   display: flex;
   justify-content: space-between;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.8em;
+  color: #fff;
+  padding-top: 10px;
+  border-top: 0.5px solid #303962;
+}
+.bookingModule .bookingFooter > * {
+  padding: 0 5px;
 }
 
 /*# sourceMappingURL=bookingModule.css.map */

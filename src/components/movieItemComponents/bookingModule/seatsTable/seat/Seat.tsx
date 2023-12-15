@@ -20,7 +20,6 @@ const Seat = ({
     return (
       <td
         className={isSeatSelected ? "seat selected" : "seat"}
-        key={`seatKey${seatNumber}`}
         onClick={() => {
           isSeatSelected
             ? cancelSelect(seatToRender)
@@ -31,11 +30,7 @@ const Seat = ({
       </td>
     );
   } else {
-    return (
-      <td className={"seat unavailable"} key={`seatKey${seatNumber}`}>
-        ✖
-      </td>
-    );
+    return <td className={"seat unavailable"}>✖</td>;
   }
 };
 

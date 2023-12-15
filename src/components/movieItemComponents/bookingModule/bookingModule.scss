@@ -2,21 +2,19 @@
 @import "../../../styles/responsive.scss";
 
 .bookingModule {
-  background: $white-bg;
+  background: $main-bg;
   color: #333;
   border-radius: 12px;
   padding: 25px;
   display: flex;
   flex-direction: column;
 
-  .btnClose{
-    color: $black-color;
-  }
-
   .bookingHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 0.5px solid $soft-bg;
+    padding-bottom: 10px;
 
     .bookingInfo {
       gap: 2px;
@@ -25,13 +23,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-weight: 400;
-      font-size: 0.9em;
-
-      .bookingTitle {
-        font-size: 24px;
-        font-weight: 600;
-      }
+      color: $white-color;
     }
   }
 
@@ -39,7 +31,14 @@
     display: flex;
     justify-content: space-between;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.8em;
+    color: $white-color;
+    padding-top: 10px;
+    border-top: 0.5px solid $soft-bg;
+  }
+
+  .bookingFooter > *{
+    padding: 0 5px;
   }
 
   //@include md {

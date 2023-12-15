@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./authForm.scss";
 import {
   loginAction,
@@ -9,6 +9,25 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
 type Props = {
   setModalIsOpen: (arg0: boolean) => void;
 };
+
+// const useInput = (initialValue: string) => {
+//   const [value, setValue] = useState(initialValue);
+//   const [isDirty, setDirty] = useState(false);
+//
+//   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setValue(e.target.value);
+//   };
+//
+//   const onBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setDirty(true);
+//   };
+//
+//   return {
+//     value,
+//     onChange,
+//     onBlur,
+//   };
+// };
 
 const AuthForm = ({ setModalIsOpen }: Props) => {
   const [isLogin, setIsLogin] = React.useState<boolean>(true);

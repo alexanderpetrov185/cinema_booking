@@ -4,11 +4,13 @@
 .seat {
   width: 34px;
   height: 34px;
-  background-color: rgba($main-bright-bg, .5);
+  background-color: $white-color;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 0.5px solid black;
+  font-weight: 500;
 
   &:hover {
     background-color: $hover-color;
@@ -25,7 +27,8 @@
 }
 
 .seat.unavailable {
-  background-color: rgba($dark-bg, 0.65);
+  background-color: $dark-bg;
   pointer-events: none;
+  color: rgba($white-color, .5);
 }
 

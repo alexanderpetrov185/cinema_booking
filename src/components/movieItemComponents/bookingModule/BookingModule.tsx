@@ -27,7 +27,7 @@ const BookingModule = ({ nowDate, title, details, setModalIsOpen }: Props) => {
       </button>
       <div className="bookingHeader">
         <div className="bookingInfo">
-          <span className={"bookingTitle"}>{title}</span>
+          <h3 className={"bookingTitle"}>{title}</h3>
           <span>{dateDay} Кинотеатр Cinema</span>
         </div>
       </div>

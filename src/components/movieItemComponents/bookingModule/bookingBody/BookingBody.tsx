@@ -6,6 +6,7 @@ import useFetch from "../../../../http/hooks/useFetch";
 import SessionService from "../../../../http/services/SessionServices";
 import SeatsTable from "../seatsTable/SeatsTable";
 import { IFetchBooking } from "../models/IFetchBooking";
+import { ReactComponent as Screen } from "../../../../static/icons/screen.svg";
 
 type Details = {
   hallNumber: number;
@@ -96,16 +97,22 @@ const BookingBody = ({ details, nowDate }: Props) => {
         <div className="shortInfo">
           <span>2D 12+ Зал №{`${data?.hallNumber}`}</span>
           <ul className={"seatsInfo"}>
-            <li>🟢{`${data?.price}₽ `}</li>
-            <li>⚫Занято</li>
+            <li>
+              <div className={"seatExample free"} />
+              {`Свободно ${data?.price}₽ `}
+            </li>
+            <li>
+              <div className={"seatExample selected"} />
+              Выбрано
+            </li>
+            <li>
+              <div className={"seatExample booked"} />
+              Занято
+            </li>
           </ul>
         </div>
 
-        <img
-          src="/assets/images/screen.png"
-          alt="Экран"
-          className="movieScreenImg"
-        />
+        <Screen className={"screenSvg"} />
 
         <SeatsTable
           data={data}

@@ -11,7 +11,7 @@
     position: relative;
     border-radius: 3%;
     cursor: pointer;
-    transition: transform 0.3s linear;
+    transition: .3s ease;
 
     img {
       height: 100%;
@@ -47,10 +47,11 @@
     }
 
     &:hover {
-      transition: transform 0.3s linear;
+      transition: .3s ease;
       transform: scale(1.1);
 
       .playButton{
+        transition:.3s ease;
         opacity: 0.85;
         background: rgba($white-bg, 1);
       }

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import "./header.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
 import { useAppSelector } from "../../redux/hooks/redux";
 import Profile from "../profile/Profile";
@@ -53,8 +53,15 @@ const Header = () => {
     setModalIsOpen(state);
   }, []);
 
+  let { pathname } = useLocation();
+
   return (
-    <div className={"header"}>
+    <div
+      className={"header"}
+      style={{
+        position: pathname !== "/" ? "sticky" : "fixed",
+      }}
+    >
       <Link to={"/"}>
         <Logo className="logo" />
       </Link>

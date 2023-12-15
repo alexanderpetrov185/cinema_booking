@@ -12,6 +12,7 @@ const Gallery = lazy(() => import("./pages/gallery/Gallery"));
 const Prices = lazy(() => import("./pages/prices/Prices"));
 const Repertoire = lazy(() => import("./pages/repertoire/Repertoire"));
 const Help = lazy(() => import("./pages/help/Help"));
+const PageNotFound = lazy(() => import("./pages/pageNotFound/PageNotFound"));
 
 function App() {
   const dispatch = useAppDispatch();
@@ -49,6 +50,10 @@ function App() {
         {
           path: "/help",
           element: <Help />,
+        },
+        {
+          path: "*",
+          element: <PageNotFound />,
         },
       ],
     },

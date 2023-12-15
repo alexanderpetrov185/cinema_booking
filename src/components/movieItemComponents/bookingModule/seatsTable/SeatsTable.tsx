@@ -33,7 +33,9 @@ const SeatsTable = ({
         return (
           <tbody key={`tbodyKey${index}`}>
             <tr className="row" key={`rowKey${index}`}>
-              <td key={`leftRowNumber${index + 1}`}>{index + 1}</td>
+              <td className={"rowNumber"} key={`leftRowNumber${index + 1}`}>
+                {index + 1}
+              </td>
               {data?.seatsInfo
                 .slice(
                   hallSchema.columns * index,
@@ -42,6 +44,7 @@ const SeatsTable = ({
                 .map((seatToRender: any, index: number) => {
                   return (
                     <Seat
+                      key={`seat${index}`}
                       isSeatSelected={selectedSeat.includes(seatToRender)}
                       cancelSelect={cancelSelect}
                       seatNumber={index + 1}
@@ -50,7 +53,9 @@ const SeatsTable = ({
                     />
                   );
                 })}
-              <td key={`rightRowNumber${index + 1}`}>{index + 1}</td>
+              <td className={"rowNumber"} key={`rightRowNumber${index + 1}`}>
+                {index + 1}
+              </td>
             </tr>
           </tbody>
         );
