@@ -46,11 +46,11 @@ const Header = () => {
   );
 
   const { isLoggedIn } = useAppSelector((state) => state.userReducer);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
   const [navigationActive, setMenuActive] = React.useState(false);
 
   const modalOpen = useCallback((state: boolean) => {
-    setModalIsOpen(state);
+    setAuthModalOpen(state);
   }, []);
 
   let { pathname } = useLocation();
@@ -89,7 +89,7 @@ const Header = () => {
           <button
             className={"buttonStandard"}
             type={"submit"}
-            onClick={() => setModalIsOpen(true)}
+            onClick={() => setAuthModalOpen(true)}
           >
             <ProfileIcon className={"profileIcon"} />
             <span>Войти</span>
@@ -101,10 +101,10 @@ const Header = () => {
             <span />
           </div>
           <ModalWindow
-            modalIsOpen={modalIsOpen}
-            setModalIsOpen={setModalIsOpen}
+            modalIsOpen={authModalOpen}
+            setModalIsOpen={setAuthModalOpen}
           >
-            <AuthForm setModalIsOpen={setModalIsOpen} />
+            <AuthForm setModalIsOpen={setAuthModalOpen} />
           </ModalWindow>
         </div>
       )}

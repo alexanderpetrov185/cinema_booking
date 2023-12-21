@@ -2,15 +2,14 @@
   position: relative;
 }
 .profile .profileIcon {
-  border-radius: 50%;
-  max-width: 45px;
-  max-height: 45px;
-  object-fit: cover;
+  width: 35px;
+  height: 25px;
+  fill: #fff;
   cursor: pointer;
 }
 .profile .profileIcon:hover {
-  opacity: 0.85;
   transition: 0.35s ease;
+  fill: rgb(135, 84, 236);
 }
 .profile .profileText {
   display: flex;

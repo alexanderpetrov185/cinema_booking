@@ -3,16 +3,14 @@
 .profile {
   position: relative;
 
-  .profileIcon {
-    border-radius: 50%;
-    max-width: 45px;
-    max-height: 45px;
-    object-fit: cover;
+  .profileIcon{
+    width: 35px;
+    height: 25px;
+    fill: $white-color;
     cursor: pointer;
-
     &:hover {
-      opacity: 0.85;
-      transition: 0.35s ease;
+        transition: 0.35s ease;
+        fill: $hover-color;
     }
   }
 
