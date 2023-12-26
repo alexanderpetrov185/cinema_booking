@@ -6,7 +6,6 @@ import { AuthResponse } from "../models/response/AuthResponse";
 import { API_URL } from "../../http";
 import { scheduleSlice } from "./scheduleSlice";
 import { ISession } from "../models/ISession";
-import useFetch from "../../http/hooks/useFetch";
 import { moviesSlice } from "./moviesSlice";
 import { IMovie } from "../models/IMovie";
 
@@ -76,7 +75,8 @@ export const saveSelectedSession =
   };
 
 export const fetchMoviesData =
-  (date: string) => async (dispatch: AppDispatch) => {
+  (date: string, isFirstLoading: boolean = false) =>
+  async (dispatch: AppDispatch) => {
     try {
       dispatch(moviesSlice.actions.sendingFetchMovies());
       const response = await axios.get<IMovie[]>(
@@ -85,9 +85,15 @@ export const fetchMoviesData =
           withCredentials: true,
         },
       );
-      setTimeout(() => {
+
+      //чтобы не мигать прелоадером
+      if (isFirstLoading) {
         dispatch(moviesSlice.actions.fetchMoviesSuccess(response.data));
-      }, 500);
+      } else {
+        setTimeout(() => {
+          dispatch(moviesSlice.actions.fetchMoviesSuccess(response.data));
+        }, 500);
+      }
     } catch (e: any) {
       dispatch(moviesSlice.actions.fetchMoviesError(e.response?.data?.message));
     }

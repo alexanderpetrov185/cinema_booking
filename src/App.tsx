@@ -1,7 +1,8 @@
-import React, { lazy, useState } from "react";
+import React, { lazy, useRef, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { checkAuth, fetchMoviesData } from "./redux/reducers/actionCreators";
 import { useAppDispatch } from "./redux/hooks/redux";
+import { ReactComponent as Logo } from "./static/icons/logo.svg";
 import "./styles/global.scss";
 
 import Layout from "./components/layout/Layout";
@@ -19,14 +20,17 @@ const date = new Date().toLocaleDateString("en-CA");
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const isFirstLoadingRef = useRef(true);
+
   const dispatch = useAppDispatch();
   React.useEffect(() => {
     setTimeout(() => {
       if (localStorage.getItem("token")) {
         dispatch(checkAuth());
       }
-      dispatch(fetchMoviesData(date));
+      dispatch(fetchMoviesData(date, isFirstLoadingRef.current));
       setIsLoading(false);
+      isFirstLoadingRef.current = false;
     }, 500);
   }, []);
 
@@ -34,6 +38,7 @@ function App() {
     return (
       <div className={"app-preloader"}>
         <ThreeCircles color={"#6C43BF"} />
+        <Logo className="logo" />
       </div>
     );
   }

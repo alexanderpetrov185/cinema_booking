@@ -75,8 +75,15 @@ body{
 
 .app-preloader{
   display: flex;
+  flex-direction: column;
   justify-content:center;
   align-items: center;
   height: 100vh;
   color: $main-color;
+  .logo {
+    width: 320px;
+    height: 160px;
+    fill: $main-color;
+    stroke: $main-color;
+  }
 }
