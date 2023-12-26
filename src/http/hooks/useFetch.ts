@@ -3,35 +3,37 @@ import $api from "../index";
 
 const useFetch = (endpoint: string) => {
   const [data, setData] = useState<any>();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setIsLoading(true);
       try {
         const res = await $api.get(endpoint);
         setData(res.data);
       } catch (err: any) {
         setError(err);
       }
-      setLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
     };
     void fetchData();
   }, [endpoint]);
 
   const reFetch = async () => {
-    setLoading(true);
+    setIsLoading(true);
     try {
       const res = await $api.get(endpoint);
       setData(res.data);
     } catch (err: any) {
       setError(err);
     }
-    setLoading(false);
+    setIsLoading(false);
   };
 
-  return { data, loading, error, reFetch };
+  return { data, isLoading, error, reFetch };
 };
 
 export default useFetch;

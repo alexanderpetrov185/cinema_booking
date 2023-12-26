@@ -1,7 +1,10 @@
 import React from "react";
 import "./schedule.scss";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
-import { saveSelectedDate } from "../../redux/reducers/actionCreators";
+import {
+  fetchMoviesData,
+  saveSelectedDate,
+} from "../../redux/reducers/actionCreators";
 import { ReactComponent as Calendar } from "../../static/icons/calendar.svg";
 
 const dayOfWeek = new Date().getDay();
@@ -32,6 +35,12 @@ const Schedule = () => {
     useAppSelector((state) => state.scheduleReducer.date),
   );
 
+  const scheduleHandler = (index: number) => {
+    const date = dayDates[index].toLocaleDateString("en-CA");
+    dispatch(saveSelectedDate(date));
+    dispatch(fetchMoviesData(date));
+  };
+
   return (
     <ul className={"schedule"}>
       <div className={"scheduleContainer"}>
@@ -44,11 +53,7 @@ const Schedule = () => {
                   ? "scheduleDay active"
                   : "scheduleDay"
               }
-              onClick={() =>
-                dispatch(
-                  saveSelectedDate(dayDates[index].toLocaleDateString("en-CA")),
-                )
-              }
+              onClick={() => scheduleHandler(index)}
             >
               {index === 0 ? (
                 <span>Сегодня </span>

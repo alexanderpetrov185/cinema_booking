@@ -1,14 +1,15 @@
 import React from "react";
 import "./movieList.scss";
 import MovieItem from "../movieItemComponents/movieItem/MovieItem";
-import { IMovie } from "../../redux/models/IMovie";
 import { animated, config, useTransition } from "@react-spring/web";
+import { useAppSelector } from "../../redux/hooks/redux";
+import PreLoader from "../preLoader/PreLoader";
 
-type Props = {
-  movies: IMovie[] | undefined;
-};
+const MovieList = () => {
+  const { data, isLoading, error } = useAppSelector(
+    (state) => state.moviesReducer,
+  );
 
-const MovieList = ({ movies }: Props) => {
   const transition = useTransition(null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -16,16 +17,22 @@ const MovieList = ({ movies }: Props) => {
     config: config.gentle,
   });
 
-  return (
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  return isLoading ? (
+    <PreLoader />
+  ) : (
     <div style={{ overflow: "hidden" }}>
       {transition((style) => (
         <animated.div className={"movieList"} style={style}>
-          {!movies || movies.length === 0 ? (
+          {!data || data.length === 0 ? (
             <span className={"noSessionsMessage"}>
               На этот день сеансов нет
             </span>
           ) : (
-            movies.map((movie) => <MovieItem key={movie._id} movie={movie} />)
+            data.map((movie) => <MovieItem key={movie._id} movie={movie} />)
           )}
         </animated.div>
       ))}

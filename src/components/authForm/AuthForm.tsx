@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import "./authForm.scss";
 import {
   loginAction,
@@ -40,7 +40,7 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
   );
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email().required("Поле необходимо заполнить*"),
+    email: Yup.string().email().required("Поле обязательное для заполнения*"),
     password: authTypeIsLogin
       ? Yup.string().required("Поле обязательное для заполнения*")
       : Yup.string()

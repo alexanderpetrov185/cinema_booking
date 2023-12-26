@@ -65,4 +65,12 @@ body .btnClose:hover {
   align-self: center;
 }
 
+.app-preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: rgb(108, 67, 191);
+}
+
 /*# sourceMappingURL=global.css.map */

@@ -72,3 +72,11 @@ body{
   width: $content-container-width;
   align-self: center;
 }
+
+.app-preloader{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height: 100vh;
+  color: $main-color;
+}
