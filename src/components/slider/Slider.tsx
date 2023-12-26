@@ -21,7 +21,9 @@ const Slider = memo(({ slides }: Props) => {
 
   const [ref, { width }] = useMeasure();
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [translateX, setTranslateX] = useState(0);
+  const [translateX, setTranslateX] = useState(
+    document.documentElement.clientWidth * currentIndex,
+  );
   const [transitionState, setTransitionState] = useState(false);
   const [isTransitionEnd, setIsTransitionEnd] = useState(true);
 
@@ -70,10 +72,9 @@ const Slider = memo(({ slides }: Props) => {
   useEffect(() => {
     //для того чтобы не было видно смещения при первом рендере
     if (width === 0) {
-      setTranslateX(document.documentElement.clientWidth * currentIndex);
-    } else {
-      setTranslateX(width * currentIndex);
+      return;
     }
+    setTranslateX(width * currentIndex);
   }, [currentIndex, width]);
 
   //auto-slide
