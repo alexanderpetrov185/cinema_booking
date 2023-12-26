@@ -8,7 +8,6 @@
   height: 100%;
   width: 100%;
   display: flex;
-  transition-duration: 400ms;
 }
 .slider .sliderContainer .slideItem {
   opacity: 0.9;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./schedule.scss";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
 import {
