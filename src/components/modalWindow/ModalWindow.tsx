@@ -13,15 +13,13 @@ const ModalWindow: React.FC<Props> = ({
   children,
 }: Props) => {
   if (!modalIsOpen) {
-    document.body.style.overflowX = "hidden";
-    document.body.style.overflowY = "scroll !important";
+    document.body.style.overflow = "auto";
     return null;
   }
 
   //чтобы сайт не двигался из за появления полосы прокрутки
+  document.body.style.marginRight = "calc(-1 * (100vw - 100%))";
   document.body.style.overflow = "hidden";
-  document.body.style.position = "fixed";
-  document.body.style.width = "100%";
 
   return (
     <div
