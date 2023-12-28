@@ -5,9 +5,11 @@ import {
   registrationAction,
 } from "../../redux/reducers/actionCreators";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import { ThreeCircles } from "react-loader-spinner";
+import LoginForm from "./loginForm/LoginForm";
+import SignInForm from "./signInForm/SignInForm";
 
 type Props = {
   setModalIsOpen: (arg0: boolean) => void;
@@ -24,11 +26,6 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
   const changeAuthType = useCallback(() => {
     setAuthTypeIsLogin(!authTypeIsLogin);
   }, [authTypeIsLogin]);
-
-  const closeAuthBlock = useCallback(() => {
-    setModalIsOpen(false);
-    setAuthTypeIsLogin(true);
-  }, [setModalIsOpen]);
 
   const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
   // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
@@ -75,76 +72,22 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
       validationSchema={validationSchema}
     >
       {({ handleReset, dirty }) => {
-        return (
-          <Form className={"authForm"}>
-            <button
-              type={"button"}
-              className={"btnClose"}
-              onClick={closeAuthBlock}
-            >
-              X
-            </button>
-            <div className="authHead">
-              {authTypeIsLogin ? <h3>Вход</h3> : <h3>Регистрация</h3>}
-            </div>
-            <label>
-              <Field name={"email"} placeholder="" />
-              <span>E-mail</span>
-            </label>
-
-            <ErrorMessage
-              name={"email"}
-              component={"span"}
-              className={"errorMessage"}
-            />
-
-            <label>
-              <Field name={"password"} placeholder="" type={"password"} />
-              <span>password</span>
-            </label>
-
-            <ErrorMessage
-              name={"password"}
-              component={"span"}
-              className={"errorMessage"}
-            />
-
-            {!authTypeIsLogin ? (
-              <>
-                <label>
-                  <Field
-                    name={"repeatPassword"}
-                    placeholder=""
-                    type={"password"}
-                  />
-                  <span>repeat password</span>
-                </label>
-                <ErrorMessage
-                  name={"repeatPassword"}
-                  component={"span"}
-                  className={"errorMessage"}
-                />
-              </>
-            ) : (
-              <span className={"forgotPasswordSpan"}>Забыли пароль?</span>
-            )}
-
-            {/*error from server*/}
-            {error && <span className={"errorMessage"}>{error}</span>}
-
-            <button className={"authButton"} type="submit" disabled={!dirty}>
-              {authTypeIsLogin ? "Войти" : "Зарегистрироваться"}
-            </button>
-            <span
-              className={"authTypeSpan"}
-              onClick={() => {
-                handleReset();
-                changeAuthType();
-              }}
-            >
-              {authTypeIsLogin ? "Зарегистрироваться" : "К форме входа"}
-            </span>
-          </Form>
+        return authTypeIsLogin ? (
+          <LoginForm
+            handleReset={handleReset}
+            dirty={dirty}
+            changeAuthType={changeAuthType}
+            error={error}
+            setModalIsOpen={setModalIsOpen}
+          />
+        ) : (
+          <SignInForm
+            handleReset={handleReset}
+            dirty={dirty}
+            changeAuthType={changeAuthType}
+            error={error}
+            setModalIsOpen={setModalIsOpen}
+          />
         );
       }}
     </Formik>
