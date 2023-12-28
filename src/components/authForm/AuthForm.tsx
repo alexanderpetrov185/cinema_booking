@@ -7,6 +7,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { ThreeCircles } from "react-loader-spinner";
 
 type Props = {
   setModalIsOpen: (arg0: boolean) => void;
@@ -16,7 +17,9 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
   const initialValues = { email: "", password: "", repeatPassword: "" };
   const [authTypeIsLogin, setAuthTypeIsLogin] = React.useState<boolean>(true);
   const dispatch = useAppDispatch();
-  const { error } = useAppSelector((state) => state.userReducer);
+  const { isLoggedIn, isLoading, error } = useAppSelector(
+    (state) => state.userReducer,
+  );
 
   const changeAuthType = useCallback(() => {
     setAuthTypeIsLogin(!authTypeIsLogin);
@@ -30,18 +33,15 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
   const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
   // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
 
-  const onSubmit = useCallback(
-    (values: any) => {
-      authTypeIsLogin
-        ? dispatch(loginAction(values.email, values.password))
-        : dispatch(registrationAction(values.email, values.password));
+  const onSubmit = (values: any) => {
+    authTypeIsLogin
+      ? dispatch(loginAction(values.email, values.password))
+      : dispatch(registrationAction(values.email, values.password));
 
-      if (!error) {
-        setModalIsOpen(false);
-      }
-    },
-    [authTypeIsLogin, dispatch, error, setModalIsOpen],
-  );
+    if (!error && isLoggedIn) {
+      setModalIsOpen(false);
+    }
+  };
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email().required("Поле обязательное для заполнения*"),
@@ -59,6 +59,14 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
           .oneOf([Yup.ref("password"), undefined], "Пароли должны совпадать*")
           .required("Поле обязательное для заполнения*"),
   });
+
+  if (isLoading) {
+    return (
+      <div className={"app-preloader"}>
+        <ThreeCircles color={"#6C43BF"} />
+      </div>
+    );
+  }
 
   return (
     <Formik
