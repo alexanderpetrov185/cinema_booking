@@ -35,8 +35,12 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
       authTypeIsLogin
         ? dispatch(loginAction(values.email, values.password))
         : dispatch(registrationAction(values.email, values.password));
+
+      if (!error) {
+        setModalIsOpen(false);
+      }
     },
-    [dispatch, authTypeIsLogin],
+    [authTypeIsLogin, dispatch, error, setModalIsOpen],
   );
 
   const validationSchema = Yup.object().shape({

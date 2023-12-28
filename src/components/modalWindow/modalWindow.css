@@ -7,26 +7,18 @@
   left: 0;
   display: flex;
   justify-content: center;
-  opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease-in-out;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(20px);
   padding-top: 5%;
 }
 .modalWindow .modalContent {
   border-radius: 12px;
-  transform: scale(0.5);
   min-width: 30%;
 }
 
 .modalWindow.active {
-  opacity: 1;
   pointer-events: all;
-}
-
-.modalContent.active {
-  transform: scale(1);
 }
 
 /*# sourceMappingURL=modalWindow.css.map */

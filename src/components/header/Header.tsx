@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./header.scss";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
@@ -49,10 +49,6 @@ const Header = () => {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [navigationActive, setMenuActive] = React.useState(false);
 
-  const modalOpen = useCallback((state: boolean) => {
-    setAuthModalOpen(state);
-  }, []);
-
   let { pathname } = useLocation();
 
   return (
@@ -83,7 +79,7 @@ const Header = () => {
         ))}
       </nav>
       {isLoggedIn ? (
-        <Profile modalOpen={modalOpen} />
+        <Profile />
       ) : (
         <div className={"buttonsBlock"}>
           <button

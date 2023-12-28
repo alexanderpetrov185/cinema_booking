@@ -7,13 +7,12 @@
 
   .imageContainer {
     width: 100%;
-    grid-row: span 2;
     position: relative;
     border-radius: 3%;
     cursor: pointer;
     transition: .3s ease;
 
-    img {
+    img{
       height: 100%;
       width: 100%;
       object-fit: cover;

@@ -4,7 +4,6 @@
 }
 .movieItem .imageContainer {
   width: 100%;
-  grid-row: span 2;
   position: relative;
   border-radius: 3%;
   cursor: pointer;
