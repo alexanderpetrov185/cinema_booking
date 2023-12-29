@@ -10,10 +10,9 @@ const MovieList = () => {
     (state) => state.moviesReducer,
   );
 
-  const transition = useTransition(null, {
+  const transition = useTransition(data && data.length !== 0 ? data : null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
     config: config.gentle,
   });
 
@@ -21,22 +20,24 @@ const MovieList = () => {
     return <div>{error}</div>;
   }
 
-  return isLoading ? (
-    <PreLoader />
-  ) : (
-    <div style={{ overflow: "hidden" }}>
-      {transition((style) => (
+  if (isLoading) {
+    return <PreLoader />;
+  }
+
+  return (
+    <>
+      {transition((style, movie) => (
         <animated.div className={"movieList"} style={style}>
-          {!data || data.length === 0 ? (
+          {movie ? (
+            <MovieItem key={movie._id} movie={movie} />
+          ) : (
             <span className={"noSessionsMessage"}>
               На этот день сеансов нет
             </span>
-          ) : (
-            data.map((movie) => <MovieItem key={movie._id} movie={movie} />)
           )}
         </animated.div>
       ))}
-    </div>
+    </>
   );
 };
 

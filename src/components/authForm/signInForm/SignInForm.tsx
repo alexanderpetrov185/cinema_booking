@@ -1,6 +1,7 @@
 import React from "react";
 import { ErrorMessage, Field, Form } from "formik";
 import { IAuthForms } from "../IAuthForms";
+import "./signInForm.scss";
 
 const SignInForm = ({
   error,

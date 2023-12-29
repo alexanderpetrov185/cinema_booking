@@ -1,6 +1,7 @@
 import React from "react";
 import { ErrorMessage, Field, Form } from "formik";
 import { IAuthForms } from "../IAuthForms";
+import "./loginForm.scss";
 
 const LoginForm = ({
   error,
@@ -46,7 +47,7 @@ const LoginForm = ({
       {error && <span className={"errorMessage"}>{error}</span>}
 
       <button className={"authButton"} type="submit" disabled={!dirty}>
-        "Войти"
+        Войти
       </button>
       <span
         className={"authTypeSpan"}
