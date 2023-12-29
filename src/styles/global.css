@@ -76,8 +76,8 @@ body .btnClose:hover {
 .app-preloader .logo {
   width: 320px;
   height: 160px;
-  fill: rgb(108, 67, 191);
-  stroke: rgb(108, 67, 191);
+  fill: #fff;
+  stroke: #fff;
 }
 
 /*# sourceMappingURL=global.css.map */

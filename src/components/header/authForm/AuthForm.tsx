@@ -3,8 +3,8 @@ import "./authForm.scss";
 import {
   loginAction,
   registrationAction,
-} from "../../redux/reducers/actionCreators";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
+} from "../../../redux/reducers/actionCreators";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks/redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { ThreeCircles } from "react-loader-spinner";

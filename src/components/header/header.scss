@@ -17,8 +17,8 @@
   .logo {
     width: 160px;
     height: 80px;
-    fill: $main-color;
-    stroke: $main-color;
+    fill: $white-color;
+    stroke: $white-color;
 
     &:hover{
       transition: .3s ease;
@@ -26,75 +26,36 @@
     }
   }
 
-  .navigation {
-    padding: 5px 10px;
-    border: 1px solid rgba(255,255,255,.3);
-    border-radius: 3em;
-    background-color: rgba($main-bg, .2);
-    backdrop-filter: blur(30px);
+  .buttonStandard {
+    gap: 2px;
     display: flex;
-    gap: 30px;
-    white-space: nowrap;
+    align-items: center;
+    color: $white-color;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    letter-spacing: normal;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
 
-    .navLinks {
-      list-style-type: none;
-
-      .navigationLink{
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 0.85em;
-        color: $white-color;
-
-        &:hover {
-          color: $hover-color;
-          transition: 0.35s ease;
-        }
-      }
+    .profileIcon{
+      width: 35px;
+      height: 25px;
+      fill: $white-color;
     }
 
-    .navigationLink.active{
-      border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
-      border-image-slice: 1;
-      border-bottom: 2px solid transparent;
-    }
-  }
-
-  .buttonsBlock {
-    .buttonStandard {
-      gap: 2px;
-      display: flex;
-      align-items: center;
-      color: $white-color;
-      text-decoration: none;
-      font-size: 1em;
-      font-weight: 600;
-      font-style: normal;
-      font-stretch: normal;
-      text-align: center;
-      letter-spacing: normal;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-      outline: none;
-
+    &:hover {
       .profileIcon{
-        width: 35px;
-        height: 25px;
-        fill: $white-color;
-      }
-
-      &:hover {
-        .profileIcon{
-          transition: 0.35s ease;
-          fill: $hover-color;
-        }
         transition: 0.35s ease;
-        color: $hover-color;
+        fill: $hover-color;
       }
-    }
-
-    .burgerIcon {
-      display: none;
+      transition: 0.35s ease;
+      color: $hover-color;
     }
   }
 
