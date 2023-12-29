@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IAuthForms {
   error: string;
   dirty: boolean;

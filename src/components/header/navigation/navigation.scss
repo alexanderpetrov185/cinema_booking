@@ -1,0 +1,35 @@
+@import "../../../styles/variebles";
+@import "../../../styles/responsive";
+
+.navigation {
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 3em;
+  background-color: rgba($main-bg, .2);
+  backdrop-filter: blur(30px);
+  display: flex;
+  gap: 30px;
+  white-space: nowrap;
+
+  .navLinks {
+    list-style-type: none;
+
+    .navigationLink{
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.85em;
+      color: $white-color;
+
+      &:hover {
+        color: $hover-color;
+        transition: 0.35s ease;
+      }
+    }
+  }
+
+  .navigationLink.active{
+    border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
+    border-image-slice: 1;
+    border-bottom: 2px solid transparent;
+  }
+}
