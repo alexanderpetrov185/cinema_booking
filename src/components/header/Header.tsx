@@ -15,12 +15,14 @@ const Header = () => {
   const { isLoggedIn } = useAppSelector((state) => state.userReducer);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   let { pathname } = useLocation();
+  const scrollWidth = window.innerWidth - document.body.clientWidth + "px";
 
   return (
     <div
       className={"header"}
       style={{
         position: pathname !== "/" ? "sticky" : "fixed",
+        width: authModalOpen ? `calc(100% - ${scrollWidth})` : "100%",
       }}
     >
       <div className={"headerContainer"}>

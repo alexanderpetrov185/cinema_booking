@@ -13,26 +13,28 @@ const ModalWindow: React.FC<Props> = ({
   setModalIsOpen,
   children,
 }: Props) => {
+  const scrollWidth = window.innerWidth - document.body.clientWidth + "px";
   const transition = useTransition(modalIsOpen, {
     from: {
       backgroundColor: "transparent",
-      // backdropFilter: "blur(0px)",
+      backdropFilter: "blur(0px)",
     },
     enter: {
-      backgroundColor: "rgba(0, 0, 0, 0)",
-      // backdropFilter: "blur(20px)",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      backdropFilter: "blur(20px)",
     },
     config: config.gentle,
   });
 
   if (!modalIsOpen) {
+    document.body.style.paddingRight = "0";
     document.body.style.overflowX = "hidden";
     document.body.style.overflowY = "auto";
     return null;
   }
 
   //чтобы сайт не двигался из за появления полосы прокрутки
-  // document.body.style.marginRight = "calc(-2 * (100vw - 100%))";
+  document.body.style.paddingRight = scrollWidth;
   document.body.style.overflow = "hidden";
 
   return (
