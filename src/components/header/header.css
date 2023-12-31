@@ -1,27 +1,29 @@
 .header {
-  min-height: 8vh;
   width: 100%;
+  min-height: 8vh;
+  background: linear-gradient(180deg, rgb(14, 14, 24) 20%, rgba(14, 14, 24, 0) 100%);
+  top: 0;
+  z-index: 999;
+}
+.header .headerContainer {
+  width: 95%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: 0.3s ease;
-  background: linear-gradient(180deg, rgb(14, 14, 24) 20%, rgba(14, 14, 24, 0) 100%);
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  padding: 10px 2.5%;
 }
-.header .logo {
+.header .headerContainer .logo {
   width: 160px;
   height: 80px;
   fill: #fff;
   stroke: #fff;
 }
-.header .logo:hover {
+.header .headerContainer .logo:hover {
   transition: 0.3s ease;
   fill: rgb(135, 84, 236);
 }
-.header .buttonStandard {
+.header .headerContainer .buttonStandard {
   gap: 2px;
   display: flex;
   align-items: center;
@@ -38,16 +40,16 @@
   border: none;
   outline: none;
 }
-.header .buttonStandard .profileIcon {
+.header .headerContainer .buttonStandard .profileIcon {
   width: 35px;
   height: 25px;
   fill: #fff;
 }
-.header .buttonStandard:hover {
+.header .headerContainer .buttonStandard:hover {
   transition: 0.35s ease;
   color: rgb(135, 84, 236);
 }
-.header .buttonStandard:hover .profileIcon {
+.header .headerContainer .buttonStandard:hover .profileIcon {
   transition: 0.35s ease;
   fill: rgb(135, 84, 236);
 }

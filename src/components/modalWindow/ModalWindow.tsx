@@ -16,11 +16,11 @@ const ModalWindow: React.FC<Props> = ({
   const transition = useTransition(modalIsOpen, {
     from: {
       backgroundColor: "transparent",
-      backdropFilter: "blur(0px)",
+      // backdropFilter: "blur(0px)",
     },
     enter: {
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
-      backdropFilter: "blur(20px)",
+      backgroundColor: "rgba(0, 0, 0, 0)",
+      // backdropFilter: "blur(20px)",
     },
     config: config.gentle,
   });
@@ -32,7 +32,7 @@ const ModalWindow: React.FC<Props> = ({
   }
 
   //чтобы сайт не двигался из за появления полосы прокрутки
-  document.body.style.marginRight = "calc(-1 * (100vw - 100%))";
+  // document.body.style.marginRight = "calc(-2 * (100vw - 100%))";
   document.body.style.overflow = "hidden";
 
   return (

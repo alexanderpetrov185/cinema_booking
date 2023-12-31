@@ -23,32 +23,34 @@ const Header = () => {
         position: pathname !== "/" ? "sticky" : "fixed",
       }}
     >
-      <Link to={"/"}>
-        <Logo className="logo" />
-      </Link>
-      <Navigation navigationActive={navigationActive} />
-      {isLoggedIn ? (
-        <Profile />
-      ) : (
-        <button
-          className={"buttonStandard"}
-          type={"submit"}
-          onClick={() => setAuthModalOpen(true)}
+      <div className={"headerContainer"}>
+        <Link to={"/"}>
+          <Logo className="logo" />
+        </Link>
+        <Navigation navigationActive={navigationActive} />
+        {isLoggedIn ? (
+          <Profile />
+        ) : (
+          <button
+            className={"buttonStandard"}
+            type={"submit"}
+            onClick={() => setAuthModalOpen(true)}
+          >
+            <ProfileIcon className={"profileIcon"} />
+            <span>Войти</span>
+          </button>
+        )}
+        <BurgerMenu
+          setMenuActive={setMenuActive}
+          navigationActive={navigationActive}
+        />
+        <ModalWindow
+          modalIsOpen={authModalOpen}
+          setModalIsOpen={setAuthModalOpen}
         >
-          <ProfileIcon className={"profileIcon"} />
-          <span>Войти</span>
-        </button>
-      )}
-      <BurgerMenu
-        setMenuActive={setMenuActive}
-        navigationActive={navigationActive}
-      />
-      <ModalWindow
-        modalIsOpen={authModalOpen}
-        setModalIsOpen={setAuthModalOpen}
-      >
-        <AuthForm setModalIsOpen={setAuthModalOpen} />
-      </ModalWindow>
+          <AuthForm setModalIsOpen={setAuthModalOpen} />
+        </ModalWindow>
+      </div>
     </div>
   );
 };
