@@ -23,7 +23,7 @@ const ModalWindow: React.FC<Props> = ({
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       backdropFilter: "blur(20px)",
     },
-    config: config.gentle,
+    config: config.stiff,
   });
 
   if (!modalIsOpen) {
@@ -43,7 +43,7 @@ const ModalWindow: React.FC<Props> = ({
         <animated.div
           style={style}
           className={modalIsOpen ? "modalWindow active" : "modalWindow"}
-          onClick={() => setModalIsOpen(false)}
+          // onClick={() => setModalIsOpen(false)}
         >
           <div
             className={modalIsOpen ? "modalContent active" : "modalContent"}
