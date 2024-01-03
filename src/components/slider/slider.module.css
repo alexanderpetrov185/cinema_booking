@@ -1,0 +1,74 @@
+.slider {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  overflow: hidden;
+}
+.slider .sliderContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  transition: opacity 0.5s ease;
+}
+.slider .sliderContainer .slideItem {
+  opacity: 0.9;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  flex-shrink: 0;
+}
+.slider .sliderArrow {
+  padding: 8px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(14, 14, 24, 0.2);
+  backdrop-filter: blur(30px);
+}
+.slider .sliderArrow svg {
+  fill: rgba(255, 255, 255, 0.75);
+}
+.slider .sliderArrow:hover {
+  transition: 0.3s ease;
+  background: rgba(14, 14, 24, 0.5);
+}
+.slider .sliderArrow:hover svg {
+  fill: rgb(108, 67, 191);
+}
+.slider .sliderArrow.left {
+  left: 2.5%;
+}
+.slider .sliderArrow.right {
+  right: 2.5%;
+}
+.slider .sliderDots {
+  position: absolute;
+  left: 50%;
+  bottom: 7.5%;
+  display: flex;
+  gap: 25px;
+  transform: translate(-50%, 7.5%);
+}
+.slider .sliderDots .sliderDot {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(30px);
+  width: 0.75em;
+  height: 0.75em;
+  border: 0.5px solid black;
+  border-radius: 50%;
+}
+.slider .sliderDots .sliderDot:hover {
+  background-color: rgb(135, 84, 236);
+  transition: 0.3s ease;
+}
+.slider .sliderDots .sliderDot.Active {
+  background-color: rgb(108, 67, 191);
+}
+
+/*# sourceMappingURL=slider.module.css.map */

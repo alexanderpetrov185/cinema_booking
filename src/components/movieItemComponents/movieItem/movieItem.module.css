@@ -1,0 +1,52 @@
+.movieItem {
+  padding: 1%;
+  width: 20%;
+}
+.movieItem .imageContainer {
+  width: 100%;
+  position: relative;
+  border-radius: 3%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.movieItem .imageContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.movieItem .imageContainer .playButton {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline: none;
+  background: rgba(51, 51, 51, 0.5);
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.movieItem .imageContainer .playButton .playIcon {
+  width: 25px;
+  height: 25px;
+  background: #333333;
+  margin-left: 15px;
+  z-index: 3;
+  clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
+}
+.movieItem .imageContainer:hover {
+  transition: 0.3s ease;
+  transform: scale(1.1);
+}
+.movieItem .imageContainer:hover .playButton {
+  transition: 0.3s ease;
+  opacity: 0.85;
+  background: white;
+}
+
+/*# sourceMappingURL=movieItem.module.css.map */

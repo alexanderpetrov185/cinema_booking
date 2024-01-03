@@ -1,0 +1,10 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movieList .noSessionsMessage {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/*# sourceMappingURL=movieList.module.css.map */

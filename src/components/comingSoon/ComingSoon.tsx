@@ -1,9 +1,9 @@
 import React from "react";
-import "./comingSoon.scss";
+import styles from "./comingSoon.module.scss";
 
 const ComingSoon = () => {
   return (
-    <div className={"comingSoon"}>
+    <div className={styles.comingSoon}>
       <img src="/assets/images/images.jpg" alt="page is under construction" />
     </div>
   );
