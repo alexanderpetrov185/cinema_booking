@@ -7,16 +7,11 @@
   left: 0;
   display: flex;
   justify-content: center;
-  pointer-events: none;
   padding-top: 5%;
 }
 .modalWindow .modalContent {
   border-radius: 12px;
   min-width: 30%;
-}
-
-.modalWindow.active {
-  pointer-events: all;
 }
 
 /*# sourceMappingURL=modalWindow.module.css.map */

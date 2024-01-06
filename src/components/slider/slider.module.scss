@@ -7,7 +7,6 @@
   display: flex;
   overflow: hidden;
 
-
   .sliderContainer{
     height: 100%;
     width: 100%;
@@ -40,6 +39,14 @@
       fill: rgba($white-bg, .75);
     }
 
+    &.arrowLeft {
+      left: calc((100% - $container-width) / 2);
+    }
+
+    &.arrowRight {
+      right: calc((100% - $container-width) / 2);
+    }
+
     &:hover {
       svg{
         fill: $main-color;
@@ -47,13 +54,6 @@
       transition: 0.3s ease;
       background: rgba($main-bg, .5);
     }
-  }
-
-  .sliderArrow.left {
-    left: calc((100% - $container-width) / 2);
-  }
-  .sliderArrow.right {
-    right: calc((100% - $container-width) / 2);
   }
 
   .sliderDots {
@@ -73,14 +73,14 @@
       border: 0.5px solid black;
       border-radius: 50%;
 
+      &.active {
+        background-color: $main-color;
+      }
+
       &:hover {
         background-color: $hover-color;
         transition: 0.3s ease;
       }
-    }
-
-    .sliderDot.Active {
-      background-color: $main-color;
     }
   }
 

@@ -1,3 +1,5 @@
-.loginForm{
+@import "../authFormStyles.scss";
 
+.loginForm{
+  @extend .authFormStyle;
 }

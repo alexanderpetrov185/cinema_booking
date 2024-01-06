@@ -1,68 +1,47 @@
 .footer {
-  width: 95%;
+  padding: 5vh 0;
   margin: 0 auto;
-  background-color: #0E0E18;
+  width: 95%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   color: #fff;
-  font-size: 1em;
 }
-.footer a:hover {
-  color: rgb(135, 84, 236);
-  transition: 0.35s ease;
-}
-.footer .social {
-  width: 100%;
+.footer .socialLeft, .footer .socialRight {
+  padding-bottom: 2rem;
+  flex-basis: 50%;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 0.5px solid #303962;
-  padding: 2.5% 0;
 }
-.footer .social .socialItem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 30px;
-  gap: 20px;
-}
-.footer .social .socialItem svg {
+.footer .socialLeft svg, .footer .socialRight svg {
   fill: #fff;
   stroke: #fff;
   width: 30px;
   height: 30px;
 }
-.footer .social .socialItem svg:hover {
+.footer .socialLeft svg:hover, .footer .socialRight svg:hover {
   fill: rgb(135, 84, 236);
   stroke: rgb(135, 84, 236);
   transition: 0.35s ease;
 }
-.footer .social .socialItem.right svg {
-  fill: #fff;
-  stroke: #fff;
+.footer .socialLeft {
+  gap: 1rem;
+}
+.footer .socialRight svg {
   width: 135px;
   height: 40px;
 }
-.footer .social .socialItem.right svg:hover {
-  fill: rgb(135, 84, 236);
-  stroke: rgb(135, 84, 236);
-  transition: 0.35s ease;
-}
-.footer .contacts {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  padding: 2.5% 0;
-}
-.footer .contacts .contactsItem {
-  width: max-content;
+.footer .contactsItem {
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
   flex: 1;
+  gap: 0.5rem;
 }
 
 /*# sourceMappingURL=footer.module.css.map */

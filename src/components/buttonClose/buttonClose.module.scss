@@ -1,0 +1,17 @@
+@import "../../styles/variebles.scss";
+
+.buttonClose {
+  width: max-content;
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  color: $white-color;
+  &:hover{
+    background: none;
+    color: $hover-color;
+  }
+}

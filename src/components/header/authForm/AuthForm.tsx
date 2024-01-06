@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import "./authForm.scss";
 import {
   loginAction,
   registrationAction,
@@ -7,9 +6,9 @@ import {
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks/redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { ThreeCircles } from "react-loader-spinner";
 import LoginForm from "./loginForm/LoginForm";
 import SignInForm from "./signInForm/SignInForm";
+import AppPreloader from "../../preLoaders/appPreloader/AppPreloader";
 
 type Props = {
   setModalIsOpen: (arg0: boolean) => void;
@@ -34,10 +33,6 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
     authTypeIsLogin
       ? dispatch(loginAction(values.email, values.password))
       : dispatch(registrationAction(values.email, values.password));
-
-    if (!error && isLoggedIn) {
-      setModalIsOpen(false);
-    }
   };
 
   const validationSchema = Yup.object().shape({
@@ -57,12 +52,14 @@ const AuthForm = ({ setModalIsOpen }: Props) => {
           .required("Поле обязательное для заполнения*"),
   });
 
+  React.useEffect(() => {
+    if (!error && isLoggedIn) {
+      setModalIsOpen(false);
+    }
+  }, [error, isLoggedIn, setModalIsOpen]);
+
   if (isLoading) {
-    return (
-      <div className={"app-preloader"}>
-        <ThreeCircles color={"#6C43BF"} />
-      </div>
-    );
+    return <AppPreloader />;
   }
 
   return (

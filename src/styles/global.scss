@@ -15,6 +15,11 @@ body{
   a {
     text-decoration: none;
     color: inherit;
+
+    &:hover {
+      color: $hover-color;
+      transition: 0.35s ease;
+    }
   }
 
   h2{
@@ -42,22 +47,6 @@ body{
       background-color: rgba($hover-color, .5);
     }
   }
-
-  .btnClose {
-    width: max-content;
-    margin-left: auto;
-    background: none;
-    border: none;
-    font-family: inherit;
-    padding: 0;
-    outline: none;
-    cursor: pointer;
-    color: $white-color;
-    &:hover{
-      background: none;
-      color: $hover-color;
-    }
-  }
 }
 
 .main {
@@ -68,23 +57,7 @@ body{
   background-color: $main-bg;
 }
 
-
 .container{
   width: $container-width;
   align-self: center;
-}
-
-.app-preloader{
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  height: 100vh;
-  color: $main-color;
-  .logo {
-    width: 320px;
-    height: 160px;
-    fill: $white-color;
-    stroke: $white-color;
-  }
 }

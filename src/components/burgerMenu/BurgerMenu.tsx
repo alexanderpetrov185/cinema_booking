@@ -1,5 +1,5 @@
 import React from "react";
-import "./burgerMenu.scss";
+import styles from "./burgerMenu.module.scss";
 
 const BurgerMenu = ({
   navigationActive,
@@ -10,7 +10,7 @@ const BurgerMenu = ({
 }) => {
   return (
     <div
-      className="burgerMenu"
+      className={styles.burgerMenu}
       onClick={() => setMenuActive(!navigationActive)}
     >
       <span />

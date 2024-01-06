@@ -1,7 +1,8 @@
 import React from "react";
-import "./bookingModule.scss";
-import { useAppSelector } from "../../../redux/hooks/redux";
+import styles from "./bookingModule.module.scss";
+import { useAppSelector } from "../../redux/hooks/redux";
 import BookingBody from "./bookingBody/BookingBody";
+import ButtonClose from "../buttonClose/ButtonClose";
 
 type Props = {
   nowDate: Date;
@@ -21,23 +22,19 @@ const BookingModule = ({ nowDate, title, details, setModalIsOpen }: Props) => {
   ).toLocaleDateString("ru");
 
   return (
-    <div className={"bookingModule"}>
-      <button className={"btnClose"} onClick={() => setModalIsOpen(false)}>
-        X
-      </button>
-      <div className="bookingHeader">
-        <div className="bookingInfo">
-          <h3 className={"bookingTitle"}>{title}</h3>
+    <div className={styles.bookingModule}>
+      <ButtonClose onClick={() => setModalIsOpen(false)} />
+      <div className={styles.bookingHeader}>
+        <div className={styles.bookingInfo}>
+          <h3>{title}</h3>
           <span>{dateDay} Кинотеатр Cinema</span>
         </div>
       </div>
       <BookingBody details={details} nowDate={nowDate} />
-      <div className="bookingFooter">
-        <span className={"support"}>Поддержка: 8 495 230-01-24</span>
-        <a href="/" className="needHelp">
-          Мне не пришёл билет
-        </a>
-        <span className="credits">2023 ©ООО«Кинокасса»</span>
+      <div className={styles.bookingFooter}>
+        <span>Поддержка: 8 495 230-01-24</span>
+        <a href="/">Мне не пришёл билет</a>
+        <span>2023 ©ООО«Кинокасса»</span>
       </div>
     </div>
   );

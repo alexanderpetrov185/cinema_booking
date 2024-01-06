@@ -24,12 +24,12 @@
         color: $hover-color;
         transition: 0.35s ease;
       }
-    }
-  }
 
-  .navigationLink.active{
-    border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
-    border-image-slice: 1;
-    border-bottom: 2px solid transparent;
+      &.active{
+        border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
+        border-image-slice: 1;
+        border-bottom: 2px solid transparent;
+      }
+    }
   }
 }

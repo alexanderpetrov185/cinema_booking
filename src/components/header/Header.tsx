@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./header.scss";
+import styles from "./header.module.scss";
 import { Link, useLocation } from "react-router-dom";
 import ModalWindow from "../modalWindow/ModalWindow";
 import { useAppSelector } from "../../redux/hooks/redux";
@@ -8,7 +8,7 @@ import AuthForm from "./authForm/AuthForm";
 import { ReactComponent as Logo } from "../../static/icons/logo.svg";
 import { ReactComponent as ProfileIcon } from "../../static/icons/profile.svg";
 import Navigation from "./navigation/Navigation";
-import BurgerMenu from "./burgerMenu/BurgerMenu";
+import BurgerMenu from "../burgerMenu/BurgerMenu";
 
 const Header = () => {
   const [navigationActive, setMenuActive] = React.useState(false);
@@ -19,28 +19,26 @@ const Header = () => {
 
   return (
     <div
-      className={"header"}
+      className={styles.header}
       style={{
         position: pathname !== "/" ? "sticky" : "fixed",
         width: authModalOpen ? `calc(100% - ${scrollWidth})` : "100%",
       }}
     >
-      <div className={"headerContainer"}>
+      <div className={styles.headerContainer}>
         <Link to={"/"}>
-          <Logo className="logo" />
+          <Logo className={styles.logo} />
         </Link>
-        <Navigation navigationActive={navigationActive} />
+        <Navigation />
         {isLoggedIn ? (
           <Profile />
         ) : (
-          <button
-            className={"buttonStandard"}
-            type={"submit"}
-            onClick={() => setAuthModalOpen(true)}
-          >
-            <ProfileIcon className={"profileIcon"} />
-            <span>Войти</span>
-          </button>
+          <div className={styles.headerButtonsContainer}>
+            <button type={"submit"} onClick={() => setAuthModalOpen(true)}>
+              <ProfileIcon className={styles.profileIcon} />
+              <span>Войти</span>
+            </button>
+          </div>
         )}
         <BurgerMenu
           setMenuActive={setMenuActive}

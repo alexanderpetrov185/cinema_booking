@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./movieItem.scss";
+import styles from "./movieItem.module.scss";
 import ModalWindow from "../../modalWindow/ModalWindow";
-import BookingModule from "../bookingModule/BookingModule";
+import BookingModule from "../../bookingModule/BookingModule";
 import { IMovie } from "../../../redux/models/IMovie";
 import Player from "../../player/Player";
 import SessionCard from "../sessionCard/SessionCard";
@@ -16,15 +16,18 @@ const MovieItem = ({ movie }: Props) => {
   const nowDate = new Date(); // Дата и Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
 
   return (
-    <div className="movieItem" key={movie.imdbID}>
-      <div className="imageContainer">
+    <div className={styles.movieItem} key={movie.imdbID}>
+      <div className={styles.imageContainer}>
         <img
           src={movie.poster}
           alt={`poster ${movie.title}`}
           onClick={() => setPlayerIsOpen(true)}
         />
-        <button className="playButton" onClick={() => setPlayerIsOpen(true)}>
-          <span className="playIcon" />
+        <button
+          className={styles.playButton}
+          onClick={() => setPlayerIsOpen(true)}
+        >
+          <span className={styles.playIcon} />
         </button>
       </div>
       <SessionCard
@@ -34,19 +37,24 @@ const MovieItem = ({ movie }: Props) => {
         nowDate={nowDate}
         setModalIsOpen={setModalIsOpen}
       />
-      <ModalWindow modalIsOpen={playerIsOpen} setModalIsOpen={setPlayerIsOpen}>
-        {playerIsOpen && <Player videoSrc={movie.trailer} />}
-      </ModalWindow>
-      <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-        {modalIsOpen && (
+      {playerIsOpen && (
+        <ModalWindow
+          modalIsOpen={playerIsOpen}
+          setModalIsOpen={setPlayerIsOpen}
+        >
+          <Player setPlayerIsOpen={setPlayerIsOpen} videoSrc={movie.trailer} />
+        </ModalWindow>
+      )}
+      {modalIsOpen && (
+        <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
           <BookingModule
             nowDate={nowDate}
             title={movie.title}
             details={movie.sessionsDetails}
             setModalIsOpen={setModalIsOpen}
           />
-        )}
-      </ModalWindow>
+        </ModalWindow>
+      )}
     </div>
   );
 };

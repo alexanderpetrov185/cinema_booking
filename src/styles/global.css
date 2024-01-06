@@ -14,6 +14,10 @@ body a {
   text-decoration: none;
   color: inherit;
 }
+body a:hover {
+  color: rgb(135, 84, 236);
+  transition: 0.35s ease;
+}
 body h2 {
   font-size: 24px;
 }
@@ -37,21 +41,6 @@ body button:hover {
   transition: 0.3s ease;
   background-color: rgba(135, 84, 236, 0.5);
 }
-body .btnClose {
-  width: max-content;
-  margin-left: auto;
-  background: none;
-  border: none;
-  font-family: inherit;
-  padding: 0;
-  outline: none;
-  cursor: pointer;
-  color: #fff;
-}
-body .btnClose:hover {
-  background: none;
-  color: rgb(135, 84, 236);
-}
 
 .main {
   min-height: 100vh;
@@ -64,21 +53,6 @@ body .btnClose:hover {
 .container {
   width: 95%;
   align-self: center;
-}
-
-.app-preloader {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: rgb(108, 67, 191);
-}
-.app-preloader .logo {
-  width: 320px;
-  height: 160px;
-  fill: #fff;
-  stroke: #fff;
 }
 
 /*# sourceMappingURL=global.css.map */

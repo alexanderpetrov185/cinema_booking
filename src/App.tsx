@@ -2,11 +2,10 @@ import React, { lazy, useRef, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { checkAuth, fetchMoviesData } from "./redux/reducers/actionCreators";
 import { useAppDispatch } from "./redux/hooks/redux";
-import { ReactComponent as Logo } from "./static/icons/logo.svg";
+import AppPreloader from "./components/preLoaders/appPreloader/AppPreloader";
 import "./styles/global.scss";
 
 import Layout from "./components/layout/Layout";
-import { ThreeCircles } from "react-loader-spinner";
 
 const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));
@@ -35,12 +34,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return (
-      <div className={"app-preloader"}>
-        <ThreeCircles color={"#6C43BF"} />
-        <Logo className="logo" />
-      </div>
-    );
+    return <AppPreloader />;
   }
 
   const router = createBrowserRouter([

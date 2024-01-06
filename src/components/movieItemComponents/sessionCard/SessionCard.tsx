@@ -1,5 +1,5 @@
 import React from "react";
-import "./sessionCard.scss";
+import styles from "./sessionCard.module.scss";
 import { useAppDispatch } from "../../../redux/hooks/redux";
 import {
   saveSelectedDate,
@@ -39,16 +39,16 @@ const SessionCard = ({
   };
 
   return (
-    <div className={"sessionCard"}>
-      <h2 className="movieTitle">{title}</h2>
-      <span className="movieGenre">{genre}</span>
-      <div className="movieSessions">
+    <div className={styles.sessionCard}>
+      <h2 className={styles.movieTitle}>{title}</h2>
+      <span className={styles.movieGenre}>{genre}</span>
+      <div className={styles.movieSessions}>
         {sessionsDetails.map((details, index) => {
           if (new Date(details.date.slice(0, -1)) > nowDate) {
             return (
-              <div key={details._id} className={"sessionDetails"}>
+              <div key={details._id} className={styles.sessionDetails}>
                 <button
-                  className={"sessionButton"}
+                  className={styles.sessionButton}
                   onClick={() => {
                     setModalIsOpen(true);
                     dispatch(
@@ -65,7 +65,9 @@ const SessionCard = ({
                   <span>{details.date.toLocaleString().slice(11, -8)}</span>
                   <span>{details.price}₽</span>
                 </button>
-                <span className={"hallNumber"}>Зал {details.hallNumber}</span>
+                <span className={styles.hallNumber}>
+                  Зал {details.hallNumber}
+                </span>
               </div>
             );
           } else {
@@ -73,7 +75,7 @@ const SessionCard = ({
               return (
                 <button
                   key={details._id}
-                  className={"tomorrowSessions"}
+                  className={styles.tomorrowSessions}
                   onClick={() => tomorrowToSelect()}
                 >
                   Сеансы на завтра

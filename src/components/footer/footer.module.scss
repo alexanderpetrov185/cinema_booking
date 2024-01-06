@@ -2,82 +2,56 @@
 @import "../../styles/responsive.scss";
 
 .footer {
-  width: $container-width;
+  padding: 5vh 0;
   margin: 0 auto;
-  background-color: $main-bg;
+  width: $container-width;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   color: $white-color;
-  font-size: 1em;
 
-  a {
-    &:hover {
-      color: $hover-color;
-      transition: 0.35s ease;
-    }
-  }
-
-  .social {
-    width: 100%;
+  .socialLeft, .socialRight{
+    padding-bottom: 2rem;
+    flex-basis: 50%;
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 0.5px solid $soft-bg;
-    padding: 2.5% 0;
 
-    .socialItem {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 30px;
-      gap: 20px;
+    svg {
+      fill:$white-color;
+      stroke: $white-color;
+      width: 30px;
+      height: 30px;
 
-      svg {
-        fill:$white-color;
-        stroke: $white-color;
-        width: 30px;
-        height: 30px;
-
-        &:hover{
-          fill:$hover-color;
-          stroke: $hover-color;
-          transition: 0.35s ease;
-        }
-      }
-    }
-
-    .socialItem.right {
-      svg{
-        fill:$white-color;
-        stroke: $white-color;
-        width: 135px;
-        height: 40px;
-
-        &:hover{
-          fill:$hover-color;
-          stroke: $hover-color;
-          transition: 0.35s ease;
-        }
+      &:hover{
+        fill:$hover-color;
+        stroke: $hover-color;
+        transition: 0.35s ease;
       }
     }
   }
 
-  .contacts {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 2.5% 0;
+  .socialLeft{
+    gap: 1rem;
+  }
 
-    .contactsItem {
-      width: max-content;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      flex: 1;
+  .socialRight{
+    svg{
+      width: 135px;
+      height: 40px;
     }
+  }
+
+  .contactsItem {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 0.5rem;
   }
 
   //@include lg {

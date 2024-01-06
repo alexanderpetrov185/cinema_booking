@@ -1,5 +1,5 @@
 import React from "react";
-import "./seat.scss";
+import styles from "./seat.module.scss";
 
 type Props = {
   isSeatSelected: boolean;
@@ -19,7 +19,9 @@ const Seat = ({
   if (seatToRender.available) {
     return (
       <td
-        className={isSeatSelected ? "seat selected" : "seat"}
+        className={
+          isSeatSelected ? `${styles.seat} ${styles.selected}` : styles.seat
+        }
         onClick={() => {
           isSeatSelected
             ? cancelSelect(seatToRender)
@@ -30,7 +32,7 @@ const Seat = ({
       </td>
     );
   } else {
-    return <td className={"seat unavailable"}>✖</td>;
+    return <td className={`${styles.seat} ${styles.unavailable}`}>✖</td>;
   }
 };
 

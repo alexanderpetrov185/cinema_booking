@@ -1,5 +1,5 @@
 import React from "react";
-import "./seatsTable.scss";
+import styles from "./seatsTable.module.scss";
 import { IFetchBooking } from "../models/IFetchBooking";
 import Seat from "./seat/Seat";
 
@@ -28,12 +28,15 @@ const SeatsTable = ({
   }
 
   return (
-    <table className="seatsTable">
+    <table className={styles.seatsTable}>
       {[...Array(hallSchema.rows)].map((row, index) => {
         return (
           <tbody key={`tbodyKey${index}`}>
-            <tr className="row" key={`rowKey${index}`}>
-              <td className={"rowNumber"} key={`leftRowNumber${index + 1}`}>
+            <tr className={styles.row} key={`rowKey${index}`}>
+              <td
+                className={styles.rowNumber}
+                key={`leftRowNumber${index + 1}`}
+              >
                 {index + 1}
               </td>
               {data?.seatsInfo
@@ -53,7 +56,10 @@ const SeatsTable = ({
                     />
                   );
                 })}
-              <td className={"rowNumber"} key={`rightRowNumber${index + 1}`}>
+              <td
+                className={styles.rowNumber}
+                key={`rightRowNumber${index + 1}`}
+              >
                 {index + 1}
               </td>
             </tr>

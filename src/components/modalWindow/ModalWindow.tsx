@@ -1,5 +1,5 @@
 import React from "react";
-import "./modalWindow.scss";
+import styles from "./modalWindow.module.scss";
 import { animated, config, useTransition } from "@react-spring/web";
 
 type Props = {
@@ -42,11 +42,11 @@ const ModalWindow: React.FC<Props> = ({
       {transition((style, movie) => (
         <animated.div
           style={style}
-          className={modalIsOpen ? "modalWindow active" : "modalWindow"}
+          className={styles.modalWindow}
           // onClick={() => setModalIsOpen(false)}
         >
           <div
-            className={modalIsOpen ? "modalContent active" : "modalContent"}
+            className={styles.modalContent}
             onClick={(e) => e.stopPropagation()}
           >
             {children}

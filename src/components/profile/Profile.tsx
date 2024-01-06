@@ -1,5 +1,5 @@
 import React from "react";
-import "./profile.scss";
+import styles from "./profile.module.scss";
 import { logoutAction } from "../../redux/reducers/actionCreators";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
 import { ReactComponent as ProfileIcon } from "../../static/icons/profile.svg";
@@ -10,13 +10,13 @@ const Profile = () => {
   const [hidden, setHidden] = React.useState(true);
 
   return (
-    <div className={"profile"}>
+    <div className={styles.profile}>
       <ProfileIcon
-        className={"profileIcon"}
+        className={styles.profileIcon}
         onClick={() => setHidden(!hidden)}
       />
       <div
-        className="profileLinks"
+        className={styles.profileLinks}
         style={hidden ? { visibility: "hidden" } : { visibility: "visible" }}
       >
         <span>{user ? user.email : "emptyMail"}</span>

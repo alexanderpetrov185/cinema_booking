@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { NavLink } from "react-router-dom";
-import "./navigation.scss";
+import styles from "./navigation.module.scss";
 
-const Navigation = ({ navigationActive }: { navigationActive: boolean }) => {
+const Navigation = () => {
   const navigation = useMemo(
     () => [
       {
@@ -40,14 +40,16 @@ const Navigation = ({ navigationActive }: { navigationActive: boolean }) => {
   );
 
   return (
-    <nav className={navigationActive ? "navigation active" : "navigation"}>
+    <nav className={styles.navigation}>
       {navigation.map((link) => (
-        <ul className="navLinks" key={link.id}>
+        <ul className={styles.navLinks} key={link.id}>
           <NavLink to={link.url} key={link.id}>
             {({ isActive }) => (
               <li
                 className={
-                  isActive ? "navigationLink active" : "navigationLink"
+                  isActive
+                    ? `${styles.navigationLink} ${styles.active}`
+                    : styles.navigationLink
                 }
               >
                 {link.title}

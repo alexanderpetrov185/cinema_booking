@@ -1,9 +1,9 @@
 import React from "react";
-import "./movieList.scss";
+import styles from "./movieList.module.scss";
 import MovieItem from "../movieItemComponents/movieItem/MovieItem";
 import { animated, config, useTransition } from "@react-spring/web";
 import { useAppSelector } from "../../redux/hooks/redux";
-import PreLoader from "../preLoader/PreLoader";
+import SchedulePreLoader from "../preLoaders/schedulePreLoader/SchedulePreLoader";
 
 const MovieList = () => {
   const { data, isLoading, error } = useAppSelector(
@@ -21,17 +21,17 @@ const MovieList = () => {
   }
 
   if (isLoading) {
-    return <PreLoader />;
+    return <SchedulePreLoader />;
   }
 
   return (
     <>
       {transition((style, movie) => (
-        <animated.div className={"movieList"} style={style}>
+        <animated.div className={styles.movieList} style={style}>
           {movie ? (
             <MovieItem key={movie._id} movie={movie} />
           ) : (
-            <span className={"noSessionsMessage"}>
+            <span className={styles.noSessionsMessage}>
               На этот день сеансов нет
             </span>
           )}

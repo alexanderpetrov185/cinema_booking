@@ -1,7 +1,8 @@
 import React from "react";
 import { ErrorMessage, Field, Form } from "formik";
 import { IAuthForms } from "../IAuthForms";
-import "./loginForm.scss";
+import styles from "./loginForm.module.scss";
+import ButtonClose from "../../../buttonClose/ButtonClose";
 
 const LoginForm = ({
   error,
@@ -11,15 +12,9 @@ const LoginForm = ({
   setModalIsOpen,
 }: IAuthForms) => {
   return (
-    <Form>
-      <button
-        type={"button"}
-        className={"btnClose"}
-        onClick={() => setModalIsOpen(false)}
-      >
-        X
-      </button>
-      <h3 className="authHead">Вход</h3>
+    <Form className={styles.loginForm}>
+      <ButtonClose onClick={() => setModalIsOpen(false)} />
+      <h3 className={styles.authHead}>Вход</h3>
       <label>
         <Field name={"email"} placeholder="" />
         <span>E-mail</span>
@@ -28,7 +23,7 @@ const LoginForm = ({
       <ErrorMessage
         name={"email"}
         component={"span"}
-        className={"errorMessage"}
+        className={styles.errorMessage}
       />
 
       <label>
@@ -39,18 +34,18 @@ const LoginForm = ({
       <ErrorMessage
         name={"password"}
         component={"span"}
-        className={"errorMessage"}
+        className={styles.errorMessage}
       />
-      <span className={"forgotPasswordSpan"}>Забыли пароль?</span>
+      <span className={styles.forgotPasswordSpan}>Забыли пароль?</span>
 
       {/*error from server*/}
-      {error && <span className={"errorMessage"}>{error}</span>}
+      {error && <span className={styles.errorMessage}>{error}</span>}
 
-      <button className={"authButton"} type="submit" disabled={!dirty}>
+      <button className={styles.authButton} type="submit" disabled={!dirty}>
         Войти
       </button>
       <span
-        className={"authTypeSpan"}
+        className={styles.authTypeSpan}
         onClick={() => {
           handleReset();
           changeAuthType();

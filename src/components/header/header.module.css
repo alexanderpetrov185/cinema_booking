@@ -23,9 +23,15 @@
   transition: 0.3s ease;
   fill: rgb(135, 84, 236);
 }
-.header .headerContainer .buttonStandard {
+.header .headerContainer .headerButtonsContainer {
+  width: 160px;
+  display: flex;
+  justify-content: flex-end;
+}
+.header .headerContainer .headerButtonsContainer button {
   gap: 2px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   color: #fff;
   text-decoration: none;
@@ -40,16 +46,16 @@
   border: none;
   outline: none;
 }
-.header .headerContainer .buttonStandard .profileIcon {
+.header .headerContainer .headerButtonsContainer button .profileIcon {
   width: 35px;
   height: 25px;
   fill: #fff;
 }
-.header .headerContainer .buttonStandard:hover {
+.header .headerContainer .headerButtonsContainer button:hover {
   transition: 0.35s ease;
   color: rgb(135, 84, 236);
 }
-.header .headerContainer .buttonStandard:hover .profileIcon {
+.header .headerContainer .headerButtonsContainer button:hover .profileIcon {
   transition: 0.35s ease;
   fill: rgb(135, 84, 236);
 }

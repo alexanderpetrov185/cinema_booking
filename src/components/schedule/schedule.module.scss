@@ -29,6 +29,20 @@
     white-space: nowrap;
     flex: 1 1 0;
 
+    &.active {
+      pointer-events: none;
+      color: $main-color;
+      span{
+        &:first-child{
+          text-align: center;
+          border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
+          border-image-slice: 1;
+          border-bottom: 2px solid transparent;
+          width:100%;
+        }
+      }
+    }
+
     span{
       font-size: 2em;
       &:first-child{
@@ -53,20 +67,6 @@
       }
       color: $main-color;;
       transition: 0.3s ease;
-    }
-  }
-
-  .scheduleDay.active {
-    pointer-events: none;
-    color: $main-color;
-    span{
-      &:first-child{
-        text-align: center;
-        border-image: linear-gradient(to right, rgba(236, 164, 81, 0) 0%, $main-color 50%, rgba(236, 164, 81, 0) 100%);
-        border-image-slice: 1;
-        border-bottom: 2px solid transparent;
-        width:100%;
-      }
     }
   }
   }

@@ -33,18 +33,18 @@
 .slider .sliderArrow svg {
   fill: rgba(255, 255, 255, 0.75);
 }
+.slider .sliderArrow.arrowLeft {
+  left: 2.5%;
+}
+.slider .sliderArrow.arrowRight {
+  right: 2.5%;
+}
 .slider .sliderArrow:hover {
   transition: 0.3s ease;
   background: rgba(14, 14, 24, 0.5);
 }
 .slider .sliderArrow:hover svg {
   fill: rgb(108, 67, 191);
-}
-.slider .sliderArrow.left {
-  left: 2.5%;
-}
-.slider .sliderArrow.right {
-  right: 2.5%;
 }
 .slider .sliderDots {
   position: absolute;
@@ -63,12 +63,12 @@
   border: 0.5px solid black;
   border-radius: 50%;
 }
+.slider .sliderDots .sliderDot.active {
+  background-color: rgb(108, 67, 191);
+}
 .slider .sliderDots .sliderDot:hover {
   background-color: rgb(135, 84, 236);
   transition: 0.3s ease;
-}
-.slider .sliderDots .sliderDot.Active {
-  background-color: rgb(108, 67, 191);
 }
 
 /*# sourceMappingURL=slider.module.css.map */

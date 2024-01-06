@@ -1,5 +1,5 @@
-@import "../../../../../styles/variebles.scss";
-@import "../../../../../styles/responsive.scss";
+@import "../../../../styles/variebles";
+@import "../../../../styles/responsive";
 
 .seat {
   width: 34px;
@@ -12,6 +12,19 @@
   border: 0.5px solid black;
   font-weight: 500;
 
+  &.selected {
+    background-color: $soft-bg;
+    border: solid 1px black;
+    color: $white-color;
+  }
+
+  &.unavailable {
+    background-color: $dark-bg;
+    pointer-events: none;
+    color: rgba($white-color, .5);
+  }
+
+
   &:hover {
     background-color: $hover-color;
     transition: 0.35s ease;
@@ -19,16 +32,3 @@
   }
 
 }
-
-.seat.selected {
-  background-color: $soft-bg;
-  border: solid 1px black;
-  color: $white-color;
-}
-
-.seat.unavailable {
-  background-color: $dark-bg;
-  pointer-events: none;
-  color: rgba($white-color, .5);
-}
-

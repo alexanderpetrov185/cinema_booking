@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
-import "./slider.scss";
+import styles from "./slider.module.scss";
 import useMeasure from "react-use-measure";
 import { useSwipeable } from "react-swipeable";
 import { mergeRefs } from "react-merge-refs";
@@ -98,17 +98,17 @@ const Slider = memo(({ slides }: Props) => {
   };
 
   return (
-    <div className="slider">
+    <div className={styles.slider}>
       <div
         onTransitionEnd={handleTransition}
-        className="sliderContainer"
+        className={styles.sliderContainer}
         ref={mergeRefs([ref, refPassthrough])}
         style={getSlidesContainerStyle()}
       >
         {slidesToRender.map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className={"slideItem"}
+            className={styles.slideItem}
             style={{
               backgroundImage: `url(${slide.url})`,
             }}
@@ -116,20 +116,20 @@ const Slider = memo(({ slides }: Props) => {
         ))}
       </div>
       <button
-        className="sliderArrow left"
+        className={`${styles.sliderArrow} ${styles.arrowLeft}`}
         onClick={goToPrevious}
         disabled={!isTransitionEnd}
       >
         <ArrowLeft />
       </button>
       <button
-        className="sliderArrow right"
+        className={`${styles.sliderArrow} ${styles.arrowRight}`}
         onClick={goToNext}
         disabled={!isTransitionEnd}
       >
         <ArrowRight />
       </button>
-      <div className="sliderDots">
+      <div className={styles.sliderDots}>
         {slides.map((slide, slideIndex) => (
           <div
             className={
@@ -137,8 +137,8 @@ const Slider = memo(({ slides }: Props) => {
               (slideIndex === 0 && //if we switch from the last slide to the first
                 currentIndex === slidesToRender.length - 1) ||
               (slideIndex === slides.length - 1 && currentIndex === 0) //if we switch from the first slide to the last
-                ? "sliderDot Active"
-                : "sliderDot"
+                ? `${styles.sliderDot} ${styles.active}`
+                : styles.sliderDot
             }
             key={slideIndex}
             onClick={() => goToSlide(slideIndex + 1)}

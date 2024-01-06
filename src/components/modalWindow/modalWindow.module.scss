@@ -9,15 +9,10 @@
   left: 0;
   display: flex;
   justify-content: center;
-  pointer-events: none;
   padding-top: 5%;
 
   .modalContent {
     border-radius: 12px;
     min-width: 30%;
   }
-}
-
-.modalWindow.active {
-  pointer-events: all;
 }

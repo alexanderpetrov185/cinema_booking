@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.module.scss";
+import styles from "./home.module.scss";
 import Slider from "../../components/slider/Slider";
 import MovieList from "../../components/movieList/MovieList";
 import Schedule from "../../components/schedule/Schedule";

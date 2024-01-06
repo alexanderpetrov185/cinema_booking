@@ -1,5 +1,5 @@
 import React from "react";
-import "./schedule.scss";
+import styles from "./schedule.module.scss";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/redux";
 import {
   fetchMoviesData,
@@ -42,16 +42,16 @@ const Schedule = () => {
   };
 
   return (
-    <ul className={"schedule"}>
-      <div className={"scheduleContainer"}>
+    <ul className={styles.schedule}>
+      <div className={styles.scheduleContainer}>
         {dayDates.map((day: Date, index: number) => {
           return (
             <li
               key={index}
               className={
                 dateFromReducer.getDay() === day.getDay()
-                  ? "scheduleDay active"
-                  : "scheduleDay"
+                  ? `${styles.scheduleDay} ${styles.active}`
+                  : styles.scheduleDay
               }
               onClick={() => scheduleHandler(index)}
             >
@@ -75,7 +75,7 @@ const Schedule = () => {
             </li>
           );
         })}
-        <li className={"scheduleDay"}>
+        <li className={styles.scheduleDay}>
           <span>Скоро</span>
           <span>
             <Calendar />

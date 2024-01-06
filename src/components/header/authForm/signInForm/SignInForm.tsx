@@ -1,7 +1,8 @@
 import React from "react";
 import { ErrorMessage, Field, Form } from "formik";
 import { IAuthForms } from "../IAuthForms";
-import "./signInForm.scss";
+import styles from "./signInForm.module.scss";
+import ButtonClose from "../../../buttonClose/ButtonClose";
 
 const SignInForm = ({
   error,
@@ -11,15 +12,9 @@ const SignInForm = ({
   setModalIsOpen,
 }: IAuthForms) => {
   return (
-    <Form>
-      <button
-        type={"button"}
-        className={"btnClose"}
-        onClick={() => setModalIsOpen(false)}
-      >
-        X
-      </button>
-      <h3 className="authHead">Регистрация</h3>
+    <Form className={styles.authFormStyle}>
+      <ButtonClose onClick={() => setModalIsOpen(false)} />
+      <h3 className="styles.authHead">Регистрация</h3>
       <label>
         <Field name={"email"} placeholder="" />
         <span>E-mail</span>
@@ -28,7 +23,7 @@ const SignInForm = ({
       <ErrorMessage
         name={"email"}
         component={"span"}
-        className={"errorMessage"}
+        className={"styles.errorMessage"}
       />
 
       <label>
@@ -39,7 +34,7 @@ const SignInForm = ({
       <ErrorMessage
         name={"password"}
         component={"span"}
-        className={"errorMessage"}
+        className={"styles.errorMessage"}
       />
       <label>
         <Field name={"repeatPassword"} placeholder="" type={"password"} />
@@ -48,17 +43,17 @@ const SignInForm = ({
       <ErrorMessage
         name={"repeatPassword"}
         component={"span"}
-        className={"errorMessage"}
+        className={styles.errorMessage}
       />
 
       {/*error from server*/}
-      {error && <span className={"errorMessage"}>{error}</span>}
+      {error && <span className={styles.errorMessage}>{error}</span>}
 
-      <button className={"authButton"} type="submit" disabled={!dirty}>
+      <button className={styles.authButton} type="submit" disabled={!dirty}>
         Зарегистрироваться
       </button>
       <span
-        className={"authTypeSpan"}
+        className={styles.authTypeSpan}
         onClick={() => {
           handleReset();
           changeAuthType();

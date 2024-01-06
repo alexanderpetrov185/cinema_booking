@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./bookingBody.scss";
-import { saveSelectedSession } from "../../../../redux/reducers/actionCreators";
-import { useAppDispatch, useAppSelector } from "../../../../redux/hooks/redux";
-import useFetch from "../../../../http/hooks/useFetch";
-import SessionService from "../../../../http/services/SessionServices";
+import styles from "./bookingBody.module.scss";
+import { saveSelectedSession } from "../../../redux/reducers/actionCreators";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks/redux";
+import useFetch from "../../../http/hooks/useFetch";
+import SessionService from "../../../http/services/SessionServices";
 import SeatsTable from "../seatsTable/SeatsTable";
 import { IFetchBooking } from "../models/IFetchBooking";
-import { ReactComponent as Screen } from "../../../../static/icons/screen.svg";
+import { ReactComponent as Screen } from "../../../static/icons/screen.svg";
 
 type Details = {
   hallNumber: number;
@@ -69,8 +69,8 @@ const BookingBody = ({ details, nowDate }: Props) => {
   }, [selectedSession]);
 
   return (
-    <div className="bookingBody">
-      <ul className="availableTime">
+    <div className={styles.bookingBody}>
+      <ul className={styles.availableTime}>
         {details.map((details, index) => {
           if (new Date(details.date.slice(0, -1)) > nowDate) {
             return (
@@ -79,8 +79,8 @@ const BookingBody = ({ details, nowDate }: Props) => {
                   onClick={() => changeSession(details)}
                   className={
                     details.sessionId === selectedSession
-                      ? "active sessionButton"
-                      : "sessionButton"
+                      ? `${styles.sessionButton} ${styles.active}`
+                      : styles.sessionButton
                   }
                 >
                   {details.date.toLocaleString().slice(11, -8)}
@@ -93,26 +93,26 @@ const BookingBody = ({ details, nowDate }: Props) => {
           }
         })}
       </ul>
-      <div className="movieSchema">
-        <div className="shortInfo">
+      <div className={styles.movieSchema}>
+        <div className={styles.shortInfo}>
           <span>2D 12+ Зал №{`${data?.hallNumber}`}</span>
-          <ul className={"seatsInfo"}>
+          <ul className={styles.seatsInfo}>
             <li>
-              <div className={"seatExample free"} />
+              <div className={styles.free} />
               {`Свободно ${data?.price}₽ `}
             </li>
             <li>
-              <div className={"seatExample selected"} />
+              <div className={styles.selected} />
               Выбрано
             </li>
             <li>
-              <div className={"seatExample booked"} />
+              <div className={styles.booked} />
               Занято
             </li>
           </ul>
         </div>
 
-        <Screen className={"screenSvg"} />
+        <Screen className={styles.screenSvg} />
 
         <SeatsTable
           data={data}
@@ -121,14 +121,14 @@ const BookingBody = ({ details, nowDate }: Props) => {
           cancelSelect={cancelSelect}
         />
 
-        <div className="selectedInfo">
-          <div className="selectedTicketGroup">
+        <div className={styles.selectedInfo}>
+          <div className={styles.selectedTicketGroup}>
             {selectedSeat.length > 0 &&
               selectedSeat.map((seat: any, index: number) => {
                 const seatPosition = seat.position.split(" ");
                 return (
                   <div
-                    className="selectedTicket"
+                    className={styles.selectedTicket}
                     key={index}
                     onClick={() => cancelSelect(seat)}
                   >
@@ -141,7 +141,7 @@ const BookingBody = ({ details, nowDate }: Props) => {
               })}
           </div>
           <button
-            className="buttonBuy"
+            className={styles.buttonBuy}
             onClick={() => buyTickets(selectedSeat)}
           >
             Купить{" "}
