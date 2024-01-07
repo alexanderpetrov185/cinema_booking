@@ -13,7 +13,9 @@ type Props = {
 const MovieItem = ({ movie }: Props) => {
   const [playerIsOpen, setPlayerIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const nowDate = new Date(); // Дата и Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
+
+  // Дата и Время в нашем регионе (!На стороне сервера не учитывается часовой пояс)
+  const nowDate = new Date();
 
   return (
     <div className={styles.movieItem} key={movie.imdbID}>
@@ -37,24 +39,17 @@ const MovieItem = ({ movie }: Props) => {
         nowDate={nowDate}
         setModalIsOpen={setModalIsOpen}
       />
-      {playerIsOpen && (
-        <ModalWindow
-          modalIsOpen={playerIsOpen}
-          setModalIsOpen={setPlayerIsOpen}
-        >
-          <Player setPlayerIsOpen={setPlayerIsOpen} videoSrc={movie.trailer} />
-        </ModalWindow>
-      )}
-      {modalIsOpen && (
-        <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
-          <BookingModule
-            nowDate={nowDate}
-            title={movie.title}
-            details={movie.sessionsDetails}
-            setModalIsOpen={setModalIsOpen}
-          />
-        </ModalWindow>
-      )}
+      <ModalWindow modalIsOpen={playerIsOpen} setModalIsOpen={setPlayerIsOpen}>
+        <Player setPlayerIsOpen={setPlayerIsOpen} videoSrc={movie.trailer} />
+      </ModalWindow>
+      <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}>
+        <BookingModule
+          nowDate={nowDate}
+          title={movie.title}
+          details={movie.sessionsDetails}
+          setModalIsOpen={setModalIsOpen}
+        />
+      </ModalWindow>
     </div>
   );
 };

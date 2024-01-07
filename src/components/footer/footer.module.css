@@ -6,31 +6,37 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   color: #fff;
+  word-wrap: break-word;
+  text-align: center;
 }
-.footer .socialLeft, .footer .socialRight {
+.footer .socialLinks {
+  width: 100%;
   padding-bottom: 2rem;
-  flex-basis: 50%;
-  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 0.5px solid #303962;
 }
-.footer .socialLeft svg, .footer .socialRight svg {
+.footer .socialLinks .socialLeft, .footer .socialLinks .socialRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .socialLinks .socialLeft svg, .footer .socialLinks .socialRight svg {
   fill: #fff;
   stroke: #fff;
   width: 30px;
   height: 30px;
 }
-.footer .socialLeft svg:hover, .footer .socialRight svg:hover {
+.footer .socialLinks .socialLeft svg:hover, .footer .socialLinks .socialRight svg:hover {
   fill: rgb(135, 84, 236);
   stroke: rgb(135, 84, 236);
   transition: 0.35s ease;
 }
-.footer .socialLeft {
+.footer .socialLinks .socialLeft {
   gap: 1rem;
 }
-.footer .socialRight svg {
+.footer .socialLinks .socialRight svg {
   width: 135px;
   height: 40px;
 }
@@ -42,6 +48,10 @@
   justify-content: flex-end;
   flex: 1;
   gap: 0.5rem;
+}
+.footer .contactsItem a {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
 /*# sourceMappingURL=footer.module.css.map */

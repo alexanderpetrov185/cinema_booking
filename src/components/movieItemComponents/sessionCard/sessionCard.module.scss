@@ -15,8 +15,12 @@
   }
 
   .movieGenre {
-    height: 40px;
-    padding: 2px 0 5px 0;
+    height: 3rem;
+    padding: 0.5rem 0;
+
+    @include xl {
+      height: 4rem;
+    }
   }
 
   .movieSessions {
@@ -68,8 +72,4 @@
       padding: 4px;
     }
   }
-
-  //@include lg {
-  //  padding: 0;
-  //}
 }

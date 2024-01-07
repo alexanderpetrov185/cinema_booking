@@ -1,8 +1,16 @@
 import React, { useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./navigation.module.scss";
+import ButtonClose from "../../buttonClose/ButtonClose";
 
-const Navigation = () => {
+type Props = {
+  setBurgerActive: React.Dispatch<React.SetStateAction<boolean>>;
+  burgerActive: boolean;
+};
+
+const Navigation = ({ burgerActive, setBurgerActive }: Props) => {
+  console.log(burgerActive);
+
   const navigation = useMemo(
     () => [
       {
@@ -40,7 +48,16 @@ const Navigation = () => {
   );
 
   return (
-    <nav className={styles.navigation}>
+    <nav
+      className={
+        burgerActive
+          ? `${styles.navigation} ${styles.burgerActive}`
+          : styles.navigation
+      }
+    >
+      {burgerActive ? (
+        <ButtonClose onClick={() => setBurgerActive(!burgerActive)} />
+      ) : null}
       {navigation.map((link) => (
         <ul className={styles.navLinks} key={link.id}>
           <NavLink to={link.url} key={link.id}>

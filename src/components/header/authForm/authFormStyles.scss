@@ -12,22 +12,6 @@
   border-style: none;
   border-radius: 5%;
 
-  //.btnClose {
-  //  width: max-content;
-  //  margin-left: auto;
-  //  background: none;
-  //  border: none;
-  //  font-family: inherit;
-  //  padding: 0;
-  //  outline: none;
-  //  cursor: pointer;
-  //  color: $white-color;
-  //  &:hover{
-  //    background: none;
-  //    color: $hover-color;
-  //  }
-  //}
-
   .authHead {
     display: flex;
     justify-content: center;
@@ -83,10 +67,26 @@
     color: $hover-color;
   }
 
-  .authButton {
-    min-width: 100px;
-    padding: 4px;
-  }
+  //.authButton {
+  //  min-width: 100px;
+  //  padding: 4px;
+  //  font-size: 1em;
+  //  font-weight: 500;
+  //  background-color: $main-bright-bg;
+  //  border: 0.5px solid black;
+  //  border-radius: 4px;
+  //  color: #fff;
+  //  text-decoration: none;
+  //  font-style: normal;
+  //  font-stretch: normal;
+  //  letter-spacing: normal;
+  //  cursor: pointer;
+  //
+  //  &:hover {
+  //    transition: .3s ease;
+  //    background-color: rgba($hover-color, .5);
+  //  }
+  //}
 
   .authTypeSpan{
     width: max-content;

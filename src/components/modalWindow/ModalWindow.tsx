@@ -26,16 +26,21 @@ const ModalWindow: React.FC<Props> = ({
     config: config.stiff,
   });
 
+  React.useEffect(() => {
+    if (!modalIsOpen) {
+      document.body.style.paddingRight = "0";
+      document.body.style.overflowX = "hidden";
+      document.body.style.overflowY = "auto";
+    } else {
+      //чтобы сайт не двигался из за появления полосы прокрутки
+      document.body.style.paddingRight = scrollWidth;
+      document.body.style.overflow = "hidden";
+    }
+  }, [modalIsOpen, scrollWidth]);
+
   if (!modalIsOpen) {
-    document.body.style.paddingRight = "0";
-    document.body.style.overflowX = "hidden";
-    document.body.style.overflowY = "auto";
     return null;
   }
-
-  //чтобы сайт не двигался из за появления полосы прокрутки
-  document.body.style.paddingRight = scrollWidth;
-  document.body.style.overflow = "hidden";
 
   return (
     <>

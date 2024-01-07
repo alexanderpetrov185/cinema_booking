@@ -1,3 +1,49 @@
+@import "../../styles/responsive.scss";
+@import "../../styles/variebles.scss";
+
 .burgerMenu{
   display: none;
+}
+
+@include lg{
+  .burgerMenu {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+
+    span {
+      background-color: $white-color;
+      content: "";
+      width: 30px;
+      height: 2px;
+      position: absolute;
+      top: 9px;
+      left: 0;
+      align-items: center;
+    }
+
+    &:before {
+      background-color: $white-color;
+      content: "";
+      width: 30px;
+      height: 2px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      align-items: center;
+    }
+
+    &:after {
+      background-color: $white-color;
+      content: "";
+      width: 30px;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      align-items: center;
+    }
+  }
 }

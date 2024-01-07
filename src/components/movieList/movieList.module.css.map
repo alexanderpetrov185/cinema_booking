@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["movieList.module.scss","../../styles/variebles.scss"],"names":[],"mappings":"AAGA;EACE;EACA;;AAEA;EACE,OCEU;EDDV","file":"movieList.module.css"}
+{"version":3,"sourceRoot":"","sources":["movieList.module.scss","../../styles/variebles.scss"],"names":[],"mappings":"AAGA;EACE;EACA;EACA;;AAEA;EACE,OCCU;EDAV","file":"movieList.module.css"}
