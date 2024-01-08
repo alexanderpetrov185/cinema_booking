@@ -26,17 +26,19 @@ const MovieList = () => {
 
   return (
     <>
-      {transition((style, movie) => (
-        <animated.div className={styles.movieList} style={style}>
-          {movie ? (
-            <MovieItem key={movie._id} movie={movie} />
-          ) : (
-            <span className={styles.noSessionsMessage}>
-              На этот день сеансов нет
-            </span>
-          )}
-        </animated.div>
-      ))}
+      <div className={styles.movieList}>
+        {transition((style, movie) => (
+          <>
+            {movie ? (
+              <MovieItem key={movie._id} movie={movie} style={style} />
+            ) : (
+              <animated.span className={styles.noSessionsMessage} style={style}>
+                На этот день сеансов нет
+              </animated.span>
+            )}
+          </>
+        ))}
+      </div>
     </>
   );
 };

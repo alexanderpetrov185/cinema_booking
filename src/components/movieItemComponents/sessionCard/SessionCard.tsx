@@ -48,7 +48,6 @@ const SessionCard = ({
             return (
               <div key={details._id} className={styles.sessionDetails}>
                 <button
-                  className={styles.sessionButton}
                   onClick={() => {
                     setModalIsOpen(true);
                     dispatch(

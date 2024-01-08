@@ -3,7 +3,7 @@
 
 .sessionCard {
   width: 100%;
-  padding: 15px 0;
+  padding: 1em 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -11,38 +11,37 @@
   color: $white-color;
 
   .movieTitle {
-    padding: 5px 0 0 0;
+    padding-top: 0.2rem;
   }
 
   .movieGenre {
-    height: 3rem;
-    padding: 0.5rem 0;
-
-    @include xl {
-      height: 4rem;
-    }
+    padding: 0.5rem 0 1rem 0;
   }
 
   .movieSessions {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 1rem;
     text-align: center;
+
+    @include xl{
+      gap: 0.8rem;
+    }
 
     .sessionDetails {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 0.5rem;
 
-        .sessionButton{
+        button{
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
-          gap: 3px;
+          gap: 0.1rem;
           background: linear-gradient(270deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%), linear-gradient(90deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%), linear-gradient(0deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%), linear-gradient(180deg, rgba(2,0,36,0) 90%, rgba(255,255,255,0.15) 100%);
-          padding: 5px 15px;
+          padding: 0.25rem 0.75rem;
           border-radius: 10px;
           border: 1px solid rgba(255,255,255,.3);
 
@@ -60,6 +59,35 @@
             transition: .3s ease;
             background-color: rgba($hover-color, .5);
           }
+
+          @include xl{
+            padding: 0.15rem 0.5rem;
+
+            span {
+              font-size: 1rem;
+              &:last-child {
+                font-size: 0.8rem;
+              }
+            }
+          }
+
+          @include lg{
+            span {
+              font-size: 1.1rem;
+              &:last-child {
+                font-size: 0.9rem;
+              }
+            }
+          }
+
+          @include md{
+            span {
+              font-size: 1.2rem;
+              &:last-child {
+                font-size: 1rem;
+              }
+            }
+          }
         }
 
       .hallNumber {
@@ -69,7 +97,7 @@
     }
 
     .tomorrowSessions {
-      padding: 4px;
+      padding: 0.25rem;
     }
   }
 }

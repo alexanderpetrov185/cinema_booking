@@ -9,8 +9,6 @@ type Props = {
 };
 
 const Navigation = ({ burgerActive, setBurgerActive }: Props) => {
-  console.log(burgerActive);
-
   const navigation = useMemo(
     () => [
       {

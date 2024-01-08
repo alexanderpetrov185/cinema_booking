@@ -48,5 +48,25 @@
   opacity: 0.85;
   background: white;
 }
+@media screen and (max-width: 1200px) {
+  .movieItem {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .movieItem {
+    width: 33.3333333333%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .movieItem {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .movieItem {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=movieItem.module.css.map */

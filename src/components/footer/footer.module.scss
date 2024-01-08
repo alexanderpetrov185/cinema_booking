@@ -66,52 +66,17 @@
     }
   }
 
-  //@include lg {
-  //  font-size: 14px;
-  //  flex-direction: row;
-  //  flex-wrap: wrap;
-  //  justify-content: center;
-  //  align-items: center;
-  //  padding: 30px 15px;
-  //  .contacts {
-  //    .contactsItem {
-  //      gap: 10px;
-  //      width: max-content;
-  //      display: flex;
-  //      flex-direction: column;
-  //      align-items: center;
-  //      justify-content: flex-start;
-  //
-  //      .itemText {
-  //        text-align: center;
-  //        font-size: 14px;
-  //        font-weight: 400;
-  //      }
-  //    }
-  //  }
-  //}
-  //
-  //@include md {
-  //  padding: 20px 10px;
-  //  font-size: 12px;
-  //  .contacts {
-  //    .contactsItem {
-  //      gap: 8px;
-  //
-  //      .itemText {
-  //        text-align: center;
-  //        font-size: 12px;
-  //        font-weight: 400;
-  //      }
-  //    }
-  //  }
-  //  .social {
-  //    padding: 0 0 20px 0;
-  //
-  //    .socialItem {
-  //      padding: 0 15px;
-  //      gap: 10px;
-  //    }
-  //  }
-  //}
+  @include lg{
+    font-size: 0.85rem;
+  }
+
+  @include md{
+    flex-direction: column;
+    font-size: 1rem;
+
+    .socialLinks{
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  }
 }

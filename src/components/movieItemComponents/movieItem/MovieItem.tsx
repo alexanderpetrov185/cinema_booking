@@ -5,12 +5,14 @@ import BookingModule from "../../bookingModule/BookingModule";
 import { IMovie } from "../../../redux/models/IMovie";
 import Player from "../../player/Player";
 import SessionCard from "../sessionCard/SessionCard";
+import { animated } from "@react-spring/web";
 
 type Props = {
   movie: IMovie;
+  style: Object;
 };
 
-const MovieItem = ({ movie }: Props) => {
+const MovieItem = ({ movie, style }: Props) => {
   const [playerIsOpen, setPlayerIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -18,7 +20,7 @@ const MovieItem = ({ movie }: Props) => {
   const nowDate = new Date();
 
   return (
-    <div className={styles.movieItem} key={movie.imdbID}>
+    <animated.div className={styles.movieItem} key={movie.imdbID} style={style}>
       <div className={styles.imageContainer}>
         <img
           src={movie.poster}
@@ -50,7 +52,7 @@ const MovieItem = ({ movie }: Props) => {
           setModalIsOpen={setModalIsOpen}
         />
       </ModalWindow>
-    </div>
+    </animated.div>
   );
 };
 
