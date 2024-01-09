@@ -11,8 +11,11 @@ import { ReactComponent as Notifications } from "../../static/icons/notification
 import { ReactComponent as ProfileIcon } from "../../static/icons/profile.svg";
 import Navigation from "./navigation/Navigation";
 import BurgerMenu from "../burgerMenu/BurgerMenu";
+import DropDownMenu from "../dropDownMenu/DropDownMenu";
 
 const Header = () => {
+  const [dropDownHidden, setDropDownHidden] = React.useState(true);
+
   const [burgerActive, setBurgerActive] = React.useState(false);
   const { isLoggedIn } = useAppSelector((state) => state.userReducer);
   const [authModalOpen, setAuthModalOpen] = useState(false);
@@ -44,7 +47,14 @@ const Header = () => {
               <Notifications />
             </button>
             {isLoggedIn ? (
-              <Profile />
+              <div>
+                <button onClick={() => setDropDownHidden(!dropDownHidden)}>
+                  <ProfileIcon />
+                </button>
+                <DropDownMenu isDropDownOpen={dropDownHidden}>
+                  <Profile />
+                </DropDownMenu>
+              </div>
             ) : (
               <button
                 className={styles.authButton}

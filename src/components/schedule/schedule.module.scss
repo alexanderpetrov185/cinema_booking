@@ -17,8 +17,10 @@
     flex-direction: row;
     align-items: center;
     color: $white-color;
+    flex: 1 1 0;
 
   .scheduleDay {
+    width: 100%;
     padding: 2px;
     text-transform: capitalize;
     display: flex;
@@ -27,7 +29,6 @@
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
-    flex: 1 1 0;
 
     &.active {
       pointer-events: none;
@@ -68,25 +69,18 @@
       color: $main-color;;
       transition: 0.3s ease;
     }
-  }
-  }
 
-  //@include xxl {
-  //  font-size: 18px;
-  //  gap: 10px;
-  //  padding: 35px 15px 20px 0;
-  //}
-  //
-  //@include xl {
-  //  font-size: 16px;
-  //  gap: 10px;
-  //  padding: 25px 15px 20px 0;
-  //
-  //  .scheduleDay {
-  //    max-height: 40px;
-  //  }
-  //}
-  //@include md {
-  //  padding: 10px;
-  //}
+    @include xl{
+      span {
+        font-size: 1.5rem;
+      }
+    }
+
+    @include lg{
+      span {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  }
 }

@@ -1,58 +1,40 @@
 @import "../../styles/variebles.scss";
 
 .profile {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 15px 15px 15px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08), 0 4px 8px 0 rgba(0, 0, 0, 0.06);
+  z-index: 1;
 
-  .profileIcon{
-    width: 35px;
-    height: 25px;
-    fill: $white-color;
+  span {
+    display: block;
+    padding: 15px;
     cursor: pointer;
-    &:hover {
-        transition: 0.35s ease;
-        fill: $hover-color;
+
+    &:hover:not(:first-child) {
+      background: #e3e3e3;
+      color: $hover-color;
+      transition: 0.35s ease;
     }
-  }
 
-  .profileLinks {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    padding: 30px 15px 15px 15px;
-    border-radius: 4px;
-    background: #fff;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.08), 0 4px 8px 0 rgba(0, 0, 0, 0.06);
-    z-index: 1;
+    &:first-child {
+      border-bottom: 0.5px solid grey;
+      padding: 0 15px 15px 15px;
+      font-weight: 600;
+      cursor: default;
+    }
 
-    span {
-      display: block;
-      padding: 15px;
-      cursor: pointer;
+    &:last-child {
+      color: #d93025;
 
-      &:hover:not(:first-child) {
-        background: #e3e3e3;
-        color: $hover-color;
+      &:hover {
+        background: #c0c0c0;
+        opacity: 0.8;
         transition: 0.35s ease;
-      }
-
-      &:first-child {
-        border-bottom: 0.5px solid grey;
-        padding: 0 15px 15px 15px;
-        font-weight: 600;
-        cursor: default;
-      }
-
-      &:last-child {
-        color: #d93025;
-
-        &:hover {
-          background: #c0c0c0;
-          opacity: 0.8;
-          transition: 0.35s ease;
-        }
       }
     }
   }

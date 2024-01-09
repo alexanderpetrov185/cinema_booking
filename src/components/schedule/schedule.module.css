@@ -14,8 +14,10 @@
   flex-direction: row;
   align-items: center;
   color: #fff;
+  flex: 1 1 0;
 }
 .schedule .scheduleContainer .scheduleDay {
+  width: 100%;
   padding: 2px;
   text-transform: capitalize;
   display: flex;
@@ -24,7 +26,6 @@
   align-items: center;
   cursor: pointer;
   white-space: nowrap;
-  flex: 1 1 0;
 }
 .schedule .scheduleContainer .scheduleDay.active {
   pointer-events: none;
@@ -59,6 +60,16 @@
 .schedule .scheduleContainer .scheduleDay:hover svg {
   transition: 0.3s ease;
   stroke: rgb(108, 67, 191);
+}
+@media screen and (max-width: 1200px) {
+  .schedule .scheduleContainer .scheduleDay span {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .schedule .scheduleContainer .scheduleDay span {
+    font-size: 1.25rem;
+  }
 }
 
 /*# sourceMappingURL=schedule.module.css.map */
